@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta property="og:site_name" content="Laracasts">
+<meta name="csrf-token" content="q4LTdVJSYAaOyIF8b8YmLbJmX5mdXhPjVa9JIgz2">
+<title>Laracasts</title>
+<meta name="description" content="Push your web developments skills to the next level, through expert screencasts on Laravel, Vue, and so much more. ">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#3668c9">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<link rel="prefetch" href="/series?curated">
+<link rel="prefetch" href="/discuss">
+<link rel="alternate" type="application/atom+xml" title="Laracasts" href="/feed">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=optional" rel="stylesheet">
+<link href="/css/app.css?id=b5524958c06a6b910358" rel="stylesheet">
+<script type="ccefaea9e8fa5d93a6fc5f9e-text/javascript">
+        window.LARACASTS = {"user":null,"username":null,"signedIn":false,"csrfToken":"q4LTdVJSYAaOyIF8b8YmLbJmX5mdXhPjVa9JIgz2","subscribed":null,"teamOwner":null,"stripeKey":"pk_live_42cAcd2OvCDs4hpErd5ZscBT","plans":{"individual":[{"id":2,"type":"monthly-15","name":"Monthly","price":15,"description":"Be in the know. Fetch an endless stream of input with our <strong>monthly<\/strong> plan.","category":"individual","icon":"monthly","size":null,"legacy":false,"created_at":"2019-12-18T12:38:59.000000Z","updated_at":"2019-12-18T12:38:59.000000Z"},{"id":4,"type":"yearly-99","name":"Yearly","price":99,"description":"Set your ocular implants to binge-mode. Go all in, and <strong>save 45%<\/strong>.","category":"individual","icon":"yearly","size":null,"legacy":false,"created_at":"2019-12-18T12:38:59.000000Z","updated_at":"2019-12-18T12:38:59.000000Z"},{"id":5,"type":"forever","name":"Forever","price":350,"description":"Permanently uplink to our mainframe. Pay once, and access Laracasts <strong>forever<\/strong>.","category":"individual","icon":"lifetime","size":null,"legacy":false,"created_at":"2019-12-18T12:38:59.000000Z","updated_at":"2019-12-18T12:38:59.000000Z"}],"business":[{"id":6,"type":"business-5","name":"Complex Circuit","price":300,"description":"Wire your account to support <strong>5 developers<\/strong> with a year\u2019s worth of access to Laracasts!","category":"business","icon":"business","size":5,"legacy":false,"created_at":"2019-12-18T12:38:59.000000Z","updated_at":"2019-12-18T12:38:59.000000Z"},{"id":7,"type":"business-10","name":"Factory Default","price":575,"description":"Configure up to <strong>10 developers<\/strong> on your team with a year\u2019s worth of access to Laracasts!","category":"business","icon":"business","size":10,"legacy":false,"created_at":"2019-12-18T12:38:59.000000Z","updated_at":"2019-12-18T12:38:59.000000Z"},{"id":8,"type":"business-25","name":"Open Mainframe","price":1400,"description":"Link <strong>25 of the best developers<\/strong> on your team with a year\u2019s worth of Laracasts access!","category":"business","icon":"business","size":25,"legacy":false,"created_at":"2019-12-18T12:38:59.000000Z","updated_at":"2019-12-18T12:38:59.000000Z"},{"id":9,"type":"business-50","name":"Cybernetic Entity","price":2500,"description":"Unleash the full force of Laracasts knowledge upon <strong>50 developers<\/strong> on your team.","category":"business","icon":"business","size":50,"legacy":false,"created_at":"2019-12-18T12:38:59.000000Z","updated_at":"2019-12-18T12:38:59.000000Z"}]},"recaptchaKey":"6LcdNFYUAAAAAIDK9F6CBZ660yOrxEyUYme687b2"};
+    </script>
+<script src="https://www.google.com/recaptcha/api.js?render=explicit" type="ccefaea9e8fa5d93a6fc5f9e-text/javascript"></script>
+<meta property="og:title" content="Laracasts" />
+<meta property="og:description" content="The definitive resource for Laravel and PHP training." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laracasts.com" />
+<meta property="og:image" content="https://laracasts.com/images/laracasts-twitter-card.png" />
+<meta name="twitter:card" content="player" />
+<meta name="twitter:site" content="@laracasts" />
+<meta name="twitter:player" content="https://laracasts.com/videos/twitter-iframe.html">
+<meta name="twitter:player:width" content="640" />
+<meta name="twitter:player:height" content="360" />
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js" type="ccefaea9e8fa5d93a6fc5f9e-text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js" type="ccefaea9e8fa5d93a6fc5f9e-text/javascript"></script>
+<script src="/js/manifest.js?id=3c768977c2574a34506e" defer type="ccefaea9e8fa5d93a6fc5f9e-text/javascript"></script>
+<script src="/js/vendor.js?id=b8d57daaf7413413c18a" defer type="ccefaea9e8fa5d93a6fc5f9e-text/javascript"></script>
+<script src="/js/app.js?id=eb46770dea3a8252514e" defer type="ccefaea9e8fa5d93a6fc5f9e-text/javascript"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" type="ccefaea9e8fa5d93a6fc5f9e-text/javascript"></script>
+<script type="ccefaea9e8fa5d93a6fc5f9e-text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            window.lazySizesConfig = {
+                addClasses: true
+            };
+
+            tippy('[data-tooltip]', {
+                theme: 'light',
+                allowHTML: true,
+                delay: [200, null],
+                content(reference) {
+                    return reference.getAttribute('data-tooltip');
+                },
+            });
+
+            tippy('[data-tooltip-template]', {
+                content(reference) {
+                    const id = reference.getAttribute('data-tooltip-template');
+                    const template = document.getElementById(id);
+                    return template.innerHTML;
+                },
+                allowHTML: true,
+                theme: 'light',
+                delay: [200, null]
+            });
+        });
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.8/lazysizes.min.js" defer type="ccefaea9e8fa5d93a6fc5f9e-text/javascript"></script>
+<script type="ccefaea9e8fa5d93a6fc5f9e-text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        
+        
+            });
+</script>
+</head>
+<body class=" guest home"><script id="flash-template" type="text/template">
+    <div class="notification is-primary for-user" dusk="flash-notification">
+        <a href="#" class="notification-body inherits-color" target="_blank" rel="noreferrer noopener"></a>
+    </div>
+</script>
+<div id="root" class="page" style="background-color: #F7F8FC">
+<div>
+<div class="home-banner">
+<nav class="section new-nav lg:tw-z-50 tw-py-4 md:tw-py-4 md:tw-mb-9 tw-bg-transparent" style="height: 60px">
+<div class="tw-flex tw-justify-between tw-h-full tw-items-center tw-relative">
+<div id="header-logo-arrow" class=" xl:tw-flex-1 tw-mr-4 xl:tw-mr-0">
+<a href="/" @click.right.prevent="visitAssetsWebsite" class="tw-cursor-pointer tw-leading-none tw-block">
+<svg class="tw-fill-current tw-text-white" width="160.7" height="16" viewBox="0 0 361 36" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<path d="M0 4.83h6.986v24.521h15.137v5.699H0V4.83zm53.374 23.744H39.36l-2.674 6.476h-7.159L42.981 4.83h6.9L63.38 35.05h-7.33l-2.675-6.476zm-2.199-5.31l-4.787-11.57-4.787 11.57h9.574zM92.949 35.05l-5.822-8.418H80.7v8.418h-6.986V4.83h13.067c2.674 0 4.995.446 6.965 1.339 1.969.892 3.485 2.158 4.55 3.799 1.063 1.64 1.595 3.583 1.595 5.828s-.54 4.18-1.617 5.806c-1.078 1.626-2.61 2.871-4.593 3.734l6.77 9.714H92.95zm-.13-19.254c0-1.698-.546-3-1.638-3.907-1.093-.907-2.688-1.36-4.787-1.36H80.7v10.534h5.693c2.099 0 3.694-.461 4.787-1.382 1.092-.92 1.638-2.216 1.638-3.885zm39.661 12.778h-14.016l-2.673 6.476h-7.16l13.456-30.22h6.9l13.498 30.22h-7.331l-2.674-6.476zm-2.2-5.31l-4.786-11.57-4.787 11.57h9.574zm36.556 12.304c-3.076 0-5.858-.67-8.344-2.008-2.487-1.338-4.442-3.194-5.865-5.569-1.424-2.374-2.135-5.058-2.135-8.05 0-2.994.711-5.678 2.135-8.052 1.423-2.375 3.378-4.231 5.865-5.57 2.486-1.338 5.282-2.007 8.387-2.007 2.617 0 4.981.46 7.094 1.382 2.114.92 3.889 2.245 5.326 3.971l-4.485 4.145c-2.04-2.36-4.57-3.54-7.59-3.54-1.868 0-3.536.41-5.002 1.23a8.742 8.742 0 0 0-3.429 3.432c-.819 1.468-1.229 3.137-1.229 5.008 0 1.87.41 3.54 1.23 5.008a8.742 8.742 0 0 0 3.428 3.432c1.466.82 3.134 1.23 5.002 1.23 3.02 0 5.55-1.194 7.59-3.583l4.485 4.145c-1.437 1.755-3.22 3.093-5.347 4.014-2.128.921-4.5 1.382-7.116 1.382zm73.888 0c-2.387 0-4.694-.324-6.922-.971-2.228-.648-4.018-1.49-5.369-2.526l2.372-5.267c1.294.95 2.832 1.713 4.614 2.288 1.783.576 3.565.864 5.348.864 1.984 0 3.45-.295 4.399-.885.948-.59 1.423-1.375 1.423-2.353 0-.72-.28-1.317-.841-1.792-.56-.475-1.28-.856-2.156-1.144-.877-.288-2.063-.604-3.558-.95-2.3-.546-4.183-1.093-5.65-1.64a9.178 9.178 0 0 1-3.773-2.633c-1.05-1.21-1.574-2.82-1.574-4.836 0-1.755.474-3.345 1.423-4.77.949-1.425 2.38-2.554 4.29-3.389 1.913-.834 4.249-1.252 7.009-1.252 1.926 0 3.81.23 5.65.691 1.84.46 3.45 1.122 4.83 1.986l-2.157 5.31c-2.789-1.583-5.578-2.375-8.366-2.375-1.955 0-3.4.317-4.334.95-.935.633-1.402 1.468-1.402 2.504s.54 1.806 1.617 2.31c1.078.503 2.724 1 4.938 1.49 2.3.546 4.183 1.093 5.65 1.64a9.355 9.355 0 0 1 3.773 2.59c1.05 1.18 1.574 2.777 1.574 4.792a8.258 8.258 0 0 1-1.445 4.727c-.963 1.425-2.408 2.554-4.334 3.389-1.926.835-4.27 1.252-7.03 1.252zm30.604-25.04h-9.66V4.83h26.306v5.699h-9.66v24.52h-6.986V10.53zm37.289 25.04c-2.386 0-4.694-.324-6.922-.971-2.228-.648-4.017-1.49-5.369-2.526l2.372-5.267c1.294.95 2.832 1.713 4.615 2.288 1.782.576 3.564.864 5.347.864 1.984 0 3.45-.295 4.399-.885.949-.59 1.423-1.375 1.423-2.353 0-.72-.28-1.317-.841-1.792-.56-.475-1.28-.856-2.156-1.144-.877-.288-2.063-.604-3.558-.95-2.3-.546-4.183-1.093-5.65-1.64a9.178 9.178 0 0 1-3.773-2.633c-1.05-1.21-1.574-2.82-1.574-4.836 0-1.755.474-3.345 1.423-4.77.949-1.425 2.38-2.554 4.291-3.389 1.912-.834 4.248-1.252 7.008-1.252 1.926 0 3.81.23 5.65.691 1.84.46 3.45 1.122 4.83 1.986l-2.157 5.31c-2.789-1.583-5.577-2.375-8.366-2.375-1.955 0-3.4.317-4.334.95-.935.633-1.402 1.468-1.402 2.504s.54 1.806 1.617 2.31c1.078.503 2.724 1 4.938 1.49 2.3.546 4.183 1.093 5.65 1.64a9.355 9.355 0 0 1 3.773 2.59c1.05 1.18 1.574 2.777 1.574 4.792a8.258 8.258 0 0 1-1.445 4.727c-.963 1.425-2.407 2.554-4.334 3.389-1.926.835-4.27 1.252-7.03 1.252z" fill="#FFF" fill-rule="nonzero"></path>
+<g fill="#FFF">
+<path d="M192.912 8.921l4.923 4.924a2.597 2.597 0 0 1-3.673 3.673l-4.923-4.924a2.597 2.597 0 1 1 3.673-3.673zM203.437 19.447l10.547 10.547a2.597 2.597 0 0 1-3.673 3.673L199.764 23.12a2.597 2.597 0 1 1 3.673-3.673z"></path>
+<path d="M190.416 8.255L218.753.893A2.672 2.672 0 0 1 222 2.767a2.592 2.592 0 0 1-1.846 3.199l-28.338 7.362a2.672 2.672 0 0 1-3.247-1.875 2.592 2.592 0 0 1 1.847-3.198z"></path>
+<path d="M209.592 31.104l7.363-28.337A2.592 2.592 0 0 1 220.153.92a2.672 2.672 0 0 1 1.875 3.247l-7.362 28.337a2.592 2.592 0 0 1-3.199 1.847 2.672 2.672 0 0 1-1.875-3.247z"></path>
+</g>
+<path d="M208.62 18.067l-10.236 10.235a2.643 2.643 0 1 1-3.738-3.738l10.236-10.235a2.643 2.643 0 0 1 3.738 3.738zM193.38 33.306l-1.54 1.54a2.643 2.643 0 1 1-3.738-3.738l1.54-1.54a2.643 2.643 0 0 1 3.738 3.738z" fill="#53B5FF"></path>
+</g>
+</svg>
+</a>
+</div>
+<div class="md:tw-hidden tw-flex tw-items-center">
+<search-button id="mobile-search" class="tw-mr-4 " width="20">
+</search-button>
+<mobile-nav-menu></mobile-nav-menu>
+</div>
+<div class="tw-hidden md:tw-block tw-relative tw-flex-1">
+<div class="tw-flex tw-items-center tw-justify-end">
+<search-button id="search-trigger" class="tw-leading-none tw-bg-transparent-10 hover:tw-bg-transparent-25 tw-p-3 tw-rounded-xl">
+<button id="search-trigger" title="Tip: press / or s anywhere to instantly activate me.">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 15 15">
+<g fill="none" fill-rule="evenodd">
+<path d="M-2-2h20v20H-2z"></path>
+<path fill="#FFF" d="M10.443 9.232h-.638l-.226-.218A5.223 5.223 0 0 0 10.846 5.6 5.247 5.247 0 1 0 5.6 10.846c1.3 0 2.494-.476 3.414-1.267l.218.226v.638l4.036 4.028 1.203-1.203-4.028-4.036zm-4.843 0A3.627 3.627 0 0 1 1.967 5.6 3.627 3.627 0 0 1 5.6 1.967 3.627 3.627 0 0 1 9.232 5.6 3.627 3.627 0 0 1 5.6 9.232z"></path>
+</g>
+</svg>
+</button>
+</search-button>
+<a href="/login" class="tw-text-white hover:tw-text-white link tw-font-semibold tw-uppercase tw-mx-6 tw-text-xs" @click.prevent="dispatch('Login')">
+Sign In
+</a>
+<a class="tw-text-white hover:tw-bg-white hover:tw-text-blue tw-font-semibold tw-uppercase tw-border tw-rounded-full tw-text-xs tw-px-3 tw-py-2 tw-leading-tight" href="/join" @click.prevent="dispatch('Join')">
+Get Started
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class="home-header section tw-flex tw-items-center phone:tw-py-0">
+<div class="header-social-links tw-z-10 tw-hidden xl:tw-block">
+<div class="tw-hidden md:tw-flex md:tw-flex-col md:tw-h-full md:tw-items-start md:tw-justify-center">
+<a href="https://www.youtube.com/laracastsofficial" target="_blank" rel="noreferrer">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19" class="tw-mb-4 tw-text-white xl:tw-text-transparent-25 hover:tw-text-blue tw-transition-all">
+<g class="tw-fill-current" fill-rule="nonzero">
+<path d="M6.4 0H5.371l-.685 2.629L4 0H2.857c.229.686.457 1.257.686 1.943.343.914.571 1.714.571 2.171v2.743h1.029V4.114L6.4 0zm2.743 5.143V3.429c0-.572-.114-.915-.343-1.258-.229-.342-.571-.457-1.029-.457-.457 0-.8.229-1.028.572-.229.228-.343.571-.343 1.143v1.828c0 .572.114.914.343 1.143.228.343.571.457 1.028.457.458 0 .8-.228 1.029-.571.229-.115.343-.572.343-1.143zm-.914.228c0 .458-.115.686-.458.686-.342 0-.457-.228-.457-.686V3.2c0-.457.115-.686.457-.686.343 0 .458.229.458.686v2.171zm4.342 1.486V1.714h-.914V5.6c-.228.343-.343.457-.571.457a.246.246 0 0 1-.229-.228V1.714h-.914v4c0 .343 0 .572.114.8 0 .229.229.343.572.343.342 0 .685-.228 1.028-.571v.571h.914zM13.029 12c-.343 0-.458.229-.458.686v.457h.915v-.457c0-.457-.115-.686-.457-.686zM9.714 12c-.114 0-.343.114-.457.229v3.085c.114.115.343.229.457.229.229 0 .343-.229.343-.686v-2.171c0-.457-.114-.686-.343-.686z" />
+<path d="M15.314 9.486C15.086 8.686 14.4 8 13.714 8 11.886 7.771 9.943 7.771 8 7.771c-1.943 0-3.771 0-5.714.229-.686 0-1.372.686-1.6 1.486-.229 1.143-.229 2.4-.229 3.543 0 1.142 0 2.4.229 3.542.228.8.8 1.372 1.6 1.486 1.943.229 3.771.229 5.714.229 1.943 0 3.771 0 5.714-.229.8-.114 1.486-.686 1.6-1.486.229-1.142.229-2.4.229-3.542 0-1.143 0-2.4-.229-3.543zM4.8 10.514H3.657v5.829H2.63v-5.829H1.6V9.486h3.2v1.028zm2.743 5.829h-.914v-.572c-.343.458-.686.572-1.029.572-.343 0-.457-.114-.571-.343 0-.114-.115-.343-.115-.8v-4h.915v4c0 .114.114.229.228.229.229 0 .343-.115.572-.458V11.2h.914v5.143zm3.428-1.6c0 .457 0 .8-.114 1.028-.114.343-.343.572-.686.572-.342 0-.685-.229-.914-.572v.458h-.914V9.486h.914v2.171c.343-.343.572-.571.914-.571.343 0 .572.228.686.571.114.229.114.572.114 1.029v2.057zm3.429-.8h-1.829v.914c0 .457.115.686.458.686.228 0 .342-.114.457-.343v-.571h.914V15.314c0 .229-.114.343-.229.572-.228.343-.571.571-1.142.571-.458 0-.8-.228-1.143-.571-.229-.229-.343-.686-.343-1.143v-1.714c0-.572.114-.915.228-1.143.229-.343.572-.572 1.143-.572.457 0 .8.229 1.029.572.228.228.228.685.228 1.143v.914h.229z" />
+</g>
+</svg>
+</a>
+<a href="https://twitter.com/laracasts" target="_blank" rel="noreferrer">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" class="tw-mb-4 tw-text-white xl:tw-text-transparent-25 hover:tw-text-blue tw-transition-all">
+<path class="tw-fill-current" fill-rule="nonzero" d="M9 0C4.037 0 0 4.037 0 9c0 4.962 4.037 9 9 9 4.962 0 9-4.038 9-9 0-4.963-4.037-9-9-9zm4.015 6.94c.004.09.006.18.006.27 0 2.737-2.083 5.892-5.894 5.892a5.86 5.86 0 0 1-3.175-.93 4.158 4.158 0 0 0 3.067-.858 2.074 2.074 0 0 1-1.936-1.439 2.088 2.088 0 0 0 .936-.034 2.072 2.072 0 0 1-1.662-2.032v-.026c.28.155.6.249.938.26a2.07 2.07 0 0 1-.64-2.766 5.882 5.882 0 0 0 4.269 2.165 2.071 2.071 0 0 1 3.53-1.89 4.135 4.135 0 0 0 1.316-.503 2.08 2.08 0 0 1-.912 1.146c.419-.05.82-.16 1.19-.326-.277.415-.628.78-1.033 1.071z" />
+</svg>
+</a>
+<a href="https://github.com/laracasts" target="_blank" rel="noreferrer">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 30 29" class="tw-mb-4 tw-text-white xl:tw-text-transparent-25 hover:tw-text-blue tw-transition-all">
+<path class="tw-fill-current" fill-rule="nonzero" d="M27.959 7.434a14.866 14.866 0 0 0-5.453-5.414C20.21.69 17.703.025 14.984.025c-2.718 0-5.226.665-7.521 1.995A14.864 14.864 0 0 0 2.01 7.434C.67 9.714 0 12.202 0 14.901c0 3.242.953 6.156 2.858 8.746 1.906 2.589 4.367 4.38 7.385 5.375.351.064.611.019.78-.136a.755.755 0 0 0 .254-.58l-.01-1.047c-.007-.658-.01-1.233-.01-1.723l-.448.077a5.765 5.765 0 0 1-1.083.068 8.308 8.308 0 0 1-1.356-.136 3.04 3.04 0 0 1-1.308-.58c-.403-.304-.689-.701-.858-1.192l-.195-.445a4.834 4.834 0 0 0-.614-.988c-.28-.362-.563-.607-.85-.736l-.136-.097a1.428 1.428 0 0 1-.253-.233 1.062 1.062 0 0 1-.176-.271c-.039-.09-.007-.165.098-.223.104-.059.292-.087.566-.087l.39.058c.26.052.582.206.965.465.384.258.7.594.947 1.007.299.53.66.933 1.082 1.21.423.278.85.417 1.278.417.43 0 .8-.032 1.112-.097a3.9 3.9 0 0 0 .878-.29c.117-.866.436-1.53.956-1.996a13.447 13.447 0 0 1-2-.348 7.995 7.995 0 0 1-1.833-.756 5.244 5.244 0 0 1-1.571-1.298c-.416-.516-.758-1.195-1.024-2.034-.267-.84-.4-1.808-.4-2.905 0-1.563.514-2.893 1.541-3.99-.481-1.176-.436-2.493.137-3.952.377-.116.936-.03 1.678.261.741.291 1.284.54 1.629.746.345.207.621.381.83.523a13.948 13.948 0 0 1 3.745-.503c1.288 0 2.537.168 3.747.503l.741-.464c.507-.31 1.106-.595 1.795-.853.69-.258 1.216-.33 1.58-.213.586 1.46.638 2.777.156 3.951 1.028 1.098 1.542 2.428 1.542 3.99 0 1.099-.134 2.07-.4 2.916-.267.846-.611 1.524-1.034 2.034-.423.51-.95.94-1.58 1.288a8.01 8.01 0 0 1-1.834.756c-.592.155-1.259.271-2 .349.676.58 1.014 1.498 1.014 2.75v4.087c0 .232.081.426.244.58.163.155.42.2.77.136 3.019-.994 5.48-2.786 7.386-5.375 1.905-2.59 2.858-5.504 2.858-8.746 0-2.698-.671-5.187-2.01-7.466z"></path>
+</svg>
+</a>
+</div>
+</div>
+<div class="container tw-w-full tw-mx-auto md:tw-flex phone:tw-mt-2">
+<div class="md:tw-max-w-md xl:tw-max-w-full">
+<div class="header-description lg:tw-ml-15 md:tw-pr-10 lg:tw-pr-0">
+<img src="/images/home/main-illustration.svg" class="md:tw-hidden tw-z-25 tw-mt-8 tw--mb-2" alt="Laracasts Illustration" style="width: 85%; max-width: 400px;">
+<h1 class="header-title">
+Screencasts for the<br>
+<strong class="inherits-color tw-uppercase">Modern Developer</strong>
+</h1>
+<p class="header-description-body widescreen:tw-pr-10">
+Push your web development skills to the next level, through expert screencasts on Laravel, Vue, and so much more.
+<br class="tw-hidden xl:tw-inline">
+<a @click.prevent="$modal.show('join-modal')" class="tw-text-transparent-50 inherits-color tw-font-bold">Ready to binge?</a>
+</p>
+<div class="tw-mx-auto">
+<a href="/series?curated" class="tw-btn tw-btn-white tw-px-5 tw-mx-auto tw-mb-5 md:tw-mb-0 md:tw-mr-4 tw-max-w-xs">
+Browse Courses
+</a>
+<a href="/discuss" class="tw-btn tw-btn-outlined tw-border-blue hover:tw-bg-white tw-text-white tw-mx-auto tw-px-5 tw-max-w-xs" style="box-shadow: 0 0 10px 0 #268ef7;">
+Discussion Forum
+</a>
+</div>
+</div>
+</div>
+<img src="/images/home/home-banner-lary.svg" class="home-banner-illustration tw-hidden md:tw-block tw-absolute tw-right-0 tw-z-10 lg:tw-mx-10" style="mix-blend-mode: luminosity; cursor: pointer;" alt="Laracasts Illustration" @click="$modal.show('promo-modal')">
+</div>
+</div>
+</div>
+<section id="home-skills" class="md:tw-pb-0 lg:tw-pt-0 md:tw-mb-10 lg:tw--mt-8">
+<div class="container">
+<div class="tw-flex md:tw-justify-center tw-pb-5 md:tw-pb-0 lg:tw-pb-10 lg:tw-mb-10">
+<div class="home-skills-stat tw-rounded-lg tw-text-center">
+<div class="tw-mb-1" style="height: 30px">
+<img src="/images/home/hours-of-learning-icon.svg" alt="Hours of Learning icon">
+</div>
+<div class="tw-text-xl tw-text-black tw-mb-1">
+<count :end="295" :increment="5"></count>
+</div>
+<div class="tw-text-grey-30 tw-text-2xs">Hours <span class="tw-hidden md:tw-inline">of Learning</span></div>
+ </div>
+<div class="home-skills-stat home-skills-stat-lessons tw-rounded-lg tw-text-center">
+<div class="tw-mb-1" style="height: 30px">
+<img src="/images/home/lessons-available-icon.svg" alt="Lessons available icon">
+</div>
+<div class="tw-text-xl tw-text-black tw-mb-1">
+<count :end="1736" :increment="50"></count>
+</div>
+<div class="tw-text-grey-30 tw-text-2xs">Lessons</div>
+</div>
+<div class="home-skills-stat tw-rounded-lg tw-text-center">
+<div class="tw-mb-1" style="height: 30px">
+<img src="/images/home/series-available-icon.svg" alt="Series available icon">
+</div>
+<div class="tw-text-xl tw-text-black tw-mb-1">
+<count :end="113" :increment="3"></count>
+</div>
+<div class="tw-text-grey-30 tw-text-2xs">Series</div>
+</div>
+</div>
+<div class="md:tw-hidden lg:tw-block">
+<header class="container tw-text-center tw-mb-4 tw-mx-auto tw-py-4" style="max-width: 650px">
+<h3 class="tw-text-black tw-text-2xl md:tw-text-3xl ">
+Ready for a workout?
+</h3>
+</header>
+</div>
+<div class="md:tw-hidden lg:tw-flex lg:tw-justify-around lg:tw-justify-between xl:tw-justify-around xl:tw-mx-8 lg:tw-mb-8">
+<div class="skill-card is-frameworks tw-relative tw-rounded-lg lg:tw-rounded-none tw-mb-6 lg:tw-mb-0 tw-flex lg:tw-flex-col group tw-max-w-sm tw-mx-auto lg:tw-mx-2 lg:tw-max-w-full">
+<div class="skill-card-top tw-text-center tw-py-3 tw-pl-5 lg:tw-pl-8 tw-pr-6 lg:tw-px-8 tw-rounded-lg tw-relative">
+<a href="/browse/frameworks" class="tw-block">
+<img class="lazyload skill-card-thumbnail" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/svg/frameworks-default.svg?v=7" loading="lazy" width="120" height="120" alt="Frameworks Skill">
+</a>
+<h4 class="tw-text-lg tw-leading-tight tw-text-center tw-tracking-tight">
+<a href="/browse/frameworks" class="tw-text-white hover:tw-text-white link" style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">Frameworks</a>
+</h4>
+</div>
+<div class="skill-card-meta tw-flex tw-flex-col tw-justify-around tw-relative tw-w-full mobile:tw-py-5 tw-pr-5 lg:tw-px-6 tw-rounded-lg tw-rounded-t-none tw-border-grey tw-border-t-0">
+<div class="skill-card-meta-details tw-flex tw-items-center tw-justify-around tw-rounded tw-rounded-t-none lg:tw-py-3 tw-mb-2 lg:tw-mb-0">
+<div class="tw-text-center">
+<a href="/browse/frameworks" class="tw-block">
+<span class="tw-block tw--mb-1 tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest">45</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">series</span>
+</a>
+</div>
+<div class="tw-h-6 tw-bg-transparent-25 lg:tw-bg-grey-light" style="width: 1px"></div>
+<div class="tw-text-center">
+<span class="tw-block tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest tw--mb-1">779</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">videos</span>
+</div>
+</div>
+<a href="/browse/frameworks" class="
+                    card-play-button lg:tw-absolute tw-w-full tw-bg-transparent-10 tw-uppercase lg:tw-normal-case lg:tw-bg-grey-light
+                    tw-text-white lg:tw-text-black tw-font-bold tw-border tw-border-solid tw-border-white
+                    lg:tw-border-transparent-25 tw-rounded-full tw-py-2 lg:hover:tw-border-blue lg:hover:tw-text-blue
+                    tw-font-bold tw-flex tw-items-center tw-justify-center
+                    tw-text-sm tw-mb-1 tw-py-3 lg:tw-py-2" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2 tw-hidden lg:tw-block">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+<span>Explore <span class="lg:tw-hidden">Frameworks</span></span>
+</a>
+</div>
+</div>
+<div class="skill-card is-languages tw-relative tw-rounded-lg lg:tw-rounded-none tw-mb-6 lg:tw-mb-0 tw-flex lg:tw-flex-col group tw-max-w-sm tw-mx-auto lg:tw-mx-2 lg:tw-max-w-full">
+<div class="skill-card-top tw-text-center tw-py-3 tw-pl-5 lg:tw-pl-8 tw-pr-6 lg:tw-px-8 tw-rounded-lg tw-relative">
+<a href="/browse/languages" class="tw-block">
+<img class="lazyload skill-card-thumbnail" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/svg/languages-default.svg?v=7" loading="lazy" width="120" height="120" alt="Languages Skill">
+</a>
+<h4 class="tw-text-lg tw-leading-tight tw-text-center tw-tracking-tight">
+<a href="/browse/languages" class="tw-text-white hover:tw-text-white link" style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">Languages</a>
+</h4>
+</div>
+<div class="skill-card-meta tw-flex tw-flex-col tw-justify-around tw-relative tw-w-full mobile:tw-py-5 tw-pr-5 lg:tw-px-6 tw-rounded-lg tw-rounded-t-none tw-border-grey tw-border-t-0">
+<div class="skill-card-meta-details tw-flex tw-items-center tw-justify-around tw-rounded tw-rounded-t-none lg:tw-py-3 tw-mb-2 lg:tw-mb-0">
+<div class="tw-text-center">
+<a href="/browse/languages" class="tw-block">
+<span class="tw-block tw--mb-1 tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest">14</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">series</span>
+</a>
+</div>
+<div class="tw-h-6 tw-bg-transparent-25 lg:tw-bg-grey-light" style="width: 1px"></div>
+<div class="tw-text-center">
+<span class="tw-block tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest tw--mb-1">122</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">videos</span>
+</div>
+</div>
+<a href="/browse/languages" class="
+                    card-play-button lg:tw-absolute tw-w-full tw-bg-transparent-10 tw-uppercase lg:tw-normal-case lg:tw-bg-grey-light
+                    tw-text-white lg:tw-text-black tw-font-bold tw-border tw-border-solid tw-border-white
+                    lg:tw-border-transparent-25 tw-rounded-full tw-py-2 lg:hover:tw-border-blue lg:hover:tw-text-blue
+                    tw-font-bold tw-flex tw-items-center tw-justify-center
+                    tw-text-sm tw-mb-1 tw-py-3 lg:tw-py-2" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2 tw-hidden lg:tw-block">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+<span>Explore <span class="lg:tw-hidden">Languages</span></span>
+</a>
+</div>
+</div>
+<div class="skill-card is-techniques tw-relative tw-rounded-lg lg:tw-rounded-none tw-mb-6 lg:tw-mb-0 tw-flex lg:tw-flex-col group tw-max-w-sm tw-mx-auto lg:tw-mx-2 lg:tw-max-w-full">
+<div class="skill-card-top tw-text-center tw-py-3 tw-pl-5 lg:tw-pl-8 tw-pr-6 lg:tw-px-8 tw-rounded-lg tw-relative">
+<a href="/browse/techniques" class="tw-block">
+<img class="lazyload skill-card-thumbnail" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/svg/techniques-default.svg?v=7" loading="lazy" width="120" height="120" alt="Techniques Skill">
+</a>
+<h4 class="tw-text-lg tw-leading-tight tw-text-center tw-tracking-tight">
+<a href="/browse/techniques" class="tw-text-white hover:tw-text-white link" style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">Techniques</a>
+</h4>
+</div>
+<div class="skill-card-meta tw-flex tw-flex-col tw-justify-around tw-relative tw-w-full mobile:tw-py-5 tw-pr-5 lg:tw-px-6 tw-rounded-lg tw-rounded-t-none tw-border-grey tw-border-t-0">
+<div class="skill-card-meta-details tw-flex tw-items-center tw-justify-around tw-rounded tw-rounded-t-none lg:tw-py-3 tw-mb-2 lg:tw-mb-0">
+<div class="tw-text-center">
+<a href="/browse/techniques" class="tw-block">
+<span class="tw-block tw--mb-1 tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest">21</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">series</span>
+</a>
+</div>
+<div class="tw-h-6 tw-bg-transparent-25 lg:tw-bg-grey-light" style="width: 1px"></div>
+<div class="tw-text-center">
+<span class="tw-block tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest tw--mb-1">230</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">videos</span>
+</div>
+</div>
+<a href="/browse/techniques" class="
+                    card-play-button lg:tw-absolute tw-w-full tw-bg-transparent-10 tw-uppercase lg:tw-normal-case lg:tw-bg-grey-light
+                    tw-text-white lg:tw-text-black tw-font-bold tw-border tw-border-solid tw-border-white
+                    lg:tw-border-transparent-25 tw-rounded-full tw-py-2 lg:hover:tw-border-blue lg:hover:tw-text-blue
+                    tw-font-bold tw-flex tw-items-center tw-justify-center
+                    tw-text-sm tw-mb-1 tw-py-3 lg:tw-py-2" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2 tw-hidden lg:tw-block">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+<span>Explore <span class="lg:tw-hidden">Techniques</span></span>
+</a>
+</div>
+</div>
+<div class="skill-card is-testing tw-relative tw-rounded-lg lg:tw-rounded-none tw-mb-6 lg:tw-mb-0 tw-flex lg:tw-flex-col group tw-max-w-sm tw-mx-auto lg:tw-mx-2 lg:tw-max-w-full">
+<div class="skill-card-top tw-text-center tw-py-3 tw-pl-5 lg:tw-pl-8 tw-pr-6 lg:tw-px-8 tw-rounded-lg tw-relative">
+<a href="/browse/testing" class="tw-block">
+<img class="lazyload skill-card-thumbnail" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/svg/testing-default.svg?v=7" loading="lazy" width="120" height="120" alt="Testing Skill">
+</a>
+<h4 class="tw-text-lg tw-leading-tight tw-text-center tw-tracking-tight">
+<a href="/browse/testing" class="tw-text-white hover:tw-text-white link" style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">Testing</a>
+</h4>
+</div>
+<div class="skill-card-meta tw-flex tw-flex-col tw-justify-around tw-relative tw-w-full mobile:tw-py-5 tw-pr-5 lg:tw-px-6 tw-rounded-lg tw-rounded-t-none tw-border-grey tw-border-t-0">
+<div class="skill-card-meta-details tw-flex tw-items-center tw-justify-around tw-rounded tw-rounded-t-none lg:tw-py-3 tw-mb-2 lg:tw-mb-0">
+<div class="tw-text-center">
+<a href="/browse/testing" class="tw-block">
+<span class="tw-block tw--mb-1 tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest">9</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">series</span>
+</a>
+</div>
+<div class="tw-h-6 tw-bg-transparent-25 lg:tw-bg-grey-light" style="width: 1px"></div>
+<div class="tw-text-center">
+<span class="tw-block tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest tw--mb-1">71</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">videos</span>
+</div>
+</div>
+<a href="/browse/testing" class="
+                    card-play-button lg:tw-absolute tw-w-full tw-bg-transparent-10 tw-uppercase lg:tw-normal-case lg:tw-bg-grey-light
+                    tw-text-white lg:tw-text-black tw-font-bold tw-border tw-border-solid tw-border-white
+                    lg:tw-border-transparent-25 tw-rounded-full tw-py-2 lg:hover:tw-border-blue lg:hover:tw-text-blue
+                    tw-font-bold tw-flex tw-items-center tw-justify-center
+                    tw-text-sm tw-mb-1 tw-py-3 lg:tw-py-2" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2 tw-hidden lg:tw-block">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+<span>Explore <span class="lg:tw-hidden">Testing</span></span>
+</a>
+</div>
+</div>
+<div class="skill-card is-tooling tw-relative tw-rounded-lg lg:tw-rounded-none tw-mb-6 lg:tw-mb-0 tw-flex lg:tw-flex-col group tw-max-w-sm tw-mx-auto lg:tw-mx-2 lg:tw-max-w-full">
+<div class="skill-card-top tw-text-center tw-py-3 tw-pl-5 lg:tw-pl-8 tw-pr-6 lg:tw-px-8 tw-rounded-lg tw-relative">
+<a href="/browse/tooling" class="tw-block">
+<img class="lazyload skill-card-thumbnail" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/svg/tooling-default.svg?v=7" loading="lazy" width="120" height="120" alt="Tooling Skill">
+</a>
+<h4 class="tw-text-lg tw-leading-tight tw-text-center tw-tracking-tight">
+<a href="/browse/tooling" class="tw-text-white hover:tw-text-white link" style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">Tooling</a>
+</h4>
+</div>
+<div class="skill-card-meta tw-flex tw-flex-col tw-justify-around tw-relative tw-w-full mobile:tw-py-5 tw-pr-5 lg:tw-px-6 tw-rounded-lg tw-rounded-t-none tw-border-grey tw-border-t-0">
+<div class="skill-card-meta-details tw-flex tw-items-center tw-justify-around tw-rounded tw-rounded-t-none lg:tw-py-3 tw-mb-2 lg:tw-mb-0">
+<div class="tw-text-center">
+<a href="/browse/tooling" class="tw-block">
+<span class="tw-block tw--mb-1 tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest">24</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">series</span>
+</a>
+</div>
+<div class="tw-h-6 tw-bg-transparent-25 lg:tw-bg-grey-light" style="width: 1px"></div>
+<div class="tw-text-center">
+<span class="tw-block tw-text-2xl lg:tw-text-lg tw-text-white lg:tw-text-grey-darkest tw--mb-1">313</span>
+<span class="tw-text-transparent-50 lg:tw-text-grey-dark tw-text-sm lg:tw-text-2xs">videos</span>
+</div>
+</div>
+<a href="/browse/tooling" class="
+                    card-play-button lg:tw-absolute tw-w-full tw-bg-transparent-10 tw-uppercase lg:tw-normal-case lg:tw-bg-grey-light
+                    tw-text-white lg:tw-text-black tw-font-bold tw-border tw-border-solid tw-border-white
+                    lg:tw-border-transparent-25 tw-rounded-full tw-py-2 lg:hover:tw-border-blue lg:hover:tw-text-blue
+                    tw-font-bold tw-flex tw-items-center tw-justify-center
+                    tw-text-sm tw-mb-1 tw-py-3 lg:tw-py-2" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2 tw-hidden lg:tw-block">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+<span>Explore <span class="lg:tw-hidden">Tooling</span></span>
+</a>
+</div>
+</div>
+</div> 
+<div class="md:tw-hidden md:tw-flex md:tw-justify-center md:tw-mb-8 tw-pb-3 tw-text-center">
+<a href="/series?curated" class="tw-btn tw-btn-outlined tw-inline-block">Browse All Courses</a>
+</div>
+</div>
+</section>
+<section class="md:tw-p-0">
+<div class="featured-series tw-overflow-hidden md:tw-mb-10 tw-mx-auto">
+<div class="tw-flex tw-justify-center tw-mb-8 tw-text-center md:tw-w-2/3 xl:tw-w-1/2 md:tw-mx-auto">
+<header class="container tw-text-center tw-mb-4 tw-mx-auto tw-py-4" style="max-width: 650px">
+<h3 class="tw-text-black tw-text-2xl md:tw-text-3xl tw-mb-2">
+What will you learn next?
+</h3>
+<p class="tw-text-black tw-opacity-50 tw-text-lg">
+There&#039;s no shortage of content at Laracasts. Check back most work-days for new lessons on your favorite web technologies and techniques.
+</p>
+</header>
+</div>
+<carousel :options='{ "wrapAround": true, "autoPlay": false }' v-cloak>
+<div class="carousel-cell tw-mx-5">
+<div class="lg:tw-relative tw-mb-8" style="left: -0px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-testing tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/testing" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Testing
+</a>
+<a href="/series/cypress-and-laravel-integration" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/cypress-and-laravel-integration.png?v=8" alt="Cypress and Laravel Integration" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/cypress-and-laravel-integration">
+Cypress and Laravel Integration
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">Cypress is a fantastic end-to-end testing framework. In this series, we'll learn, not just the ins and outs of Cypress, but also how it can be leveraged within a Laravel application to allow for everything from logging in, to seeding a database, to swapping environments.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/cypress-and-laravel-integration" class="inherits-color link no-transition">4 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>48m</span>
+</div>
+</div>
+<a href="/series/cypress-and-laravel-integration" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+<div class="lg:tw-relative " style="left: -200px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-frameworks tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/frameworks" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Frameworks
+</a>
+<a href="/series/whats-new-in-vue-3" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/whats-new-in-vue-3.png?v=8" alt="What&#039;s New in Vue 3" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/whats-new-in-vue-3">
+What&#039;s New in Vue 3
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">Vue 3 is nearly upon us! If you'd like to get a head start, join me as we review everything you need to know. We'll discuss the new composition API, portals, Vite, and so much more!</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/whats-new-in-vue-3" class="inherits-color link no-transition">12 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>1h 24m</span>
+</div>
+</div>
+<a href="/series/whats-new-in-vue-3" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-cell tw-mx-5">
+<div class="lg:tw-relative tw-mb-8" style="left: -0px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-languages tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/languages" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Languages
+</a>
+<a href="/series/css-quirks-and-pitfalls" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/css-quirks-and-pitfalls.png?v=8" alt="CSS Quirks and Pitfalls" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/css-quirks-and-pitfalls">
+CSS Quirks and Pitfalls
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">
+While it's fun to see a car designed entirely with CSS from a single div, the day-to-day reality for a typical CSS designer is far less glamorous. Often, you'll lose hours upon hours due to some confusing CSS quirk that seemingly makes no sense. In this series, we'll dig our heals into the dirt and, together, decipher a variety of CSS oddities.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/css-quirks-and-pitfalls" class="inherits-color link no-transition">2 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>17m</span>
+</div>
+</div>
+<a href="/series/css-quirks-and-pitfalls" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+<div class="lg:tw-relative " style="left: -200px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-frameworks tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/frameworks" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Frameworks
+</a>
+<a href="/series/alpine-essentials" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/alpine-essentials.png?v=8" alt="Alpine.js Essentials" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/alpine-essentials">
+Alpine.js Essentials
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">Alpine.js is a relatively new JavaScript framework for defining behavior directly in your markup. While similar to frameworks like Angular and Vue, you may find that Alpine is a bit more light-weight and portable. In this series, one step at a time, I'll get you up and running as quickly as possible.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/alpine-essentials" class="inherits-color link no-transition">8 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>1h 23m</span>
+</div>
+</div>
+<a href="/series/alpine-essentials" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-cell tw-mx-5">
+<div class="lg:tw-relative tw-mb-8" style="left: -0px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-frameworks tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/frameworks" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Frameworks
+</a>
+<a href="/series/blade-component-cookbook" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/practical-blade-components.png?v=8" alt="Blade Component Cookbook" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/blade-component-cookbook">
+Blade Component Cookbook
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">As part of the Laravel 7 release, we gained access to supercharged Blade components. What's exciting about this is the fact that it can fundamentally change how you go about constructing the view layer of your applications. In this series, one component per episode, I'll show you a wide range of practical examples that you can freely use in your own projects.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/blade-component-cookbook" class="inherits-color link no-transition">11 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>2h 3m</span>
+</div>
+</div>
+<a href="/series/blade-component-cookbook" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+<div class="lg:tw-relative " style="left: -200px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-frameworks tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/frameworks" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Frameworks
+</a>
+<a href="/series/build-a-video-game-aggregator" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/build-a-video-game-aggregrator.png?v=8" alt="Build a Video Game Aggregator" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/build-a-video-game-aggregator">
+Build a Video Game Aggregator
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">In this series, we'll build a video game app that pulls data from the IGDB API and displays game information such as popular titles, coming soon, videos, and screenshots. We'll explore a variety of front-end features with Laravel and other technologies, including the HTTP client, Tailwind CSS, Livewire and Alpine.js.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/build-a-video-game-aggregator" class="inherits-color link no-transition">15 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>3h 33m</span>
+</div>
+</div>
+<a href="/series/build-a-video-game-aggregator" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-cell tw-mx-5">
+<div class="lg:tw-relative tw-mb-8" style="left: -0px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-frameworks tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/frameworks" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Frameworks
+</a>
+<a href="/series/build-a-stock-tracker-app" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/in-stock.png?v=8" alt="Build a Stock Tracker App" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/build-a-stock-tracker-app">
+Build a Stock Tracker App
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">In this series, we'll build a command line application to track the availability of in-demand products across any number of retailers. Perhaps you want to be notified the moment a Nintendo Switch becomes available for purchase? Let's do it!</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/build-a-stock-tracker-app" class="inherits-color link no-transition">14 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>2h 50m</span>
+</div>
+</div>
+<a href="/series/build-a-stock-tracker-app" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+<div class="lg:tw-relative " style="left: -200px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-languages tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/languages" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Languages
+</a>
+<a href="/series/whats-new-in-php-74" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/whats-new-in-php-74.png?v=8" alt="What&#039;s New in PHP 7.4" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/whats-new-in-php-74">
+What&#039;s New in PHP 7.4
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">PHP 7.4 was released on November 28th, 2019 and includes a variety of improvements and new features, including arrow functions, typed properties, weak references, and more.
+In this brief series, we'll review one feature per episode to get you up to speed as quickly as possible.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/whats-new-in-php-74" class="inherits-color link no-transition">3 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>11m</span>
+</div>
+</div>
+<a href="/series/whats-new-in-php-74" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-cell tw-mx-5">
+<div class="lg:tw-relative tw-mb-8" style="left: -0px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-frameworks tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/frameworks" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Frameworks
+</a>
+<a href="/series/building-alpinejs" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/building-alpine.png?v=8" alt="Building AlpineJS" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/building-alpinejs">
+Building AlpineJS
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">Ever wonder how a front-end framework works under the hood? In this series, I (the creator of AlpineJS) will walk you through what it takes to actually build one from scratch. By the end of the series, you will learn what’s involved in creating a modern, reactive, front-end framework by actually building one yourself. It’s easier than you might think!</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/building-alpinejs" class="inherits-color link no-transition">6 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>54m</span>
+</div>
+</div>
+<a href="/series/building-alpinejs" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+ </g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+<div class="lg:tw-relative " style="left: -200px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-techniques tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/techniques" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Techniques
+</a>
+<a href="/series/three-minute-tips" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/3-minute-tips.png?v=8" alt="Three-Minute Tips" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/three-minute-tips">
+Three-Minute Tips
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">I get it. We don't always have twenty minutes to watch a new lesson. But maybe you have three? If so, this series is for you. Each episode provides one isolated tip or technique that you might consider for your own projects.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/three-minute-tips" class="inherits-color link no-transition">1 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>3m</span>
+</div>
+</div>
+<a href="/series/three-minute-tips" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-cell tw-mx-5">
+<div class="lg:tw-relative tw-mb-8" style="left: -0px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-frameworks tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/frameworks" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Frameworks
+</a>
+<a href="/series/whats-new-in-laravel-7" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/whats-new-in-laravel-6.png?v=8" alt="What&#039;s New in Laravel 7" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/whats-new-in-laravel-7">
+What&#039;s New in Laravel 7
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">Laravel advances to version 7 on March 3rd, 2020 with updates to Blade components, custom casting, fluent string operations, a friendly HTTP client, and much more. In this series, one episode at a time, we'll review everything you need to know.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/whats-new-in-laravel-7" class="inherits-color link no-transition">6 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>57m</span>
+</div>
+</div>
+<a href="/series/whats-new-in-laravel-7" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+<div class="lg:tw-relative " style="left: -200px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-languages tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/languages" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Languages
+</a>
+<a href="/series/javascript-techniques-for-server-side-developers" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/javascript-techniques-for-server-side-developers.png?v=8" alt="JavaScript Techniques For Server-Side Applications" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/javascript-techniques-for-server-side-developers">
+JavaScript Techniques For Server-Side Applications
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">Many Laravel apps don’t warrant the complexity of a full front-end framework like Vue or React. In this series, we’ll walk through a handful of simple ways to add dynamic functionality to your apps. By combining various strategies, you can keep your simple Laravel stack, but still build interfaces that feel fast, fresh, and dynamic.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/javascript-techniques-for-server-side-developers" class="inherits-color link no-transition">3 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>48m</span>
+</div>
+</div>
+<a href="/series/javascript-techniques-for-server-side-developers" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-cell tw-mx-5">
+<div class="lg:tw-relative tw-mb-8" style="left: -0px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-testing tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/testing" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Testing
+</a>
+<a href="/series/code-katas-with-phpunit" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/code-katas-with-phpunit.png?v=8" alt="Code Katas with PHPUnit" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/code-katas-with-phpunit">
+Code Katas with PHPUnit
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">If martial artists use kata as a method for exercise and practice, what might be the equivalent for coders like us? Coding katas are short, repeatable programming challenges which are meant to exercise everything from your focus, to your workflow.
+In this series, one kata per episode, we'll work through a wide variety of challenges to build up your TDD process.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/code-katas-with-phpunit" class="inherits-color link no-transition">9 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>2h 34m</span>
+</div>
+</div>
+<a href="/series/code-katas-with-phpunit" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+<div class="lg:tw-relative " style="left: -200px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-languages tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/languages" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Languages
+</a>
+<a href="/series/object-oriented-principles-in-php" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/object-oriented-principles-in-php.png?v=8" alt="Object-Oriented Principles in PHP" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/object-oriented-principles-in-php">
+Object-Oriented Principles in PHP
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">The typical beginner, whether they realize it or not, first learns procedural programming. But, before too long, they level up. Suddenly, an entirely different paradigm is introduced: object-oriented programming. Little do they know that they'll spend years researching and learning exactly what it means to work with objects and messages.
+In this series, you'll be introduced to the core principles of object-oriented programming in PHP. We'll begin with the basic constructs and work our way up.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/object-oriented-principles-in-php" class="inherits-color link no-transition">9 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>1h 33m</span>
+</div>
+</div>
+<a href="/series/object-oriented-principles-in-php" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-cell tw-mx-5">
+<div class="lg:tw-relative tw-mb-8" style="left: -0px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-techniques tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/techniques" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Techniques
+</a>
+<a href="/series/guest-spotlight" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/guest-spotlight.png?v=8" alt="Guest Spotlight" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/guest-spotlight">
+Guest Spotlight
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">The programming world is far too big for one person. With that in mind, for this series, I've invited a number of special guests to teach you what they know best. </p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/guest-spotlight" class="inherits-color link no-transition">13 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>3h 15m</span>
+</div>
+</div>
+<a href="/series/guest-spotlight" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+<div class="lg:tw-relative " style="left: -200px;">
+<div class="card expanded-card tw-border-none is-normal is-incomplete is-frameworks tw-flex tw-pr-4" style="box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.04);">
+<div class="expanded-card-left tw-mr-4 tw-rounded-xl tw-flex tw-flex-col tw-justify-between tw-items-center tw-py-5 tw-px-4 tw-flex-shrink-0" style="box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.17);">
+<a href="https://laracasts.com/browse/frameworks" class="expanded-card-skill-button tw-w-full tw-bg-black-transparent-10
+                   hover:tw-bg-white hover:tw-text-grey-darkest tw-rounded-full tw-py-2
+                   tw-leading-none tw-px-4 tw-text-white tw-uppercase tw-text-2xs tw-text-center">
+Frameworks
+</a>
+<a href="/series/laravel-6-from-scratch" class="tw-relative card-thumbnail tw-block tw-my-4 md:tw-my-0 tw-w-full tw-h-auto">
+<img class="tw-w-full lazyload" data-src="https://laracasts.s3.amazonaws.com/series/thumbnails/laravel-6-from-scratch.png?v=8" alt="Laravel From Scratch" width="98" height="98" loading="lazy">
+</a>
+<div class="expanded-card-difficulty tw-w-full tw-text-center">
+<div class="tw-font-semibold tw-text-white tw-text-3xs tw-mb-2">Intermediate Difficulty</div>
+<div class="difficulty-meter tw-flex tw-justify-center is-intermediate tw-mx-4 tw-space-x-1">
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-rounded tw-inline-block tw-h-1 tw-flex-1"></span>
+<span class="tw-inline-block tw-rounded tw-h-1 tw-flex-1"></span>
+</div>
+</div>
+</div>
+<div class="expanded-card-right tw-relative tw-flex tw-flex-col tw-justify-around tw-py-5">
+<h3 class="expanded-card-heading tw-inline-flex tw-items-start lg:tw-items-center lg:tw-h-12 tw-text-base widescreen:tw-text-lg tw-tracking-tight link">
+<a href="/series/laravel-6-from-scratch">
+Laravel From Scratch
+</a>
+</h3>
+<div class="expanded-card-description tw-text-xs tw-text-black-transparent-60 generic-content lg:tw-mb-auto tw-mt-5">
+<p class="clamp five-lines">In this series, step by step, I'll show you how to build web applications with Laravel. We'll start with the basics and incrementally dig deeper and deeper, as we review real-life examples. Once complete, you should have all the tools you need. Let's get to work!This series will use version 6 of the framework.</p>
+</div>
+<div class="tw-hidden lg:tw-flex expanded-card-meta tw-text-grey-dark tw-text-2xs">
+<div class="expanded-card-meta-lessons tw-flex tw-items-center tw-mr-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" class="inherits-color tw-mr-2">
+<path class="tw-fill-current" fill-rule="nonzero" d="M4.129 6.44v4.873c0 .217-.159.41-.395.481a4.098 4.098 0 0 1-1.167.155c-1.236 0-2.564-.437-2.564-1.398V4.317c-.028-.429.145-1.185.976-1.595.386-.19 2.412-1.314 3.43-1.882A.674.674 0 0 1 5.01.82c.19.09.309.262.309.448v.739c0 .281-.265.51-.591.51-.254 0-.47-.139-.554-.333-.92.51-2.273 1.258-2.61 1.423a.683.683 0 0 0-.38.573c0 .167.041.299.117.37.21.198.909.075 1.671-.32.733-.38 4.346-2.455 4.382-2.476a.67.67 0 0 1 .606-.025.505.505 0 0 1 .313.45v.058c0 .17-.099.329-.263.424 0 0-2.508 1.444-2.73 1.567-.85.472-1.152 1.051-1.152 2.213zM13 3.98V10.6a.498.498 0 0 1-.276.431s-3.445 2.308-4.144 2.675c-.367.193-.835.295-1.352.295-1.228 0-2.499-.574-2.499-1.532V6.14l.002-.006c.012-.373.113-.906.917-1.418C6.13 4.41 9 2.721 9.123 2.65a.674.674 0 0 1 .608-.03.505.505 0 0 1 .315.452v.738c0 .281-.264.51-.59.51a.598.598 0 0 1-.544-.31c-.917.54-2.262 1.337-2.563 1.528-.38.243-.431.403-.438.609.001.152.05.268.146.345.301.238 1.113.138 1.912-.276.592-.307 3.143-2.007 4.076-2.636a.673.673 0 0 1 .623-.056c.203.085.332.262.332.458zm-1.182 2.272L8.865 8.23v1.02l2.953-1.978v-1.02z" opacity=".5"></path>
+</svg>
+<a href="/series/laravel-6-from-scratch" class="inherits-color link no-transition">68 Lessons</a>
+</div>
+<div class="tw-hidden widescreen:tw-flex expanded-card-meta-length tw-items-center">
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="inherits-color tw-mr-2 tw-relative" style="top: 1px">
+<path class="tw-fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path>
+</svg>
+<span>8h 59m</span>
+</div>
+</div>
+<a href="/series/laravel-6-from-scratch" class="
+                card-play-button tw-absolute tw-w-full tw-bg-grey-panel
+                tw-text-black tw-font-bold tw-border tw-border-transparent-25 tw-rounded-full
+                tw-py-2 hover:tw-border-blue hover:tw-text-blue
+                tw-font-bold tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center
+                tw-text-sm tw-mb-1" style="bottom: 11px">
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" class="tw-mr-2">
+<g fill="none" fill-rule="evenodd">
+<path d="M-1-1h18v18H-1z"></path>
+<path class="tw-fill-current" d="M6 10.875L10.5 7.5 6 4.125v6.75zM7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm0 13.5c-3.307 0-6-2.693-6-6s2.693-6 6-6 6 2.693 6 6-2.693 6-6 6z"></path>
+</g>
+</svg>
+Play
+</a>
+</div>
+</div>
+</div>
+</div>
+</carousel>
+</div>
+</section>
+<section class="md:tw-p-0">
+<div class="tw-mx-auto">
+<header class="container tw-text-center tw-mb-4 tw-mx-auto tw-py-4" style="max-width: 650px">
+<h3 class="tw-text-black tw-text-2xl md:tw-text-3xl tw-mb-2">
+Explore Laracasts
+</h3>
+<p class="tw-text-black tw-opacity-50 tw-text-lg">
+If you already know what you&#039;re looking for, Laracasts is divided into various topics ranging from frameworks to packages to tools.
+</p>
+</header>
+<carousel class="lg:tw-mb-6 tw-mt-8 tw-mx-auto" :options='{ "wrapAround": true, "cellAlign": "center", "initialIndex": 4, "pageDots": false }' v-cloak>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:1,&quot;taxonomy_id&quot;:1,&quot;name&quot;:&quot;Laravel&quot;,&quot;slug&quot;:&quot;laravel&quot;,&quot;thumbnail&quot;:&quot;laravel-logo.svg&quot;,&quot;description&quot;:&quot;Laravel is a web application framework with expressive, elegant syntax. We\u2019ve already laid the foundation \u2014 freeing you to create without sweating the small things.&quot;,&quot;created_at&quot;:&quot;2020-04-22T18:41:03.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-08-06T00:00:21.000000Z&quot;,&quot;series_count&quot;:42,&quot;episode_count&quot;:619}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/laravel" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/laravel-logo.svg" alt="laravel-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Laravel</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+42 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 619 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:2,&quot;taxonomy_id&quot;:1,&quot;name&quot;:&quot;Vue&quot;,&quot;slug&quot;:&quot;vue&quot;,&quot;thumbnail&quot;:&quot;vue-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T16:22:18.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-08-11T00:00:24.000000Z&quot;,&quot;series_count&quot;:5,&quot;episode_count&quot;:88}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/vue" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/vue-logo.svg" alt="vue-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Vue</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+5 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 88 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:3,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Sublime Text&quot;,&quot;slug&quot;:&quot;sublime-text&quot;,&quot;thumbnail&quot;:&quot;sublime-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T16:34:29.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:2,&quot;episode_count&quot;:22}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/sublime-text" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/sublime-logo.svg" alt="sublime-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Sublime Text</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+2 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 22 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:4,&quot;taxonomy_id&quot;:1,&quot;name&quot;:&quot;Symfony&quot;,&quot;slug&quot;:&quot;symfony&quot;,&quot;thumbnail&quot;:&quot;symphony-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T16:42:42.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:4}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/symfony" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/symphony-logo.svg" alt="symphony-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Symfony</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 4 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:5,&quot;taxonomy_id&quot;:3,&quot;name&quot;:&quot;PHP &quot;,&quot;slug&quot;:&quot;php&quot;,&quot;thumbnail&quot;:&quot;php-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T16:47:42.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-08-06T00:00:21.000000Z&quot;,&quot;series_count&quot;:23,&quot;episode_count&quot;:307}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/php" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/php-logo.svg" alt="php-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">PHP</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+23 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 307 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:6,&quot;taxonomy_id&quot;:3,&quot;name&quot;:&quot;CSS&quot;,&quot;slug&quot;:&quot;css&quot;,&quot;thumbnail&quot;:&quot;css-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T16:55:50.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:5,&quot;episode_count&quot;:40}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/css" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/css-logo.svg" alt="css-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">CSS</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+5 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 40 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:7,&quot;taxonomy_id&quot;:3,&quot;name&quot;:&quot;JavaScript&quot;,&quot;slug&quot;:&quot;javascript&quot;,&quot;thumbnail&quot;:&quot;js-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:01:01.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-08-13T00:00:28.000000Z&quot;,&quot;series_count&quot;:14,&quot;episode_count&quot;:245}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/javascript" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/js-logo.svg" alt="js-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">JavaScript</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+14 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 245 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:8,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Visual Studio Code&quot;,&quot;slug&quot;:&quot;vs-code&quot;,&quot;thumbnail&quot;:&quot;visualstudio-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:07:32.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:18}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/vs-code" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/visualstudio-logo.svg" alt="visualstudio-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Visual Studio Code</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 18 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:9,&quot;taxonomy_id&quot;:1,&quot;name&quot;:&quot;AlpineJS&quot;,&quot;slug&quot;:&quot;alpine-js&quot;,&quot;thumbnail&quot;:&quot;alpine-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:12:01.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-08-06T00:00:21.000000Z&quot;,&quot;series_count&quot;:3,&quot;episode_count&quot;:28}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/alpine-js" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/alpine-logo.svg" alt="alpine-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">AlpineJS</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+3 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 28 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:10,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Nova&quot;,&quot;slug&quot;:&quot;nova&quot;,&quot;thumbnail&quot;:&quot;nova-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:12:56.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:15}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/nova" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/nova-logo.svg" alt="nova-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Nova</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 15 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:11,&quot;taxonomy_id&quot;:2,&quot;name&quot;:&quot;PHPUnit&quot;,&quot;slug&quot;:&quot;phpunit&quot;,&quot;thumbnail&quot;:&quot;phpunit-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:19:07.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:7,&quot;episode_count&quot;:201}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/phpunit" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/phpunit-logo.svg" alt="phpunit-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">PHPUnit</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+7 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 201 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:12,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Envoyer&quot;,&quot;slug&quot;:&quot;envoyer&quot;,&quot;thumbnail&quot;:&quot;envoyer-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:21:13.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:10}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/envoyer" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/envoyer-logo.svg" alt="envoyer-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Envoyer</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 10 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:13,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Git&quot;,&quot;slug&quot;:&quot;git&quot;,&quot;thumbnail&quot;:&quot;git-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:22:02.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:2,&quot;episode_count&quot;:35}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/git" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/git-logo.svg" alt="git-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Git</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+2 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 35 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:14,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;PHPStorm&quot;,&quot;slug&quot;:&quot;phpstorm&quot;,&quot;thumbnail&quot;:&quot;phpstorm-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:22:44.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:27}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/phpstorm" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/phpstorm-logo.svg" alt="phpstorm-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">PHPStorm</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 27 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:15,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Vim&quot;,&quot;slug&quot;:&quot;vim&quot;,&quot;thumbnail&quot;:&quot;vim-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:23:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:22}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/vim" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/vim-logo.svg" alt="vim-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Vim</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 22 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:16,&quot;taxonomy_id&quot;:1,&quot;name&quot;:&quot;React&quot;,&quot;slug&quot;:&quot;react&quot;,&quot;thumbnail&quot;:&quot;react-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-04T17:32:28.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:10}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/react" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/react-logo.svg" alt="react-logo.svg topic icon">
+</div>
+<div>
+ <h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">React</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 10 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:18,&quot;taxonomy_id&quot;:5,&quot;name&quot;:&quot;Deployment&quot;,&quot;slug&quot;:&quot;deployment&quot;,&quot;thumbnail&quot;:&quot;deployment-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T13:53:06.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:3,&quot;episode_count&quot;:39}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/deployment" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/deployment-logo.svg" alt="deployment-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Deployment</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+3 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 39 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:19,&quot;taxonomy_id&quot;:5,&quot;name&quot;:&quot;Workshops&quot;,&quot;slug&quot;:&quot;workshops&quot;,&quot;thumbnail&quot;:&quot;workshops-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T13:54:05.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-08-06T00:00:21.000000Z&quot;,&quot;series_count&quot;:14,&quot;episode_count&quot;:274}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/workshops" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/workshops-logo.svg" alt="workshops-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Workshops</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+14 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 274 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:20,&quot;taxonomy_id&quot;:5,&quot;name&quot;:&quot;Clean Code&quot;,&quot;slug&quot;:&quot;clean-code&quot;,&quot;thumbnail&quot;:&quot;clean-code-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T13:56:45.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:10,&quot;episode_count&quot;:73}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/clean-code" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/clean-code-logo.svg" alt="clean-code-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Clean Code</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+10 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 73 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:21,&quot;taxonomy_id&quot;:5,&quot;name&quot;:&quot;OOP&quot;,&quot;slug&quot;:&quot;object-oriented-programming&quot;,&quot;thumbnail&quot;:&quot;OOP-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T13:59:05.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:4,&quot;episode_count&quot;:90}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/object-oriented-programming" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/OOP-logo.svg" alt="OOP-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">OOP</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+4 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 90 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:22,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;MySQL&quot;,&quot;slug&quot;:&quot;mysql&quot;,&quot;thumbnail&quot;:&quot;mysql-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T14:02:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:17}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/mysql" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/mysql-logo.svg" alt="mysql-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">MySQL</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 17 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:23,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Redis&quot;,&quot;slug&quot;:&quot;redis&quot;,&quot;thumbnail&quot;:&quot;redis-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T14:03:08.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:7}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/redis" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/redis-logo.svg" alt="redis-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Redis</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 7 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:24,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Laravel Forge&quot;,&quot;slug&quot;:&quot;laravel-forge&quot;,&quot;thumbnail&quot;:&quot;laravel-forge-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T14:03:57.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:2,&quot;episode_count&quot;:29}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/laravel-forge" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/laravel-forge-logo.svg" alt="laravel-forge-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Laravel Forge</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+2 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 29 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:25,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Webpack&quot;,&quot;slug&quot;:&quot;webpack&quot;,&quot;thumbnail&quot;:&quot;webpack-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T14:04:34.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:2,&quot;episode_count&quot;:25}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/webpack" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/webpack-logo.svg" alt="webpack-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Webpack</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+2 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 25 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="carousel-cell">
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:26,&quot;taxonomy_id&quot;:4,&quot;name&quot;:&quot;Laravel Mix&quot;,&quot;slug&quot;:&quot;laravel-mix&quot;,&quot;thumbnail&quot;:&quot;laravel-mix-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-05T14:05:14.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-07-22T11:43:57.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:11}" style="width: 235px; left: -0px">
+<a href="https://laracasts.com/topics/laravel-mix" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/laravel-mix-logo.svg" alt="laravel-mix-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Laravel Mix</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 11 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:27,&quot;taxonomy_id&quot;:1,&quot;name&quot;:&quot;Tailwind&quot;,&quot;slug&quot;:&quot;tailwind&quot;,&quot;thumbnail&quot;:&quot;tailwind-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-22T14:22:22.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-08-06T00:00:21.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:14}" style="width: 235px; left: -100px">
+<a href="https://laracasts.com/topics/tailwind" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/tailwind-logo.svg" alt="tailwind-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Tailwind</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 14 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="tw-text-center tw-flex tw-justify-center lg:tw-relative tw-w-full tw-mb-6" topic="{&quot;id&quot;:28,&quot;taxonomy_id&quot;:1,&quot;name&quot;:&quot;Laravel Livewire&quot;,&quot;slug&quot;:&quot;laravel-livewire&quot;,&quot;thumbnail&quot;:&quot;livewire-logo.svg&quot;,&quot;description&quot;:null,&quot;created_at&quot;:&quot;2020-05-22T14:23:53.000000Z&quot;,&quot;updated_at&quot;:&quot;2020-08-06T00:00:21.000000Z&quot;,&quot;series_count&quot;:1,&quot;episode_count&quot;:14}" style="width: 235px; left: -200px">
+<a href="https://laracasts.com/topics/laravel-livewire" class="tw-flex tw-flex-col tw-justify-between tw-rounded-xl tw-px-4 tw-py-1 tw-bg-white tw-h-full tw-w-full tw-mx-5 tw-border tw-border-solid tw-border-grey-lighter" style="height: 84px; min-width: 192px;">
+<div class="tw-flex-1 tw-flex tw-items-center">
+<div style="width: 50px" class="tw-flex tw-justify-center tw-mr-4">
+<img src="/images/topics/icons/livewire-logo.svg" alt="livewire-logo.svg topic icon">
+</div>
+<div>
+<h2 class="tw-text-deep-black tw-font-semibold tw-text-sm tw-text-left">Laravel Livewire</h2>
+<div class="tw-text-3xs tw-text-grey-darker tw-text-left">
+1 Series <span class="tw-text-xs tw-relative tw-inline-block tw-px-1" style="top: 1px">&bull;</span> 14 Videos
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</carousel>
+</div>
+</section>
+<section class="tw-hidden md:tw-block tw-px-0 tw-pb-0">
+<div>
+<testimonials></testimonials>
+</div>
+</section>
+<section class="plans-section lg:tw-py-12">
+<div class="container">
+<plan-cards-container>
+</plan-cards-container>
+</div>
+</section>
+<section v-pre>
+<div class="container">
+<header class="container tw-text-center tw-mb-4 tw-mx-auto tw-py-4" style="max-width: 650px">
+<h3 class="tw-text-black tw-text-2xl md:tw-text-3xl ">
+Meet the team.
+</h3>
+</header>
+<div class="tw-grid md:tw-grid-cols-3 tw-gap-6 md:tw-mb-10 tw-pt-7">
+<div>
+<div class="tw-h-full tw-rounded-xl tw-px-6 tw-py-4 tw-bg-white tw-border tw-border-grey-light tw-border-solid tw-flex tw-flex-col tw-justify-between" style="border: 1px solid rgba(36, 37, 38, .08)">
+<header style="margin-top: -40px" class="tw-mb-4 tw-flex tw-flex-col tw-items-center">
+<img src="/images/home/jeffrey-avatar.jpg" alt="Jeffrey Way" class="tw-rounded-full tw-transform tw-mb-3" width="130" height="130">
+<h4 class="tw-font-semibold tw-text-black tw-text-xl tw-mb-px">Jeffrey Way</h4>
+<h5 class="tw-font-semibold tw-text-sm tw-text-black-transparent-25">Owner of Laracasts</h5>
+</header>
+<div class="tw-mb-8 tw-text-grey-darkest">
+I built Laracasts all the way back in 2013, and have been running it ever since. Even to this day, I still love sharing everything I know about programming. I currently live in Orlando, Florida with my wife and kids.
+</div>
+<footer class="tw-flex tw-justify-between tw-items-center">
+<p class="tw-font-bold tw-text-sm tw-text-grey-dark">Say Hi!</p>
+<div class="tw-flex">
+<a href="https://twitter.com/jeffrey_way">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36" class="tw-text-blue hover:tw-text-blue-dark">
+<path class="tw-fill-current" fill-rule="evenodd" d="M18 0C8.075 0 0 8.075 0 18c0 9.924 8.075 18 18 18 9.924 0 18-8.076 18-18 0-9.925-8.074-18-18-18zm8.03 13.88c.008.179.012.358.012.538 0 5.475-4.166 11.786-11.788 11.786-2.34 0-4.518-.684-6.351-1.86.324.039.654.058.988.058 1.942 0 3.728-.663 5.146-1.773-1.813-.034-3.343-1.231-3.87-2.878.252.048.512.075.778.075.378 0 .745-.05 1.092-.145-1.895-.38-3.323-2.054-3.323-4.062l.001-.052c.558.31 1.197.496 1.876.517-1.111-.741-1.843-2.01-1.843-3.447 0-.76.204-1.472.56-2.084 2.043 2.507 5.097 4.156 8.54 4.33-.071-.304-.107-.62-.107-.945 0-2.287 1.855-4.143 4.142-4.143 1.192 0 2.268.504 3.025 1.308.944-.185 1.829-.529 2.631-1.005-.311.968-.966 1.779-1.824 2.292.84-.1 1.64-.322 2.38-.652-.553.83-1.255 1.56-2.065 2.142z" />
+</svg>
+</a>
+</div>
+</footer>
+</div>
+</div>
+<div>
+<div class="tw-h-full tw-rounded-xl tw-px-6 tw-py-4 tw-bg-white tw-border tw-border-grey-light tw-border-solid tw-flex tw-flex-col tw-justify-between" style="border: 1px solid rgba(36, 37, 38, .08)">
+<header style="margin-top: -40px" class="tw-mb-4 tw-flex tw-flex-col tw-items-center">
+<img src="/images/home/adrian-avatar.jpg" alt="Tudor Adrian" class="tw-rounded-full tw-transform tw-mb-3" width="130" height="130">
+<h4 class="tw-font-semibold tw-text-black tw-text-xl tw-mb-px">Tudor Adrian</h4>
+<h5 class="tw-font-semibold tw-text-sm tw-text-black-transparent-25">Design at Laracasts</h5>
+</header>
+<div class="tw-mb-8 tw-text-grey-darkest">
+I just love doing what I do. There’s no other way to put it. Being able to create and express my passion and at the same time help others grow is one of the most unique feelings I’ve ever felt.
+</div>
+<footer class="tw-flex tw-justify-between tw-items-center">
+<p class="tw-font-bold tw-text-sm tw-text-grey-dark">Say Hi!</p>
+<div class="tw-flex">
+<a href="https://twitter.com/tudssss">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36" class="tw-text-blue hover:tw-text-blue-dark">
+<path class="tw-fill-current" fill-rule="evenodd" d="M18 0C8.075 0 0 8.075 0 18c0 9.924 8.075 18 18 18 9.924 0 18-8.076 18-18 0-9.925-8.074-18-18-18zm8.03 13.88c.008.179.012.358.012.538 0 5.475-4.166 11.786-11.788 11.786-2.34 0-4.518-.684-6.351-1.86.324.039.654.058.988.058 1.942 0 3.728-.663 5.146-1.773-1.813-.034-3.343-1.231-3.87-2.878.252.048.512.075.778.075.378 0 .745-.05 1.092-.145-1.895-.38-3.323-2.054-3.323-4.062l.001-.052c.558.31 1.197.496 1.876.517-1.111-.741-1.843-2.01-1.843-3.447 0-.76.204-1.472.56-2.084 2.043 2.507 5.097 4.156 8.54 4.33-.071-.304-.107-.62-.107-.945 0-2.287 1.855-4.143 4.142-4.143 1.192 0 2.268.504 3.025 1.308.944-.185 1.829-.529 2.631-1.005-.311.968-.966 1.779-1.824 2.292.84-.1 1.64-.322 2.38-.652-.553.83-1.255 1.56-2.065 2.142z" />
+</svg>
+</a>
+</div>
+</footer>
+</div>
+</div>
+<div>
+<div class="tw-h-full tw-rounded-xl tw-px-6 tw-py-4 tw-bg-white tw-border tw-border-grey-light tw-border-solid tw-flex tw-flex-col tw-justify-between" style="border: 1px solid rgba(36, 37, 38, .08)">
+<header style="margin-top: -40px" class="tw-mb-4 tw-flex tw-flex-col tw-items-center">
+<img src="/images/home/andre-avatar.jpg" alt="Andre Madarang" class="tw-rounded-full tw-transform tw-mb-3" width="130" height="130">
+<h4 class="tw-font-semibold tw-text-black tw-text-xl tw-mb-px">Andre Madarang</h4>
+<h5 class="tw-font-semibold tw-text-sm tw-text-black-transparent-25">Instructor at Laracasts</h5>
+</header>
+<div class="tw-mb-8 tw-text-grey-darkest">
+Greetings! I'm Andre, a full-stack web developer and Laracasts instructor. My other hobbies include playing guitar, videography and gaming.
+</div>
+<footer class="tw-flex tw-justify-between tw-items-center">
+<p class="tw-font-bold tw-text-sm tw-text-grey-dark">Say Hi!</p>
+<div class="tw-flex">
+<a href="https://twitter.com/drehimself">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36" class="tw-text-blue hover:tw-text-blue-dark">
+<path class="tw-fill-current" fill-rule="evenodd" d="M18 0C8.075 0 0 8.075 0 18c0 9.924 8.075 18 18 18 9.924 0 18-8.076 18-18 0-9.925-8.074-18-18-18zm8.03 13.88c.008.179.012.358.012.538 0 5.475-4.166 11.786-11.788 11.786-2.34 0-4.518-.684-6.351-1.86.324.039.654.058.988.058 1.942 0 3.728-.663 5.146-1.773-1.813-.034-3.343-1.231-3.87-2.878.252.048.512.075.778.075.378 0 .745-.05 1.092-.145-1.895-.38-3.323-2.054-3.323-4.062l.001-.052c.558.31 1.197.496 1.876.517-1.111-.741-1.843-2.01-1.843-3.447 0-.76.204-1.472.56-2.084 2.043 2.507 5.097 4.156 8.54 4.33-.071-.304-.107-.62-.107-.945 0-2.287 1.855-4.143 4.142-4.143 1.192 0 2.268.504 3.025 1.308.944-.185 1.829-.529 2.631-1.005-.311.968-.966 1.779-1.824 2.292.84-.1 1.64-.322 2.38-.652-.553.83-1.255 1.56-2.065 2.142z" />
+</svg>
+</a>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="footer-wrap mobile:tw-text-lg">
+<section class="footer-section top lg:tw-pb-0 tw-pt-0">
+<div class="container">
+<div class="md:tw-w-4/5 lg:tw-w-1/2 tw-mx-auto tw-text-center">
+<div>
+<h2 class="tw-text-white tw-text-2xl md:tw-text-3xl tw-mb-8 tw-tracking-tight">
+Want us to email you occasionally with Laracasts news?
+</h2>
+</div>
+<div>
+<newsletter-form></newsletter-form>
+</div>
+</div>
+</div>
+</section>
+<section class="footer-section bottom tw-text-center lg:tw-text-left tw-py-0">
+<footer class="container">
+<div class="lg:tw-flex lg:mb-3">
+<div class="lg:tw-w-2/5 lg:tw-mr-auto tw-mb-10 lg:tw-mb-0">
+<div class="tw-mb-3 tw-flex tw-justify-center lg:tw-block">
+<svg class="tw-fill-current tw-text-white" width="232" height="44" viewBox="0 0 323 36" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<path d="M0 4.83h6.986v24.521h15.137v5.699H0V4.83zm53.374 23.744H39.36l-2.674 6.476h-7.159L42.981 4.83h6.9L63.38 35.05h-7.33l-2.675-6.476zm-2.199-5.31l-4.787-11.57-4.787 11.57h9.574zM92.949 35.05l-5.822-8.418H80.7v8.418h-6.986V4.83h13.067c2.674 0 4.995.446 6.965 1.339 1.969.892 3.485 2.158 4.55 3.799 1.063 1.64 1.595 3.583 1.595 5.828s-.54 4.18-1.617 5.806c-1.078 1.626-2.61 2.871-4.593 3.734l6.77 9.714H92.95zm-.13-19.254c0-1.698-.546-3-1.638-3.907-1.093-.907-2.688-1.36-4.787-1.36H80.7v10.534h5.693c2.099 0 3.694-.461 4.787-1.382 1.092-.92 1.638-2.216 1.638-3.885zm39.661 12.778h-14.016l-2.673 6.476h-7.16l13.456-30.22h6.9l13.498 30.22h-7.331l-2.674-6.476zm-2.2-5.31l-4.786-11.57-4.787 11.57h9.574zm36.556 12.304c-3.076 0-5.858-.67-8.344-2.008-2.487-1.338-4.442-3.194-5.865-5.569-1.424-2.374-2.135-5.058-2.135-8.05 0-2.994.711-5.678 2.135-8.052 1.423-2.375 3.378-4.231 5.865-5.57 2.486-1.338 5.282-2.007 8.387-2.007 2.617 0 4.981.46 7.094 1.382 2.114.92 3.889 2.245 5.326 3.971l-4.485 4.145c-2.04-2.36-4.57-3.54-7.59-3.54-1.868 0-3.536.41-5.002 1.23a8.742 8.742 0 0 0-3.429 3.432c-.819 1.468-1.229 3.137-1.229 5.008 0 1.87.41 3.54 1.23 5.008a8.742 8.742 0 0 0 3.428 3.432c1.466.82 3.134 1.23 5.002 1.23 3.02 0 5.55-1.194 7.59-3.583l4.485 4.145c-1.437 1.755-3.22 3.093-5.347 4.014-2.128.921-4.5 1.382-7.116 1.382zm73.888 0c-2.387 0-4.694-.324-6.922-.971-2.228-.648-4.018-1.49-5.369-2.526l2.372-5.267c1.294.95 2.832 1.713 4.614 2.288 1.783.576 3.565.864 5.348.864 1.984 0 3.45-.295 4.399-.885.948-.59 1.423-1.375 1.423-2.353 0-.72-.28-1.317-.841-1.792-.56-.475-1.28-.856-2.156-1.144-.877-.288-2.063-.604-3.558-.95-2.3-.546-4.183-1.093-5.65-1.64a9.178 9.178 0 0 1-3.773-2.633c-1.05-1.21-1.574-2.82-1.574-4.836 0-1.755.474-3.345 1.423-4.77.949-1.425 2.38-2.554 4.29-3.389 1.913-.834 4.249-1.252 7.009-1.252 1.926 0 3.81.23 5.65.691 1.84.46 3.45 1.122 4.83 1.986l-2.157 5.31c-2.789-1.583-5.578-2.375-8.366-2.375-1.955 0-3.4.317-4.334.95-.935.633-1.402 1.468-1.402 2.504s.54 1.806 1.617 2.31c1.078.503 2.724 1 4.938 1.49 2.3.546 4.183 1.093 5.65 1.64a9.355 9.355 0 0 1 3.773 2.59c1.05 1.18 1.574 2.777 1.574 4.792a8.258 8.258 0 0 1-1.445 4.727c-.963 1.425-2.408 2.554-4.334 3.389-1.926.835-4.27 1.252-7.03 1.252zm30.604-25.04h-9.66V4.83h26.306v5.699h-9.66v24.52h-6.986V10.53zm37.289 25.04c-2.386 0-4.694-.324-6.922-.971-2.228-.648-4.017-1.49-5.369-2.526l2.372-5.267c1.294.95 2.832 1.713 4.615 2.288 1.782.576 3.564.864 5.347.864 1.984 0 3.45-.295 4.399-.885.949-.59 1.423-1.375 1.423-2.353 0-.72-.28-1.317-.841-1.792-.56-.475-1.28-.856-2.156-1.144-.877-.288-2.063-.604-3.558-.95-2.3-.546-4.183-1.093-5.65-1.64a9.178 9.178 0 0 1-3.773-2.633c-1.05-1.21-1.574-2.82-1.574-4.836 0-1.755.474-3.345 1.423-4.77.949-1.425 2.38-2.554 4.291-3.389 1.912-.834 4.248-1.252 7.008-1.252 1.926 0 3.81.23 5.65.691 1.84.46 3.45 1.122 4.83 1.986l-2.157 5.31c-2.789-1.583-5.577-2.375-8.366-2.375-1.955 0-3.4.317-4.334.95-.935.633-1.402 1.468-1.402 2.504s.54 1.806 1.617 2.31c1.078.503 2.724 1 4.938 1.49 2.3.546 4.183 1.093 5.65 1.64a9.355 9.355 0 0 1 3.773 2.59c1.05 1.18 1.574 2.777 1.574 4.792a8.258 8.258 0 0 1-1.445 4.727c-.963 1.425-2.407 2.554-4.334 3.389-1.926.835-4.27 1.252-7.03 1.252z" fill="#FFF" fill-rule="nonzero" />
+<g fill="#FFF">
+<path d="M192.912 8.921l4.923 4.924a2.597 2.597 0 0 1-3.673 3.673l-4.923-4.924a2.597 2.597 0 1 1 3.673-3.673zM203.437 19.447l10.547 10.547a2.597 2.597 0 0 1-3.673 3.673L199.764 23.12a2.597 2.597 0 1 1 3.673-3.673z" />
+<path d="M190.416 8.255L218.753.893A2.672 2.672 0 0 1 222 2.767a2.592 2.592 0 0 1-1.846 3.199l-28.338 7.362a2.672 2.672 0 0 1-3.247-1.875 2.592 2.592 0 0 1 1.847-3.198z" />
+<path d="M209.592 31.104l7.363-28.337A2.592 2.592 0 0 1 220.153.92a2.672 2.672 0 0 1 1.875 3.247l-7.362 28.337a2.592 2.592 0 0 1-3.199 1.847 2.672 2.672 0 0 1-1.875-3.247z" />
+</g>
+<path d="M208.62 18.067l-10.236 10.235a2.643 2.643 0 1 1-3.738-3.738l10.236-10.235a2.643 2.643 0 0 1 3.738 3.738zM193.38 33.306l-1.54 1.54a2.643 2.643 0 1 1-3.738-3.738l1.54-1.54a2.643 2.643 0 0 1 3.738 3.738z" fill="#53B5FF" />
+</g>
+</svg>
+</div>
+<p class="tw-mb-8 tw-text-white tw-leading-loose tw-max-w-sm tw-mx-auto lg:tw-max-w-full lg:tw-mx-0">
+Nine out of ten doctors recommend Laracasts over competing brands.
+Come inside, see for yourself, and massively level up your development skills in the process.
+</p>
+<div class="tw-flex tw-w-42 lg:tw-w-28 tw-justify-between tw-items-center tw-mx-auto lg:tw-mx-0 tw-mb-8">
+<a href="https://www.youtube.com/laracastsofficial" target="_blank" rel="noreferrer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 19" class="tw-w-8 lg:tw-w-6 tw-text-white hover:tw-text-black tw-transition-all">
+<g class="tw-fill-current" fill-rule="nonzero">
+<path d="M6.4 0H5.371l-.685 2.629L4 0H2.857c.229.686.457 1.257.686 1.943.343.914.571 1.714.571 2.171v2.743h1.029V4.114L6.4 0zm2.743 5.143V3.429c0-.572-.114-.915-.343-1.258-.229-.342-.571-.457-1.029-.457-.457 0-.8.229-1.028.572-.229.228-.343.571-.343 1.143v1.828c0 .572.114.914.343 1.143.228.343.571.457 1.028.457.458 0 .8-.228 1.029-.571.229-.115.343-.572.343-1.143zm-.914.228c0 .458-.115.686-.458.686-.342 0-.457-.228-.457-.686V3.2c0-.457.115-.686.457-.686.343 0 .458.229.458.686v2.171zm4.342 1.486V1.714h-.914V5.6c-.228.343-.343.457-.571.457a.246.246 0 0 1-.229-.228V1.714h-.914v4c0 .343 0 .572.114.8 0 .229.229.343.572.343.342 0 .685-.228 1.028-.571v.571h.914zM13.029 12c-.343 0-.458.229-.458.686v.457h.915v-.457c0-.457-.115-.686-.457-.686zM9.714 12c-.114 0-.343.114-.457.229v3.085c.114.115.343.229.457.229.229 0 .343-.229.343-.686v-2.171c0-.457-.114-.686-.343-.686z" />
+<path d="M15.314 9.486C15.086 8.686 14.4 8 13.714 8 11.886 7.771 9.943 7.771 8 7.771c-1.943 0-3.771 0-5.714.229-.686 0-1.372.686-1.6 1.486-.229 1.143-.229 2.4-.229 3.543 0 1.142 0 2.4.229 3.542.228.8.8 1.372 1.6 1.486 1.943.229 3.771.229 5.714.229 1.943 0 3.771 0 5.714-.229.8-.114 1.486-.686 1.6-1.486.229-1.142.229-2.4.229-3.542 0-1.143 0-2.4-.229-3.543zM4.8 10.514H3.657v5.829H2.63v-5.829H1.6V9.486h3.2v1.028zm2.743 5.829h-.914v-.572c-.343.458-.686.572-1.029.572-.343 0-.457-.114-.571-.343 0-.114-.115-.343-.115-.8v-4h.915v4c0 .114.114.229.228.229.229 0 .343-.115.572-.458V11.2h.914v5.143zm3.428-1.6c0 .457 0 .8-.114 1.028-.114.343-.343.572-.686.572-.342 0-.685-.229-.914-.572v.458h-.914V9.486h.914v2.171c.343-.343.572-.571.914-.571.343 0 .572.228.686.571.114.229.114.572.114 1.029v2.057zm3.429-.8h-1.829v.914c0 .457.115.686.458.686.228 0 .342-.114.457-.343v-.571h.914V15.314c0 .229-.114.343-.229.572-.228.343-.571.571-1.142.571-.458 0-.8-.228-1.143-.571-.229-.229-.343-.686-.343-1.143v-1.714c0-.572.114-.915.228-1.143.229-.343.572-.572 1.143-.572.457 0 .8.229 1.029.572.228.228.228.685.228 1.143v.914h.229z" />
+</g>
+</svg>
+</a>
+<a href="https://twitter.com/laracasts" target="_blank" rel="noreferrer">
+<svg xmlns="http://www.w3.org/2000/svg" class="tw-w-8 lg:tw-w-6 tw-text-white hover:tw-text-black tw-transition-all" viewBox="0 0 18 18">
+<path class="tw-fill-current" fill-rule="nonzero" d="M9 0C4.037 0 0 4.037 0 9c0 4.962 4.037 9 9 9 4.962 0 9-4.038 9-9 0-4.963-4.037-9-9-9zm4.015 6.94c.004.09.006.18.006.27 0 2.737-2.083 5.892-5.894 5.892a5.86 5.86 0 0 1-3.175-.93 4.158 4.158 0 0 0 3.067-.858 2.074 2.074 0 0 1-1.936-1.439 2.088 2.088 0 0 0 .936-.034 2.072 2.072 0 0 1-1.662-2.032v-.026c.28.155.6.249.938.26a2.07 2.07 0 0 1-.64-2.766 5.882 5.882 0 0 0 4.269 2.165 2.071 2.071 0 0 1 3.53-1.89 4.135 4.135 0 0 0 1.316-.503 2.08 2.08 0 0 1-.912 1.146c.419-.05.82-.16 1.19-.326-.277.415-.628.78-1.033 1.071z">
+</svg>
+</a>
+<a href="https://github.com/laracasts" target="_blank" rel="noreferrer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 29" class="tw-w-8 lg:tw-w-6 tw-text-white hover:tw-text-black tw-transition-all">
+<path class="tw-fill-current" fill-rule="nonzero" d="M27.959 7.434a14.866 14.866 0 0 0-5.453-5.414C20.21.69 17.703.025 14.984.025c-2.718 0-5.226.665-7.521 1.995A14.864 14.864 0 0 0 2.01 7.434C.67 9.714 0 12.202 0 14.901c0 3.242.953 6.156 2.858 8.746 1.906 2.589 4.367 4.38 7.385 5.375.351.064.611.019.78-.136a.755.755 0 0 0 .254-.58l-.01-1.047c-.007-.658-.01-1.233-.01-1.723l-.448.077a5.765 5.765 0 0 1-1.083.068 8.308 8.308 0 0 1-1.356-.136 3.04 3.04 0 0 1-1.308-.58c-.403-.304-.689-.701-.858-1.192l-.195-.445a4.834 4.834 0 0 0-.614-.988c-.28-.362-.563-.607-.85-.736l-.136-.097a1.428 1.428 0 0 1-.253-.233 1.062 1.062 0 0 1-.176-.271c-.039-.09-.007-.165.098-.223.104-.059.292-.087.566-.087l.39.058c.26.052.582.206.965.465.384.258.7.594.947 1.007.299.53.66.933 1.082 1.21.423.278.85.417 1.278.417.43 0 .8-.032 1.112-.097a3.9 3.9 0 0 0 .878-.29c.117-.866.436-1.53.956-1.996a13.447 13.447 0 0 1-2-.348 7.995 7.995 0 0 1-1.833-.756 5.244 5.244 0 0 1-1.571-1.298c-.416-.516-.758-1.195-1.024-2.034-.267-.84-.4-1.808-.4-2.905 0-1.563.514-2.893 1.541-3.99-.481-1.176-.436-2.493.137-3.952.377-.116.936-.03 1.678.261.741.291 1.284.54 1.629.746.345.207.621.381.83.523a13.948 13.948 0 0 1 3.745-.503c1.288 0 2.537.168 3.747.503l.741-.464c.507-.31 1.106-.595 1.795-.853.69-.258 1.216-.33 1.58-.213.586 1.46.638 2.777.156 3.951 1.028 1.098 1.542 2.428 1.542 3.99 0 1.099-.134 2.07-.4 2.916-.267.846-.611 1.524-1.034 2.034-.423.51-.95.94-1.58 1.288a8.01 8.01 0 0 1-1.834.756c-.592.155-1.259.271-2 .349.676.58 1.014 1.498 1.014 2.75v4.087c0 .232.081.426.244.58.163.155.42.2.77.136 3.019-.994 5.48-2.786 7.386-5.375 1.905-2.59 2.858-5.504 2.858-8.746 0-2.698-.671-5.187-2.01-7.466z"></path>
+</svg>
+</a>
+</div>
+</div>
+<div class="lg:tw-w-1/6 mobile:tw-mb-6">
+<h5 class="tw-text-white tw-font-bold lg:tw-font-semibold tw-mb-2 lg:tw-mb-6 tw-uppercase">Learn</h5>
+<ul class="tw-leading-loose inline-bulleted-list tw-w-3/4 tw-mx-auto lg:tw-mx-0 tw-mb-8 lg:tw-mb-0">
+<li>
+<a href="/join" class="tw-text-transparent-50 hover:tw-text-white" @click.prevent="$modal.show('join-modal')">Sign Up</a>
+</li>
+<li>
+<a class="tw-text-transparent-50 hover:tw-text-white" href="/login" @click.prevent="dispatch('Login')">
+Sign In
+</a>
+</li>
+<li>
+<a class="tw-text-transparent-50 hover:tw-text-white" href="/browse">
+Topics
+</a>
+</li>
+<li>
+<a class="tw-text-transparent-50 hover:tw-text-white" href="/skills/laravel">
+Journeys
+</a>
+</li>
+<li><a class="tw-text-transparent-50 hover:tw-text-white" @click.prevent="$modal.show('promo-modal')">Commercial</a></li>
+</ul>
+</div>
+<div class="lg:tw-w-1/6 mobile:tw-mb-6">
+<h5 class="tw-text-white tw-font-bold lg:tw-font-semibold tw-mb-2 lg:tw-mb-6 tw-uppercase">Discuss</h5>
+<ul class="tw-leading-loose inline-bulleted-list tw-w-3/4 tw-mx-auto lg:tw-mx-0 tw-mb-8 lg:tw-mb-0">
+<li><a class="tw-text-transparent-50 hover:tw-text-white" href="/discuss">Forum</a></li>
+<li><a class="tw-text-transparent-50 hover:tw-text-white" href="/podcast">Podcast</a></li>
+<li><a class="tw-text-transparent-50 hover:tw-text-white" href="/blog">Blog</a></li>
+<li>
+<support-button class="tw-inline"></support-button>
+</li>
+</ul>
+</div>
+<div class="lg:tw-w-1/6 mobile:tw-mb-8">
+<h5 class="tw-text-white tw-font-bold lg:tw-font-semibold tw-mb-2 lg:tw-mb-6 tw-uppercase">Extras</h5>
+<ul class="tw-leading-loose inline-bulleted-list tw-w-3/4 tw-mx-auto lg:tw-mx-0 tw-mb-8 lg:tw-mb-0">
+<li>
+<a class="tw-text-transparent-50 hover:tw-text-white" href="/gift-certificates">
+Gift Certificates</a>
+</li>
+<li><a class="tw-text-transparent-50 hover:tw-text-white" href="/faq">FAQ</a></li>
+<li><a class="tw-text-transparent-50 hover:tw-text-white" href="https://assets.laracasts.com">Assets</a></li>
+<li><a class="tw-text-transparent-50 hover:tw-text-white" href="https://larajobs.com/?partner=36#" target="_blank" rel="noreferrer">Get a Job</a></li>
+<li><a class="tw-text-transparent-50 hover:tw-text-white" href="/privacy">Privacy</a></li>
+<li><a class="tw-text-transparent-50 hover:tw-text-white" href="/terms">Terms</a></li>
+</ul>
+</div>
+</div>
+<div class="tw-border-t tw-border-solid tw-border-transparent-10 tw-py-4 lg:tw-mt-8 mobile:tw-text-lg">
+<div class="tw-text-transparent-50 tw-text-base lg:tw-text-xs tw-text-center">
+<p class="lg:tw-mb-2 tw-tracking-normal">
+&copy; Laracasts 2020. All rights reserved. <br class="lg:tw-hidden" />Yes, all of them. That means you, Todd.
+</p>
+<p class="tw-tracking-normal tw-hidden md:tw-block">
+<span class="mobile:tw-block">Designed with <img src="/images/icons/heart.svg" alt="heart" class="tw-px-1 tw-relative heart-pulse tw-inline" style="top: 2px" loading="lazy"> by <a href="https://twitter.com/tudssss" class="tw-font-bold inherits-color link hover:tw-text-white">Tuds</a>.</span>
+<br class="lg:tw-hidden">Proudly hosted with <a href="https://forge.laravel.com" class="tw-font-bold inherits-color link hover:tw-text-white">Laravel Forge</a>
+and <a href="https://www.digitalocean.com/?refcode=d2070a2d5f35" class="tw-font-bold link inherits-color link hover:tw-text-white">DigitalOcean</a>.
+</p>
+</div>
+</div>
+</footer>
+</section>
+</div>
+</div>
+<login-modal></login-modal>
+<forgot-password-modal></forgot-password-modal>
+<sign-up-modal gift-certificate=""></sign-up-modal>
+<join initial-category="individual"></join>
+<testimonials-modal></testimonials-modal>
+<search-modal></search-modal>
+<promo-modal></promo-modal>
+</div> 
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="ccefaea9e8fa5d93a6fc5f9e-|49" defer=""></script></body>
+</html>

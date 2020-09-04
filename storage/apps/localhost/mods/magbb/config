@@ -1,0 +1,8 @@
+[config]
+    name = 'MagBB'
+    description = 'Simple Forum Engine Built on Twig'
+    tags = 'magbb, twig, engine'
+    
+[includes]
+    include[] = 'magbb.twig'
+    include[] = '_includes_/functions.twig'

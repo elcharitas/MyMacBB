@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta property="og:site_name" content="Laracasts">
+<meta name="csrf-token" content="q4LTdVJSYAaOyIF8b8YmLbJmX5mdXhPjVa9JIgz2">
+<title>Laracasts Web Development Forum</title>
+<meta name="description" content="The most popular PHP and MacBB forum.">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#3668c9">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<link rel="alternate" type="application/atom+xml" title="Laracasts" href="/feed">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=optional" rel="stylesheet">
+<link href="css/app.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/highlight/styles/laracasts.css?id=1">
+</head>
+<body class=" guest ">
+<div id="root" class="page xl:tw-flex" style="background-color: white">
+<div class="xl:tw-flex-1">
+<nav class="section lg:tw-z-50 tw-py-4 bg-warning lg:tw-py-3" style="height: 60px">
+<div class="tw-flex tw-justify-between tw-h-full tw-items-center tw-relative">
+<div id="header-logo-arrow" class="has-animation xl:tw-flex-1 tw-mr-4 xl:tw-mr-0">
+<a href="/" @click.right.prevent="visitAssetsWebsite" class="tw-cursor-pointer tw-leading-none tw-block">
+</a>
+</div>
+<div class="navbar-links xl:tw-flex-grow tw-relative tw-hidden md:tw-flex md:tw-justify-start lg:tw-justify-around tw-text-xs lg:tw-text-sm xl:tw-w-1/2" style="max-width: 550px">
+<a href="/browse" class="navbar-link  xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
+Topics
+</a>
+<a href="/series?curated" class="navbar-link  xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
+Series
+</a>
+<a href="/discuss" class="navbar-link xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-text-white is-active tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
+Discussions
+</a>
+<a href="/podcast" class="tw-hidden lg:tw-block navbar-link xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0  tw-relative tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
+Podcast
+</a>
+</div>
+<div class="md:tw-hidden tw-flex tw-items-center">
+</div>
+<div class="tw-hidden md:tw-block tw-relative tw-flex-1">
+<div class="tw-flex tw-items-center tw-justify-end">
+<search-button id="search-trigger" class="tw-leading-none tw-bg-transparent-10 hover:tw-bg-transparent-25 tw-p-3 tw-rounded-xl">
+<button id="search-trigger" title="Tip: press / or s anywhere to instantly activate me.">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 15 15">
+<g fill="none" fill-rule="evenodd">
+<path d="M-2-2h20v20H-2z"></path>
+<path fill="#FFF" d="M10.443 9.232h-.638l-.226-.218A5.223 5.223 0 0 0 10.846 5.6 5.247 5.247 0 1 0 5.6 10.846c1.3 0 2.494-.476 3.414-1.267l.218.226v.638l4.036 4.028 1.203-1.203-4.028-4.036zm-4.843 0A3.627 3.627 0 0 1 1.967 5.6 3.627 3.627 0 0 1 5.6 1.967 3.627 3.627 0 0 1 9.232 5.6 3.627 3.627 0 0 1 5.6 9.232z"></path>
+</g>
+</svg>
+</button>
+</search-button>
+<a href="/login" class="tw-text-white hover:tw-text-white link tw-font-semibold tw-uppercase tw-mx-6 tw-text-xs" @click.prevent="dispatch('Login')">
+Sign In
+</a>
+<a class="tw-text-white hover:tw-bg-white hover:tw-text-bue tw-font-semibold tw-uppercase tw-border tw-rounded-full tw-text-xs tw-px-3 tw-py-2 tw-leading-tight" href="/join" @click.prevent="dispatch('Join')">
+Get Started
+</a>
+</div>
+</div>
+</div>
+</nav>
+ <portal-target name="nav-after"></portal-target>
+<forum-view inline-template>
+<div class="wrapper">
+<div class="section">
+<div class="forum-wrapper">
+<div class="tw-flex tw-flex-col tw-flex-col-reverse md:tw-flex-row tw-mx-auto" style="max-width: 1100px">
+<div class="forum-sidebar tw-hidden lg:tw-block tw-flex-none tw-pr-10">
+<div class="lg:tw-sticky lg:tw-text-center">
+<a id="js-new-discussion-button" class="tw-btn tw-btn-blue tw-mb-8 tw-w-full tw-max-w-2xs tw-mx-auto" @click.prevent="$modal.show('join-modal')" href="#" style="box-shadow: 0 4px 10px 1px #D7E8FD;">
+New Discussion
+</a>
+<ul class="mobile:tw-hidden tw-px-6 tw-py-3 mobile:tw-hidden tw-border tw-border-solid tw-border-grey-light tw-rounded-xl">
+<li>
+<a href="/discuss" class=" has-icon tw-text-grey-dark tw-text-sm tw-mb-1 hover:tw-text-blue hover:tw-bg-grey-panel tw-rounded tw-py-2 tw-px-3">
+All Threads
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="tw-flex-1">
+<div class="forum-main lg:tw-flex">
+<div class="lg:tw-flex-1  col-md-7 col-lg-8 ">
+<div class="tw-flex tw-justify-center md:tw-justify-between tw-mb-4 md:tw-mb-4 md:tw-hidden" style="height: 40px;">
+<form class="search-form tw-bg-grey-panel tw-w-full" action="/discuss" autocomplete="off">
+<input name="q" class="tw-px-5 tw-pt-0 tw-text-sm tw-w-full tw-h-full" placeholder="Search Users, Forums, Threads..." value="">
+</form>
+</div>
+<div class="tw-mb-2 tw-py-3 tw-px-6 bg-warning tw-font-bold text-white text-uppercase md:tw--mx-6"> Recent Updates </div>
+<div class="conversation-list tw-mx-2 md:tw--mx-6">
+<div class="conversation-list-item border tw-flex tw-cursor-pointer tw-items-start tw-flex-col md:tw-flex-rw md:hover:tw-bg-grey-panel md:tw-px-6 md:tw-py-3 tw-mb-4 md:tw-mb-3 tw-transition-all tw-px-6 tw-py-5 md:tw-px-0 tw--mx-2 md:tw-mx-0">
+
+<div class="conversation-list-avatar tw-self-start tw-w-full tw-flex tw-items-center tw-mb-4">
+<div class="bg-warning tw-py-2 tw-px-3 text-white mr-2 tw-flex tw-items-center tw-text-xs tw-rounded">
+    MacBB
+</div>
+<div class="tw-flex tw-items-center">
+<h4 class="tw-mb-3 md:tw-mb-2 tw-text-base" style="word-break: break-word;">
+<a href="/discuss/channels/macbb/macbb-application-log-in-redirects-back-to-login-page" class="conversation-list-link tw-font-bold md:tw-font-semibold tw-tracking-tight hover:tw-text-black link" style="color: black" title="MacBB Application Log in redirects 419 error" v-pre>
+MacBB Application Log in redirects 419 error
+</a>
+</h4>
+</div>
+</div>
+<div class="tw-w-full tw-flex md:tw-block md:tw-mb-2">
+
+<div class="conversation-list-title lg:tw-pr-10">
+<div class="conversation-list-excerpt tw-break-words  tw-text-base md:tw-text-sm tw-mb-3 tw-text-grey-darker phone:tw-leading-loose" style="word-break: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" v-pre>
+My macbb application forum
+When I log in, it comes back to Log in. it says 419 Page Expired.
+What can be the issue?<span class="is-muted">...</span>
+</div>
+<div class="tw-text-grey-dark tw-text-xs tw-mt-2">
+<a href="https://laracasts.com/@jonath45" class="tw-font-semibold link hover:tw-text-blue">
+jonath45
+</a>
+replied
+<a href="/discuss/channels/macbb/macbb-application-log-in-redirects-back-to-login-page?reply=631862" class="inherits-color link">
+<time>10 minutes ago</time>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="conversation-list-item border tw-flex tw-cursor-pointer tw-items-start tw-flex-col md:tw-flex-rw md:hover:tw-bg-grey-panel md:tw-px-6 md:tw-py-3 tw-mb-4 md:tw-mb-3 tw-transition-all tw-px-6 tw-py-5 md:tw-px-0 tw--mx-2 md:tw-mx-0">
+
+<div class="conversation-list-avatar tw-self-start tw-w-full tw-flex tw-items-center tw-mb-4">
+<div class="bg-warning tw-py-2 tw-px-3 text-white mr-2 tw-flex tw-items-center tw-text-xs tw-rounded">
+    MacBB
+</div>
+<div class="tw-flex tw-items-center">
+<h4 class="tw-mb-3 md:tw-mb-2 tw-text-base" style="word-break: break-word;">
+<a href="/discuss/channels/macbb/macbb-application-log-in-redirects-back-to-login-page" class="conversation-list-link tw-font-bold md:tw-font-semibold tw-tracking-tight hover:tw-text-black link" style="color: black" title="MacBB Application Log in redirects 419 error" v-pre>
+MacBB Application Log in redirects 419 error
+</a>
+</h4>
+</div>
+</div>
+<div class="tw-w-full tw-flex md:tw-block md:tw-mb-2">
+
+<div class="conversation-list-title lg:tw-pr-10">
+<div class="conversation-list-excerpt tw-break-words  tw-text-base md:tw-text-sm tw-mb-3 tw-text-grey-darker phone:tw-leading-loose" style="word-break: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" v-pre>
+My macbb application forum
+When I log in, it comes back to Log in. it says 419 Page Expired.
+What can be the issue?<span class="is-muted">...</span>
+</div>
+<div class="tw-text-grey-dark tw-text-xs tw-mt-2">
+<a href="https://laracasts.com/@jonath45" class="tw-font-semibold link hover:tw-text-blue">
+jonath45
+</a>
+replied
+<a href="/discuss/channels/macbb/macbb-application-log-in-redirects-back-to-login-page?reply=631862" class="inherits-color link">
+<time>10 minutes ago</time>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="conversation-list-item border tw-flex tw-cursor-pointer tw-items-start tw-flex-col md:tw-flex-rw md:hover:tw-bg-grey-panel md:tw-px-6 md:tw-py-3 tw-mb-4 md:tw-mb-3 tw-transition-all tw-px-6 tw-py-5 md:tw-px-0 tw--mx-2 md:tw-mx-0">
+
+<div class="conversation-list-avatar tw-self-start tw-w-full tw-flex tw-items-center tw-mb-4">
+<div class="bg-warning tw-py-2 tw-px-3 text-white mr-2 tw-flex tw-items-center tw-text-xs tw-rounded">
+    MacBB
+</div>
+<div class="tw-flex tw-items-center">
+<h4 class="tw-mb-3 md:tw-mb-2 tw-text-base" style="word-break: break-word;">
+<a href="/discuss/channels/macbb/macbb-application-log-in-redirects-back-to-login-page" class="conversation-list-link tw-font-bold md:tw-font-semibold tw-tracking-tight hover:tw-text-black link" style="color: black" title="MacBB Application Log in redirects 419 error" v-pre>
+MacBB Application Log in redirects 419 error
+</a>
+</h4>
+</div>
+</div>
+<div class="tw-w-full tw-flex md:tw-block md:tw-mb-2">
+
+<div class="conversation-list-title lg:tw-pr-10">
+<div class="conversation-list-excerpt tw-break-words  tw-text-base md:tw-text-sm tw-mb-3 tw-text-grey-darker phone:tw-leading-loose" style="word-break: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" v-pre>
+My macbb application forum
+When I log in, it comes back to Log in. it says 419 Page Expired.
+What can be the issue?<span class="is-muted">...</span>
+</div>
+<div class="tw-text-grey-dark tw-text-xs tw-mt-2">
+<a href="https://laracasts.com/@jonath45" class="tw-font-semibold link hover:tw-text-blue">
+jonath45
+</a>
+replied
+<a href="/discuss/channels/macbb/macbb-application-log-in-redirects-back-to-login-page?reply=631862" class="inherits-color link">
+<time>10 minutes ago</time>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tw-mt-6">
+<ul class="pagination tw-justify-center">
+<li class="page-item disabled"><span class="page-link bg-dark text-white">&laquo; Prev</span></li>
+<li class="page-item d-block"><span class="page-link">1</span></li>
+<li class="page-item disabled d-block"><span class="page-link bg-dark text-white">3</span></li>
+<li class="page-item d-block"><span class="page-link">7</span></li>
+<li class="page-item"><a href="#" rel="next"><span class="page-link bg-warning text-white">Next &raquo;</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</forum-view>
+<div class="footer-wrapper bg-dark text-white">
+<section class="footer-section bottom tw-text-center tw-py-8">
+<footer class="container">
+<div class="mobile:tw-flx mobile:tw-justifybetween tw-px-8 py-2">
+<a class="tw-px-2">
+Home
+</a>
+<a class="tw-px-2">
+Rules
+</a>
+<a class="tw-px-2">
+Userlist
+</a>
+<a class="tw-px-2">
+Create a forum
+</a>
+</div>
+<div class="">All Rights Reserved 
+<a class="tw-px-2">
+MacBB Forum.</a> Powered by <a class="tw-px-2">
+MacBB
+</a></div>
+</footer>
+</section>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{#
+    # MagBB Forum Engine v1.0.1
+    #
+    # Created by Jonathan Irhodia(), Olaide Daniel,
+    # Released: 
+    # LICENSE: Double (GNU and MIT)
+    # file: app/mods/magbb.twig
+#}
+
+{# Set up template Object #}
+{% set magbb = BB.obj('magbb') %}
+
+{% do magbb.put('basePath', Mag.base ~ '/_includes_') %}
+
+{% macro widget(name, scope) %}
+    {{ Mag.template('widgets/' ~ name, scope) | raw }}
+{% endmacro %}

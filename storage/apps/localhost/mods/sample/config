@@ -1,0 +1,4 @@
+[config]
+    name = 'Sample Mod'
+    description = 'This is an example mod created using Twig.'
+    tags = 'magbb, sample'

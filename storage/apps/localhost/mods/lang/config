@@ -1,0 +1,11 @@
+[config]
+    name = 'MagBB Language'
+    description = 'Language Translation with Twig and MagBB API'
+    tags = 'magbb, language'
+
+[lang]
+    code = 'en'
+    name = 'English'
+
+[autoloads]
+    autoload[] = 'en'

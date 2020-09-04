@@ -1,0 +1,47 @@
+{% if Mag.user %}
+    {{ BB.redirect('/') | raw }}
+{% else %}
+<!DOCTYPE html>
+<html lang="en" class="tw-grid tw-h-full">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.1">
+        <title>Sign In</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body class="md:tw-flex md:tw-justify-between">
+        <div style="height: 20vh">&nbsp;</div>
+        <div class="m-auto">
+            <form class="tw-py-8 tw-px-10 tw-w-screen tw-max-w-sm" role="form" method="post" action="/sessions">
+            <div class="tw-flex tw-flex-col tw-justify-center">
+                <h1 class="tw-text-lg tw-font-bold tw-text-black tw-mx-auto tw-mb-4">
+                    <span class="logo"></span>
+                </h1>
+                <div class="tw-py-2">
+                    <input type="hidden" name="_token" value="q4LTdVJSYAaOyIF8b8YmLbJmX5mdXhPjVa9JIgz2">
+                    <div class="control">
+                        <input type="text" id="user_id" name="user_id" class="input tw-text-xs" placeholder="Username or Email" value="" required>
+                    </div>
+                    <div class="control">
+                        <input type="password" id="password" name="password" class="input tw-text-xs" placeholder="Password" required>
+                    </div>
+                    <div class="control tw-mt-6">
+                        <button type="submit" class="g-recaptcha tw-btn input bg-mac text-white tw-text-xs tw-w-full">
+                            &laquo; &nbsp; Sign In &nbsp; &raquo;
+                        </button>
+                    </div>
+                </div>
+                <footer class="tw-flex tw-justify-between tw-mt-6">
+                    <a href="/join" class="tw-text-xs text-mac link">
+                    Create an Account!
+                    </a>
+                    <a href="/password_resets/create" class="text-mac tw-text-xs link">
+                     Lost Password?
+                    </a>
+                </footer>
+            </div>
+        </form>
+    </div>
+    </body>
+</html>
+{% endif %}

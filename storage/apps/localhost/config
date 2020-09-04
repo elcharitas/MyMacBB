@@ -1,0 +1,65 @@
+[app]
+    name = 4rum
+    title = Community
+    url = 'http://localhost:8012'
+    timezone = UTC
+    locale = en
+    hash = "base64:s6SzUSueEeJOZQIEwvIgiYbrsmtD8dI6LPkKa2fVxGI="
+
+[twig]
+    auto_parse = true
+    debug_mode = true
+    escape = 'html'
+    auto_reload = true
+    strict_mode = false
+    exts[] = php
+    exts[] = xml
+
+[includes:magbb_includes]
+    base_path = 'mods'
+    include[] = 'lang'
+    include[] = 'sample'
+    include[] = 'magbb'
+    
+[cache:gc]
+    expire = 1
+    prefix = 4rum
+    path = uploads/_cache
+
+[cookie:gc]
+    expire = 300
+    prefix =
+
+[session:gc]
+    expire = 300
+    prefix = 
+
+[filesystem]
+    baseDoc = 'index.php'
+    errorDoc = 'index.php'
+    ignoreDoc = 'errors.php'
+    offloadDoc = 'errors.php'
+    ;ignore all config files
+    ignore[] = '*config'
+    ;ignore dynamic includes
+    ignore[] = '_includes_/*'
+    ;ignore uploads directory
+    ignore[] = 'uploads/*'
+
+[logs:gc]
+    expire = 300
+    prefix = error
+
+[mail]
+    from[address] = info
+    from[name] = Community
+    queue = true
+
+[endpoint]
+    api_key =
+    
+[custom]
+    foo = bar
+    
+[magbb]
+    version = '1.0.1'
