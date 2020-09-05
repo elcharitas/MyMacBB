@@ -1,67 +1,42 @@
-<!DOCTYPE html>
-<html class="" lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, user-scalable=no">
-<meta property="og:site_name" content="{{ BB.config('app.name') }}">
-<meta name="csrf-token" content="q4LTdVJSYAaOyIF8b8YmLbJmX5mdXhPjVa9JIgz2">
-<title>{{ BB.config('app.name') }}</title>
-<meta name="description" content="The most popular PHP and MacBB forum.">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-<link rel="manifest" href="/favicons/site.webmanifest">
-<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#3668c9">
-<link rel="shortcut icon" href="/favicons/favicon.ico">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-config" content="/favicons/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-<link rel="alternate" type="application/atom+xml" title="Laracasts" href="/feed">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=optional" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-</head>
+{{ Mac.template('layouts/header/head') | raw }}
 <body class=" guest ">
 <div id="root" class="page xl:tw-flex" style="background-color: white">
 <div class="xl:tw-flex-1">
-<nav class="section lg:tw-z-50 tw-py-4 bg-mac lg:tw-py-3" style="height: 60px">
+<nav class="section lg:tw-z-50 tw-py-4 bg-mac lg:tw-py-3 " style="height: 60px">
 <div class="tw-flex tw-justify-between tw-h-full tw-items-center tw-relative">
 <div id="header-logo-arrow" class="has-animation xl:tw-flex-1 tw-mr-4 xl:tw-mr-0">
 <a href="/" class="tw-cursor-pointer tw-leading-none tw-block logo white-logo">
 </a>
 </div>
 <div class="navbar-links xl:tw-flex-grow tw-relative tw-hidden md:tw-flex md:tw-justify-start lg:tw-justify-around tw-text-xs lg:tw-text-sm xl:tw-w-1/2" style="max-width: 550px">
+<a href="/discuss" class="navbar-link xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-text-white is-active tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
+Home
+</a>
 <a href="/browse" class="navbar-link  xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
 Topics
 </a>
 <a href="/series?curated" class="navbar-link  xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
 Series
 </a>
-<a href="/discuss" class="navbar-link xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-text-white is-active tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
-Discussions
-</a>
 <a href="/podcast" class="tw-hidden lg:tw-block navbar-link xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0  tw-relative tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
 Podcast
 </a>
 </div>
-<div class="md:tw-hidden tw-flex tw-items-center">
-<i class="fe fe-menu jumbo"></i>
-</div>
-<div class="tw-hidden md:tw-block tw-relative tw-flex-1">
+<div class="md:tw-hidden tw-flex tw-items-center"></div>
+<div class="tw-relative tw-flex-1">
 <div class="tw-flex tw-items-center tw-justify-end">
 <search-button id="search-trigger" class="tw-leading-none tw-bg-transparent-10 hover:tw-bg-transparent-25 tw-p-3 tw-rounded-xl">
-<button id="search-trigger" title="Tip: press / or s anywhere to instantly activate me.">
+<button id="search-trigger" title="Search our forums">
 <i class="fe fe-search"></i>
 </button>
 </search-button>
-<a href="/login" class="tw-text-white hover:tw-text-white link tw-font-semibold tw-uppercase tw-mx-6 tw-text-xs">
+<a href="/login.php" class="tw-text-white hover:tw-text-white link tw-font-semibold tw-uppercase tw-mx-6 tw-text-xs">
 Sign In
 </a>
-<a class="tw-text-white hover:tw-bg-white hover:tw-text-bue tw-font-semibold tw-uppercase tw-border tw-rounded-full tw-text-xs tw-px-3 tw-py-2 tw-leading-tight" href="/join">
+<a class="tw-text-white hover:tw-bg-white tw-font-semibold tw-uppercase tw-border tw-rounded-full tw-text-xs tw-px-3 tw-py-2 tw-leading-tight" href="/register.php">
 Sign Up
 </a>
 </div>
 </div>
 </div>
 </nav>
- <portal-target name="nav-after"></portal-target>

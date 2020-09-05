@@ -1,5 +1,5 @@
-{# MagBB Branch Handler #}
+{# MacBB Branch Handler #}
 
-{% set Mag = bb.obj('Mag', 'lang') %}
+{% set Mac = bb.obj('Mac', 'lang') %}
 
-{% do Mag.branch('magbb_' ~ Mag.branch) %}
+{% do Mac.branch('magbb_' ~ Mac.branch) %}

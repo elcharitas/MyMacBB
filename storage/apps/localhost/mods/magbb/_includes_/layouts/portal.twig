@@ -1,8 +1,8 @@
 
-<div class="tw-flex">
-<div class="forum-main">
-<div class="col-md-7 col-lg-8">
-<div class="mac tw-mb-3 tw-btn bg-mac tw-font-bold text-white text-uppercase tw-w-full tw-rounded md:tw--mx-8"> Recent Updates </div>
+<div class="col-md-9">
+<div class="forum-main row">
+<div class="col-md-6 col-lg-7">
+<div class="mac tw-mb-3 tw-btn bg-mac tw-font-bold text-white text-uppercase tw-w-full tw-rounded tw-mx-auto"> Recent Updates </div>
 <div class="conversation-list tw-mx-2 md:tw-mx-0">
 <div class="conversation-list-item border tw-flex tw-cursor-pointer tw-items-start tw-flex-col md:tw-flex-rw md:hover:tw-bg-grey-panel md:tw-px-6 md:tw-py-3 tw-mb-4 md:tw-mb-3 tw-transition-all tw-px-6 tw-py-5 md:tw-px-0 tw--mx-2 md:tw-mx-0">
 
@@ -36,12 +36,12 @@ replied
 </div>
 </div>
 </div>
-{{ Mag.template('widgets/pagination') | raw }}
+{{ Mac.template('widgets/pagination') | raw }}
 </div>
-<div class="col-md-2 col-lg-4">
-{{ Mag.template('widgets/sidebar', {'title': 'Online Users', 'template':'onlinelist'}) | raw }}
-{{ Mag.template('widgets/sidebar', {'title': 'Birthdays Today'}) | raw }}
-{{ Mag.template('widgets/sidebar', {'title': 'Forum Statistics', 'template':'forumstats'}) | raw }}
+<div class="col-md-6 col-lg-5 tw-mx-auto">
+{{ Mac.template('widgets/sidebar', {'title': 'Online Users', 'template':'onlinelist'}) | raw }}
+{{ Mac.template('widgets/sidebar', {'title': 'Birthdays Today'}) | raw }}
+{{ Mac.template('widgets/sidebar', {'title': 'Forum Statistics', 'template':'forumstats'}) | raw }}
 </div>
 </div>
 </div>

@@ -153,7 +153,13 @@ if(!function_exists('bb_env')){
             
             $twig->addFunction(new TwigFunction('stop', 'die'));
             
+            $twig->addFilter(new TwigFilter('to_object', 'json_decode'));
+
             $twig->addFilter(new TwigFilter('to_array', 'toArray'));
+
+            $twig->addFilter(new TwigFilter('optional', function($value, $optional=null){
+                return $value ? $value : $optional;
+            }));
             
             $twig->addFilter(new TwigFilter('mime', 'bb_mime'));
             

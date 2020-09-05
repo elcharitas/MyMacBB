@@ -1,3 +1,5 @@
 {
-    "greet": "Hello There!"
+    "greeting": "Hello There!",
+    "nav_portal_home": "Portal Home",
+    "nav_memberlist": "Memberlist"
 }

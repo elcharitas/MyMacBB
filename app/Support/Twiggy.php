@@ -4,17 +4,14 @@ namespace App\Support;
 
 class Twiggy {
     
-    public $__name;
+    protected $__name;
     
     protected $data = [];
     
     protected $fillable = [];
     
     public function __construct($fill=[]){
-        
-        foreach($fill as $key => $fill){
-            data_set($this->data, $key, $fill);
-        }
+        $this->inherit($fill);
     }
     
     public function __get($key){
@@ -25,7 +22,13 @@ class Twiggy {
         $twig = bb_env();
         $key = $this->fillable[$key] ?? null;
         $args = json_encode($arg);
-        return is_string($key) && $twig->envParser->hasMacro($key) ? $twig->compileString("{% do $key($args) %}"): (!is_string($key) && is_callable($key) ? $key(...$arg): null);
+        if(is_array($key) && count($key) <= 2){
+            $id = $key[0].'.'.str()->random(3);
+            return $twig->createTemplate('{% from "'.$key[1].'" import '.$key[0].' %}{{ '.$key[0].'(self, '.gtrim($args,'\[\]').') }}', $id)
+                ->display(['self' => $this]);
+        } else {
+            return !is_string($key) && is_callable($key) ? $key(...$arg): null;
+        }
     }
     
     public function put($key, $value, bool $fillable=false){
@@ -74,15 +77,20 @@ class Twiggy {
         return new static(...$args);
     }
     
-    public function inherit($collect){
-        $parent = collect($collect);
-        list($data, $fillable) = $parent->keys();
-        foreach($parent->get($data) as $key => $value){
-            $this->put($key, $value);
+    public function inherit($collect, $prefix=''){
+        $fill = collect($collect)->toArray();
+        foreach($fill as $key => $fill){
+            data_set($this->data, $prefix.$key, $fill);
         }
+        return true;
     }
     
     public function config($config, $data=null){
         return bb_config($config, $data, ($name = $this->__name) && $name != 'magbb' ? $name : $this->basePath);
+    }
+
+    public function name(?string $name=null){
+        $name ? $this->__name = $name: false;
+        return $this->__name;
     }
 }

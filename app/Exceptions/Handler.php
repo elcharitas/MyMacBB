@@ -58,7 +58,7 @@ class Handler extends ExceptionHandler
     {
         $msg = $exception->getMessage();
         $line = $exception->getLine();
-        
+        /*
         if($exception instanceOf FileNotFoundException){
             abort(404, $exception->getMessage());
         } else if($exception instanceOf SyntaxError || $exception instanceOf RuntimeError){
@@ -72,7 +72,7 @@ class Handler extends ExceptionHandler
         } else if($exception instanceOf LoaderError){
             $doc = bb_config('filesystem.offloadDoc');
             return ($doc = bb_res($doc, true)) && $doc ? response($doc, 503): abort(503, $msg);
-        }
+        }*/
         return parent::render($request, $exception);
     }
 }

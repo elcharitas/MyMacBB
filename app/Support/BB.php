@@ -12,7 +12,7 @@ class BB {
     public function obj(string $name, ?string $parent=null, array $default=[]){
         return bb("objects.$name", function() use ($default, $name, $parent){
             $obj = new Twiggy($default);
-            $obj->__name = $name;
+            $obj->name($name);
             if($parent){
                 $parent = $this->obj($parent);
                 $obj->inherit(collect($parent));

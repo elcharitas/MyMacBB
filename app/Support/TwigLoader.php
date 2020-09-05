@@ -51,7 +51,7 @@ class TwigLoader extends Repo implements Twig {
         foreach(($tree['include']??[]) as $include){
             list($mod, $base) = $this->sourceConfig($include);
             foreach($mod as $path){
-                $sources .= ($this->exists("$base/$path")?"{% set _file_ = '$base/$path' %}\n{% do Mag.put('base', '".trim(str("$base/$path")->beforeLast('/'))."') %}\n".$this->get("$base/$path")."\n":($this->exists($path)?"{% set _file_ = '$path' %}\n{% do Mag.put('base', '".trim(str($path)->beforeLast('/'))."') %}\n".$this->get($path)."\n":''));
+                $sources .= ($this->exists("$base/$path")?"{% set _file_ = '$base/$path' %}\n{% do Mac.put('base', '".trim(str("$base/$path")->beforeLast('/'))."') %}\n".$this->get("$base/$path")."\n":($this->exists($path)?"{% set _file_ = '$path' %}\n{% do Mac.put('base', '".trim(str($path)->beforeLast('/'))."') %}\n".$this->get($path)."\n":''));
             }
         }
         return $sources.$source;

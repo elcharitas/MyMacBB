@@ -1,9 +1,11 @@
-{% macro langs(code, name, lang) %}
-    {{ Mag.fetch(lang.__name ~ '/' ~ code ~ '/' ~ name) | raw }}
+{% set lang = BB.obj(Mac.base) %}
+
+{% do lang.put('lang', lang.config('lang.code', 'en')) %}
+
+{% macro useLang(self, name, code) %}
+    {% do self.inherit(Mac.fetch(self.name() ~ '/' ~ code|optional(self.lang) ~ '/' ~ name ~ '.json')|to_object, name != 'global' ? name : '') %}
 {% endmacro %}
 
-{% set lang = BB.obj(Mag.base) %}
+{% do lang.put('load', ['useLang', _file_], true) %}
 
-{% set cur = lang.config('lang.code') %}
-
-{# set glob = (langs('index', 'en', lang)) | raw #}
+{% do Mac.put('lang', lang) %}

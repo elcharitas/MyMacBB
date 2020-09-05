@@ -30,7 +30,7 @@ class DeployBB
         
         $loader = $env->getLoader();
         
-        $bb = $ob->obj('Mag', null, [
+        $bb = $ob->obj('Mac', null, [
             'bid' => bb_id(),
             'domain' => bb_domain()->domain,
             'url' => bb_url(),
@@ -71,7 +71,7 @@ class DeployBB
             return $loader->open('/');
         }, true);
         
-        $env->addGlobal('Mag', $bb);
+        $env->addGlobal('Mac', $bb);
         
         config($configs);
         

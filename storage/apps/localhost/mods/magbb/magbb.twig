@@ -1,5 +1,5 @@
 {#
-    # MagBB Forum Engine v1.0.1
+    # MacBB Forum Engine v1.0.1
     #
     # Created by Jonathan Irhodia(), Olaide Daniel,
     # Released: 
@@ -10,8 +10,8 @@
 {# Set up template Object #}
 {% set magbb = BB.obj('magbb') %}
 
-{% do magbb.put('basePath', Mag.base ~ '/_includes_') %}
+{% do magbb.put('basePath', Mac.base ~ '/_includes_') %}
 
 {% macro widget(name, scope) %}
-    {{ Mag.template('widgets/' ~ name, scope) | raw }}
+    {{ Mac.template('widgets/' ~ name, scope) | raw }}
 {% endmacro %}
