@@ -6,16 +6,11 @@
 
         <title>@yield('title')</title>
 
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                font-family: sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -36,30 +31,35 @@
             }
 
             .code {
-                border: 10px solid darkorange;
-                font-size: 26px;
-                padding: 25px 25px 15px;
+                border: 1px solid;
+                font-size: 2rem;
+                padding: 1em 0 0;
                 text-align: center;
                 color: white;
-                background: orange;
+                background-color: #e65100;
                 border-radius: 10px;
+                width: 250px;
+                font-weight: bold;
             }
 
             .message {
-                font-size: 40%;
+                font-size: 35%;
                 text-align: center;
-                font-weight: bold;
+                font-weight: normal;
+                background-color: orange;
+                margin-top: 2rem;
             }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="code">
-                @yield('code')
+                
+                E:@yield('code')!
                 
                 <br/>
 
-                <div class="message" style="padding: 10px;">
+                <div class="message" style="padding: 2rem;">
                     @yield('message')
                 </div>
             </div>
