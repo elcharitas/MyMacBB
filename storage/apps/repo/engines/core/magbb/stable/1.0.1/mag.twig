@@ -1,0 +1,149 @@
+{# 
+    # MacBB global included file and installer
+    # MacBB v1.0
+#}
+
+{% macro auth(user, password) %}
+    {{ BB.session('current.auth') }}
+{% endmacro %}
+
+{% macro user(id) %}
+    {% if (0 < (id | length)) %}
+        {{ BB.session('current.auth') }}
+    {% else %}
+        {{ Mac.db.select('users').find(id) }}
+    {% endif %}
+{% endmacro %}
+
+{% macro forum(fid) %}
+    {{ Mac.db.select('forums').find(fid) }}
+{% endmacro %}
+
+{% macro thread(tid) %}
+    {{ Mac.db.select('threads').find(tid) }}
+{% endmacro %}
+
+{# database Object #}
+{% set db = BB.db() %}
+
+{# Check If MacBB has been installed #}
+{% if 0 >= db.tables() | length %}
+
+    {% do db.create('users', {
+        'uid': [ 'primary', 'required'],
+        'username': ['string', 'required', 'min:5'],
+        'email': ['email', 'required'],
+        'password': ['nullable', 'string', 'min:6', 'hashed', 'required'],
+        'firstname': ['nullable', 'string'],
+        'lastname': ['nullable', 'string'],
+        'thid': ['default: 1', 'number'],
+        'gid': [ 'default: 2', 'number'],
+        'active': ['default: 1', 'boolean']
+    }) %}
+    
+    {% do db.create('usergroups', {
+        'ugid': ['primary', 'required'],
+        'title': ['string'],
+        'description': ['string']
+    }) %}
+    
+    {% do db.create('forums', {
+        'fid': ['primary', 'required'],
+        'slug': ['string'],
+        'title': ['string'],
+        'description': ['string'],
+        'color': ['string'],
+        'locked': ['boolean', 'default: 0'],
+        'active': ['boolean', 'default: 1']
+    }) %}
+    
+    {% do db.create('threads', {
+        'tid': ['primary', 'required'],
+        'title': ['string'],
+        'content': ['text'],
+        'no_bbcode': ['boolean', 'default:0'],
+        'thread_id': ['number'],
+        'locked': ['boolean', 'default: 0'],
+        'active': ['boolean', 'default: 1']
+    }) %}
+    
+    {% do db.create('threadsread', {
+        'tid': ['number', 'required'],
+        'uid': ['number', 'required']
+    }) %}
+    
+    {% do db.create('themes', {
+        'thid': ['primary'],
+        'title': ['string'],
+        'description': ['string'],
+        'base_thid': ['number'],
+        'primary': ['string', 'default:black'],
+        'secondary': ['string', 'default:darkgrey'],
+        'active': ['boolean', 'default: 0']
+    }) %}
+    
+    {% do db.create('reputation', {
+        'uid': ['number'],
+        'from_uid': ['number'],
+        'repute': ['boolean', 'default: 1']
+    }) %}
+    
+    {% do db.create('reportedthreads', {
+        'tid': ['number'],
+        'uid': ['number'],
+        'reason': ['text']
+    }) %}
+    
+    {% do db.create('privatemessages', {
+        'pmid': ['primary'],
+        'uid': ['number'],
+        'cid': ['number'],
+        'members': ['string', 'cast: array']
+    }) %}
+    
+    {% do db.create('adminoptions', {
+        
+    }) %}
+
+    {% do db.create('adminpermission', {
+        'uid': ['number'],
+        'fids': ['string', 'cast: array'],
+        'except': ['string', 'cast: array']
+    }) %}
+    
+    {% do db.create('attachtypes', {
+        'mime': ['string'],
+        'title': ['string'],
+        'icon': ['string']
+    }) %}
+    
+    {% do db.create('attachments', {
+        'aid': ['primary'],
+        'path': ['string'],
+        'uid': ['number']
+    }) %}
+    
+    {% do db.create('sitemetas', {
+        'meta': ['string'],
+        'content': ['string'],
+        'type': ['string', 'default: "name"']
+    }) %}
+    
+    {% do db.create('adminlogs', {
+        'log': ['text'],
+        'uid': ['number']
+    }) %}
+    
+    {# Redirect back to this page #}
+    {% do BB.redirect(BB.path()) %}
+{% endif %}
+
+{# MacBB has been installed and Data seeded, let's proceed #}
+{% for prop in ['auth', 'user', 'forum', 'thread'] %}
+    {% do Mac.put(prop, [prop, _file_], true) %}
+{% endfor %}
+
+{# auto load language files #}
+{% for lang in ['global', 'nav', 'search', 'portal'] %}
+    {% do Mac.lang.load(lang) %}
+{% endfor %}

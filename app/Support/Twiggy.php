@@ -24,6 +24,7 @@ class Twiggy {
         $args = json_encode($arg);
         if(is_array($key) && count($key) <= 2){
             $id = $key[0].'.'.str()->random(3);
+            $twig->getLoader()->open('/');
             return $twig->createTemplate('{% from "'.$key[1].'" import '.$key[0].' %}{{ '.$key[0].'(self, '.gtrim($args,'\[\]').') }}', $id)
                 ->display(['self' => $this]);
         } else {

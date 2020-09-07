@@ -114,7 +114,7 @@ if(!function_exists('bb_res')){
 
 if(!function_exists('bb_cache')){
     function bb_cache(string $key, $value='', int $expire=60, string $type='data'){
-        $key = bb_host().".$type.$key";
+        $key = bb_host().'.'.bb_config('cache.prefix')."$type.$key";
         $cache = cache($key);
         if(bb_config('cache.path', false) && is_null($cache) && $value && $expire <= 300){
             $value = is_callable($value) ? $value(): $value;
@@ -404,7 +404,7 @@ if(!function_exists('config_extended')){
             //the core configs
             if(isset($core[$extends])){
                 foreach($core[$extends] as $prop => $val){
-                    if(is_array($val)){
+                    if(is_array($val) && isset($config[$name][$prop])){
                         $config[$name][$prop] = array_merge($val, $config[$name][$prop] ?? []);
                     } else if(!isset($config[$name][$prop])){
                         $config[$name][$prop] = $val;

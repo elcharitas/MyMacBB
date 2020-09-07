@@ -45,12 +45,12 @@ class Model extends Collection {
     }
     
     public function find($id, $col='id'){
-        return $this->where($col, $id);
+        return $this->where($col, $id)->first();
     }
     
     public function first(?callable $callback=null, $default=null){
         $data = parent::first();
-        if(is_array($data)){
+        if($data && is_array($data)){
             $this->key = $this->keys()->first();
             $this->items = $data;
             return $this;
@@ -60,7 +60,7 @@ class Model extends Collection {
 
     public function last(?callable $callback=null, $default=null){
         $data = parent::last();
-        if(is_array($data)){
+        if($data && is_array($data)){
             $this->key = $this->keys()->last();
             $this->items = $data;
             return $this;
@@ -101,32 +101,10 @@ class Model extends Collection {
         } else if(is_null($data)){
             return $this->save(parent::put($loc, $data));
         }
-        
-        if($loc == 0){
-            $loc = time();
-        }
+        $loc = $loc == 0 ? time(): $loc;
         $data = arr_only($data, $this->schema->keys());
-        if(count($data) > 0){
-            $raw = $data;
-            $data = [];
-            foreach($raw as $key => $val){
-                $rules = $this->schema->get($key)?:[];
-                $def = null;
-                foreach($rules as $rule){
-                    if(str(trim($rule))->startsWith('default:')){
-                        $def = trim(str($rule)->after('default:'));
-                    }
-                }
-                $data[$key] = (is_array($val) || is_object($val)) ? json_encode($val): ($val?:$def);
-            }
-            $invalid = Validator::make($data, $this->schema->toArray())->fails();
-            if(!$invalid){
-                return $this->save(parent::put($loc, $data));
-            } else {
-                return false;
-            }
-        }
-        return false;
+        $valid = $this->validate($data, $this->schema->toArray());
+        return $valid ? $this->save(parent::put($loc, $valid)): false;
     }
     
     public function clear(int $start = 1, int $end = 0){
@@ -559,5 +537,10 @@ class Model extends Collection {
         });
         $this->query->data = json_encode($raw->toArray());
         return  $this->query->save() ? $data : false;
+    }
+
+    protected function validate($data, $schema){
+        $validator = new Validator;
+        return $validator->make($data, $schema, $this);
     }
 }

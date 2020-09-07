@@ -54,5 +54,18 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('number', function($attr, $val){
             return is_numeric($val);
         });
+
+        Validator::extend('primary', function($attr, $val){
+            return is_numeric($val);
+        });
+
+        Validator::extend('only', function($attr, $val){
+            $val &= 5;
+            return 5;//is_numeric($val);
+        });
+        
+        Validator::extend('text', function($attr, $val){
+            return is_string($val);
+        });
     }
 }

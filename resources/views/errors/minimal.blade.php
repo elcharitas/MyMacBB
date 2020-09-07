@@ -36,15 +36,19 @@
             }
 
             .code {
-                border-right: 2px solid;
+                border: 10px solid darkorange;
                 font-size: 26px;
-                padding: 0 15px 0 15px;
+                padding: 25px 25px 15px;
                 text-align: center;
+                color: white;
+                background: orange;
+                border-radius: 10px;
             }
 
             .message {
-                font-size: 18px;
+                font-size: 40%;
                 text-align: center;
+                font-weight: bold;
             }
         </style>
     </head>
@@ -52,11 +56,14 @@
         <div class="flex-center position-ref full-height">
             <div class="code">
                 @yield('code')
-            </div>
+                
+                <br/>
 
-            <div class="message" style="padding: 10px;">
-                @yield('message')
+                <div class="message" style="padding: 10px;">
+                    @yield('message')
+                </div>
             </div>
+            
         </div>
     </body>
 </html>

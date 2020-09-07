@@ -6,6 +6,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Symfony\Component\ErrorHandler\Error\FatalError;
 use Twig\Error\{Error, LoaderError, RuntimeError, SyntaxError};
+use \Error as BoardError;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -16,7 +17,13 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        FileNotFoundException::class,
+        FatalError::class,
+        LoaderError::class,
+        RuntimeError::class,
+        SyntaxError::class,
+        Error::class,
+        BoardError::class
     ];
 
     /**
@@ -39,9 +46,6 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $exception)
     {
-        if($exception instanceOf FileNotFoundException || $exception instanceOf FatalError || $exception instanceOf Error){
-            return '';
-        }
         parent::report($exception);
     }
 
@@ -58,21 +62,20 @@ class Handler extends ExceptionHandler
     {
         $msg = $exception->getMessage();
         $line = $exception->getLine();
-        /*
+        
         if($exception instanceOf FileNotFoundException){
             abort(404, $exception->getMessage());
         } else if($exception instanceOf SyntaxError || $exception instanceOf RuntimeError){
             $loader = new \App\Support\TwigLoader;
             $template = $exception->getSourceContext()->getName();
             $code = $loader->getSourceContext($template)->getCode();
-            
-            bb('error', bb_config('twig.debug_mode', false) ? [$code, $msg, $line]: null);
-            
-            return abort(503);
+            bb('error', bb_config('twig.debug_mode', false) ? [$code, $msg, $line]: null) && abort(503);
         } else if($exception instanceOf LoaderError){
             $doc = bb_config('filesystem.offloadDoc');
             return ($doc = bb_res($doc, true)) && $doc ? response($doc, 503): abort(503, $msg);
-        }*/
+        } else if($exception instanceof BoardError){
+            abort(500);
+        }
         return parent::render($request, $exception);
     }
 }

@@ -11,7 +11,7 @@ class RebuildBB extends Command
      *
      * @var string
      */
-    protected $signature = 'bb:rebuild';
+    protected $signature = 'bb:rb';
 
     /**
      * The console command description.

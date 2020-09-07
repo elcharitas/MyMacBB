@@ -9,7 +9,7 @@ return [
             "path" => null
         ],
         "magbb_includes" => [
-            "include" => ["core/mag"]
+            "include" => ["mag"]
         ],
     ],
     

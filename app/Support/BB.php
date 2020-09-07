@@ -58,7 +58,7 @@ class BB {
     }
     
     public function path(?string $param=null){
-        return request()->path($param);
+        return trim(str(request()->path())->finish($param?:'/'));
     }
     
     public function query(?string $param=null){

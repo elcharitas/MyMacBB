@@ -1,6 +1,6 @@
 [app]
-    name = 4rum
-    title = Community
+    name = macbb
+    title = Community Forum
     url = 'http://localhost:8012'
     timezone = UTC
     locale = en
@@ -22,7 +22,7 @@
     include[] = 'magbb'
     
 [cache:gc]
-    expire = 1
+    expire = 0
     prefix = 4rum
     path = uploads/_cache
 
@@ -63,3 +63,4 @@
     
 [magbb]
     version = '1.0.1'
+    theme = 'default'
