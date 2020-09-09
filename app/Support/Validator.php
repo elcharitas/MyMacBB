@@ -13,6 +13,8 @@ class Validator {
         'validateUnique',
         'validateRequired'
     ];
+    
+    protected $blank = "";
 
     public function make(array $data, ?array $schema=[], Model $model){
         $result = true;
@@ -23,18 +25,17 @@ class Validator {
                 if($handle->count() <= 2){
                     $bash = trim(str($handle->first())->studly()->start('validate'));
                     $args = json_decode("[{$handle->last()}]");
-                    $bash = method_exists($this, $bash) && (in_array($bash, $this->nullesce) || !is_null($data[$key])) ? $this->{$bash}($key, $data[$key], $args, $model): (is_null($data[$key])?null:false);
-                    !(is_bool($bash) && $bash === false) ? $data[$key] = $bash: false;
-                    $result = $result && (is_null($bash) || $bash || false);
-                } else {
-                    $result = $result && false;
+                    $bash = method_exists($this, $bash) ? $this->{$bash}($key, $data[$key], $args, $model): $this->blank;
+                    $bash !== $this->blank ? $data[$key] = $bash: false;
+                    $result = $result && $bash !== $this->blank;
+                    dump($result === true);
                 }
             }
             if(is_array($data[$key]) || is_object($data[$key])){
                 $data[$key] = json_encode($data[$key]);
             }
         }
-        return $result ? $data : false;
+        return $result === true ? $data : false;
     }
 
     protected function validateDefault($attr, $val, $args){
@@ -48,39 +49,42 @@ class Validator {
     }
 
     protected function validateNullable($attr, $val){
-        return is_null($val) ? null: $val;
+        return !$val && !is_bool($val) && !is_int($val) ? null: $val;
     }
 
     protected function validateRequired($attr, $val){
-        return (!is_null($val) && !empty($val)) ? $val: false;
+        return (!is_null($val) && !empty($val)) ? $val: $this->blank;
     }
 
     protected function validateString($attr, $val){
-        return (is_string($val) && strlen($val) <= 2**20) ? $val: false;
+        if(is_null($val)){
+            return $val;
+        }
+        return (is_string($val) && strlen($val) <= 2**20) ? $val: $this->blank;
     }
 
     protected function validateText($attr, $val){
-        return (is_string($val) && strlen($val) <= 2**30) ? $val: false;
+        return (is_string($val) && strlen($val) <= 2**30) ? $val: $this->blank;
     }
 
     protected function validateLongText($attr, $val){
-        return is_string($val) ? $val: false;
+        return is_string($val) ? $val: $this->blank;
     }
 
     protected function validateEmail($attr, $val){
-        return is_string($val) ? $val: false;
+        return is_string($val) ? $val: $this->blank;
     }
 
     protected function validateHashed($attr, $val){
-        return is_string($val) ? $val: false;
+        return is_string($val) ? $val: $this->blank;
     }
 
     protected function validateMin($attr, $val, $args){
-        return (is_numeric($val) && $val > $args[0])||(is_string($val) && strlen($val) >= $args[0]) || (is_array($val) && count($val) >= $args[0]) ? $val: false;
+        return (is_numeric($val) && $val > $args[0])||(is_string($val) && strlen($val) >= $args[0]) || (is_array($val) && count($val) >= $args[0]) ? $val: $this->blank;
     }
 
     protected function validateMax($attr, $val, $args){
-        return (is_string($val) && strlen($val) <= $args[0]) || (is_array($val) && count($val) <= $args[0]) ? $val: false;
+        return (is_string($val) && strlen($val) <= $args[0]) || (is_array($val) && count($val) <= $args[0]) ? $val: $this->blank;
     }
 
     protected function validateDate($attr, $val){
@@ -96,15 +100,15 @@ class Validator {
     }
 
     protected function validateFloat($attr, $val){
-        return is_float($val) ? $val: false;
+        return is_float($val) ? $val: $this->blank;
     }
 
     protected function validateInteger($attr, $val){
-        return is_int($val) ? $val: false;
+        return is_int($val) ? $val: $this->blank;
     }
 
     protected function validateNumber($attr, $val){
-        return is_numeric($val) ? $val: false;
+        return is_numeric($val) ? $val: $this->blank;
     }
 
     protected function validateUnique($attr, $val){
@@ -124,6 +128,6 @@ class Validator {
     }
 
     protected function validateSize($attr, $val, $args){
-        return (is_string($val) && strlen($val) == $args[0]) || count($str) == $args[0] ? $val: false;
+        return (is_string($val) && strlen($val) == $args[0]) || count($str) == $args[0] ? $val: $this->blank;
     }
 }

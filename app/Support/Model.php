@@ -101,10 +101,10 @@ class Model extends Collection {
         } else if(is_null($data)){
             return $this->save(parent::put($loc, $data));
         }
-        $loc = $loc == 0 ? time(): $loc;
+        $loc = $loc == 0 ? microtime(true)+($this->count()/1000): $loc;
         $data = arr_only($data, $this->schema->keys());
         $valid = $this->validate($data, $this->schema->toArray());
-        return $valid ? $this->save(parent::put($loc, $valid)): false;
+        return $valid ? $this->save(parent::put("$loc", $valid)): false;
     }
     
     public function clear(int $start = 1, int $end = 0){

@@ -41,7 +41,7 @@
         'active': ['default: 1', 'boolean']
     }) %}
 
-    {% do db.select('users').insert(BB.user()|merge({'password': str().random(8)})) %}
+    {% do db.select('users').insert(BB.user()|merge({'uid':2, 'password': str().random(8)})) %}
     
     {% do db.create('usergroups', {
         'ugid': ['primary', 'required'],
@@ -49,21 +49,25 @@
         'description': ['nullable', 'string']
     }) %}
     
-    {% do db.select('usergroups').insert({'title': 'Guest'}) %}
-    {% do db.select('usergroups').insert({'title': 'User'}) %}
-    {% do db.select('usergroups').insert({'title': 'Moderator'}) %}
-    {% do db.select('usergroups').insert({'title': 'Administrator'}) %}
+    {% set ug = db.select('usergroups') %}
+    
+    {% do ug.insert({'title': 'Guest'}) %}
+    {% do ug.insert({'title': 'User'}) %}
+    {% do ug.insert({'title': 'Moderator'}) %}
+    {% do ug.insert({'title': 'Administrator'}) %}
     
     {% do db.create('forums', {
         'fid': ['primary', 'required'],
-        'slug': ['string'],
-        'title': ['string'],
-        'description': ['string'],
+        'title': ['string', 'required'],
+        'description': ['nullable', 'string'],
         'forum_id': ['default: 0', 'number'],
-        'color': ['string'],
-        'locked': ['default: 0', 'boolean'],
+        'color': ['default: "#E65100"', 'string'],
+        'locked': ['default: 1', 'boolean'],
         'active': ['default: 1', 'boolean']
     }) %}
+    
+    {% do db.select('forums').insert({'title': 'Test Category'}) %}
+    {% do db.select('forums').insert({'title': 'Test Forum', 'forum_id': 1}) %}
     
     {% do db.create('threads', {
         'tid': ['primary', 'required'],
@@ -75,6 +79,8 @@
         'active': ['default: 1','boolean']
     }) %}
     
+    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service', 'content': 'Welcome to your new Machine Bulletin Board pka [b]MacBB[/b]. Our community forum is only a step away from you :)'}) %}
+    
     {% do db.create('threadsread', {
         'tid': ['number', 'required'],
         'uid': ['number', 'required']
@@ -85,7 +91,7 @@
         'title': ['string'],
         'description': ['string'],
         'base_thid': ['number'],
-        'primary': ['default: "black"', 'string'],
+        'primary': ['default: "#E65100"', 'string'],
         'secondary': ['default: "darkgrey"', 'string'],
         'active': ['default: 0','boolean']
     }) %}
