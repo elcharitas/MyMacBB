@@ -10,8 +10,8 @@
     {{ self.lang.get(key, def|optional(key)) }}
 {% endmacro %}
 
-{% do lang.put('load', ['useLang', _file_], true) %}
+{% do lang.define('load', 'useLang') %}
 
 {% do Mac.put('lang', lang) %}
 
-{% do Mac.put('trans', ['transLang', _file_], true) %}
+{% do Mac.define('trans', 'transLang') %}

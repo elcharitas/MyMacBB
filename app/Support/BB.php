@@ -29,6 +29,10 @@ class BB {
         return bb_id();
     }
 
+    public function user(){
+        return bb_user();
+    }
+
     public function base($path=null){
         return bb_base($path);
     }
@@ -41,12 +45,12 @@ class BB {
         return bb_cache(...$args);
     }
     
-    public function session(...$args){
-        return bb_session(...$args);
+    public function session($session, ...$args){
+        return $session ? session($session, ...$args): session()->all();
     }
     
     public function cookie(...$args){
-        return bb_cookie(...$args);
+        return cookie(...$args);
     }
     
     public function db($key=''){

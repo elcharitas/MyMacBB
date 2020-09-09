@@ -67,11 +67,11 @@ class Validator {
     }
 
     protected function validateMin($attr, $val, $args){
-        return (is_numeric($val) && $val > $args[0])||(is_string($val) && strlen($val) >= $args[0]) || count($val) >= $args[0] ? $val: false;
+        return (is_numeric($val) && $val > $args[0])||(is_string($val) && strlen($val) >= $args[0]) || (is_array($val) && count($val) >= $args[0]) ? $val: false;
     }
 
     protected function validateMax($attr, $val, $args){
-        return (is_string($val) && strlen($val) <= $args[0]) || count($str) <= $args[0] ? $val: false;
+        return (is_string($val) && strlen($val) <= $args[0]) || (is_array($val) && count($val) <= $args[0]) ? $val: false;
     }
 
     protected function validateDate($attr, $val){

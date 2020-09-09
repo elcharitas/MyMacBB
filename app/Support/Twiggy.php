@@ -22,14 +22,20 @@ class Twiggy {
         $twig = bb_env();
         $key = $this->fillable[$key] ?? null;
         $args = json_encode($arg);
-        if(is_array($key) && count($key) <= 2){
-            $id = $key[0].'.'.str()->random(3);
-            $twig->getLoader()->open('/');
-            return $twig->createTemplate('{% from "'.$key[1].'" import '.$key[0].' %}{{ '.$key[0].'(self, '.gtrim($args,'\[\]').') }}', $id)
-                ->display(['self' => $this]);
+        if(is_array($key) && count($key) <= 3){
+            list($a, $b, $c) = arr_only($key, [0, 1, 2]);
+            $id = $a.'.'.str()->random(3);
+            $load = bb("objects.Mac");
+            $c ? $load->branch(): $load->burst();
+            $tpl = $twig->createTemplate(sprintf('{%% from "%s" import %s %%}{{ %s(self, %s) }}', $b, $a, $a, gtrim($args, '\[\]')), $id)->display(['self' => $this]);
+            return $load->burst() ? $tpl: null;
         } else {
             return !is_string($key) && is_callable($key) ? $key(...$arg): null;
         }
+    }
+
+    public function define(string $name, string $value, ?string $path = null){
+        return ($mac = bb("objects.Mac")) && $this->put($name, [$value, $path ?: $mac->baseFile, $mac->branched], true);
     }
     
     public function put($key, $value, bool $fillable=false){

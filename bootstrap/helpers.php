@@ -34,6 +34,12 @@ if(!function_exists('bb_info')){
     }
 }
 
+if(!function_exists('bb_user')){
+    function bb_user(){
+        return bb_info()->user->only(['name', 'username', 'email']);
+    }
+}
+
 if(!function_exists('bb_domain')){
     function bb_domain(){
         return bb('bb_domain', function(){

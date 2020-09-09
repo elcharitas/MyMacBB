@@ -33,34 +33,27 @@
             .code {
                 border: 1px solid;
                 font-size: 2rem;
-                padding: 1em 0 0;
+                padding: 1em 0;
                 text-align: center;
                 color: white;
                 background-color: #e65100;
                 border-radius: 10px;
-                width: 250px;
-                font-weight: bold;
+                width: 225px;
             }
 
             .message {
-                font-size: 35%;
+                font-size: .87rem;
                 text-align: center;
-                font-weight: normal;
-                background-color: orange;
-                margin-top: 2rem;
+                background-color: darkorange;
             }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="code">
-                
-                E:@yield('code')!
-                
-                <br/>
-
                 <div class="message" style="padding: 2rem;">
-                    @yield('message')
+                    
+                <b> Error @yield('code')</b>: @yield('message')
                 </div>
             </div>
             

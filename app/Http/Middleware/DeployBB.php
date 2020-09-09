@@ -45,18 +45,18 @@ class DeployBB
             $loaded = $loader->load($bb->repo, $bb->magbb);
             if($path){
                 echo $env->render($path);
-                return $loader->open('/');
+                return $bb->burst();
             }
             return $loaded;
         }, true);
         
         $bb->put('fetch', function(string $path, $scope = []) use ($bb, $loader){
-            $path && $loader->open('/') && $source = $loader->get($path);
+            $path && $bb->burst() && $source = $loader->get($path);
             return $bb->branch() ? $source: null;
         }, true);
         
         $bb->put('include', function ($path, $scope=[]) use ($bb, $loader, $env){
-            ($source = $bb->fetch($path)) && $loader->open('/') && $env->createTemplate($source, $path) && $source = $env->render($path, $scope);
+            ($source = $bb->fetch($path)) && $bb->burst() && $env->createTemplate($source, $path) && $source = $env->render($path, $scope);
             return $bb->branch() ? $source: null;
         }, true);
         
@@ -67,7 +67,8 @@ class DeployBB
             });
         }, true);
         
-        $bb->put('burst', function() use ($loader){
+        $bb->put('burst', function() use ($bb, $loader){
+            $bb->put('branched', false);
             return $loader->open('/');
         }, true);
         

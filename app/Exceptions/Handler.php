@@ -58,7 +58,7 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+    public function rendery($request, Throwable $exception)
     {
         $msg = $exception->getMessage();
         $line = $exception->getLine();

@@ -1,26 +1,26 @@
 {# 
-    # MacBB global included file and installer
+    # MacBB global helper & installer
     # MacBB v1.0
 #}
 
-{% macro auth(user, password) %}
+{% macro auth(self, user, password) %}
     {{ BB.session('current.auth') }}
 {% endmacro %}
 
-{% macro user(id) %}
+{% macro user(self, id) %}
     {% if (0 < (id | length)) %}
         {{ BB.session('current.auth') }}
     {% else %}
-        {{ Mac.db.select('users').find(id) }}
+        {{ self.db.select('users').find(id) }}
     {% endif %}
 {% endmacro %}
 
-{% macro forum(fid) %}
-    {{ Mac.db.select('forums').find(fid) }}
+{% macro forum(self, fid) %}
+    {{ self.db.select('forums').find(fid) }}
 {% endmacro %}
 
-{% macro thread(tid) %}
-    {{ Mac.db.select('threads').find(tid) }}
+{% macro thread(self, tid) %}
+    {{ self.db.select('threads').find(tid) }}
 {% endmacro %}
 
 {# database Object #}
@@ -40,6 +40,8 @@
         'gid': [ 'default: 2', 'number'],
         'active': ['default: 1', 'boolean']
     }) %}
+
+    {% do db.select('users').insert(BB.user()) %}
     
     {% do db.create('usergroups', {
         'ugid': ['primary', 'required'],
@@ -139,8 +141,9 @@
 {% endif %}
 
 {# MacBB has been installed and Data seeded, let's proceed #}
+{% do Mac.put('db', db) %}
 {% for prop in ['auth', 'user', 'forum', 'thread'] %}
-    {% do Mac.put(prop, [prop, _file_], true) %}
+    {% do Mac.define(prop, prop) %}
 {% endfor %}
 
 {# auto load language files #}
