@@ -5,6 +5,14 @@ namespace App\Support;
 use \Arr, \Str;
 
 class Validator {
+    
+    protected $nullesce = [
+        'validatePrimary',
+        'validateJson',
+        'validateDefault',
+        'validateUnique',
+        'validateRequired'
+    ];
 
     public function make(array $data, ?array $schema=[], Model $model){
         $result = true;
@@ -15,8 +23,9 @@ class Validator {
                 if($handle->count() <= 2){
                     $bash = trim(str($handle->first())->studly()->start('validate'));
                     $args = json_decode("[{$handle->last()}]");
-                    $bash = method_exists($this, $bash) ? $this->{$bash}($key, $data[$key], $args, $model): false;
-                    $result = $result && (is_null($bash) || !(is_bool($bash) && $bash === false) ? $data[$key] = $bash: false);
+                    $bash = method_exists($this, $bash) && (in_array($bash, $this->nullesce) || !is_null($data[$key])) ? $this->{$bash}($key, $data[$key], $args, $model): (is_null($data[$key])?null:false);
+                    !(is_bool($bash) && $bash === false) ? $data[$key] = $bash: false;
+                    $result = $result && (is_null($bash) || $bash || false);
                 } else {
                     $result = $result && false;
                 }
@@ -39,7 +48,7 @@ class Validator {
     }
 
     protected function validateNullable($attr, $val){
-        return is_null($val) ? 'null': $val;
+        return is_null($val) ? null: $val;
     }
 
     protected function validateRequired($attr, $val){
