@@ -25,7 +25,11 @@ class Validator {
                 if($handle->count() <= 2){
                     $bash = trim(str($handle->first())->studly()->start('validate'));
                     $args = json_decode("[{$handle->last()}]");
-                    $bash = method_exists($this, $bash) ? $this->{$bash}($key, $data[$key], $args, $model): $this->blank;
+                    if(is_null($data[$key]) && in_array('nullable', $rules)){
+                        $bash = NULL;
+                    } else {
+                        $bash = method_exists($this, $bash) ? $this->{$bash}($key, $data[$key], $args, $model): $this->blank;
+                    }
                     $bash !== $this->blank ? $data[$key] = $bash: false;
                     $result = $result && $bash !== $this->blank;
                     dump($result === true);
@@ -57,9 +61,6 @@ class Validator {
     }
 
     protected function validateString($attr, $val){
-        if(is_null($val)){
-            return $val;
-        }
         return (is_string($val) && strlen($val) <= 2**20) ? $val: $this->blank;
     }
 
