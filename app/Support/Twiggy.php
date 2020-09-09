@@ -34,6 +34,10 @@ class Twiggy {
         }
     }
 
+    public function __toString(){
+        return 'BB.Twiggy{}';
+    }
+    
     public function define(string $name, string $value, ?string $path = null){
         return ($mac = bb("objects.Mac")) && $this->put($name, [$value, $path ?: $mac->baseFile, $mac->branched], true);
     }

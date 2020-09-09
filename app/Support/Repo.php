@@ -115,4 +115,8 @@ class Repo {
     public static function create(...$args){
         return new static(...$args);
     }
+
+    public function __toString(){
+        return 'BB.Repo{}';
+    }
 }

@@ -3,6 +3,14 @@
     # MacBB v1.0
 #}
 
+{% macro install(self, name) %}
+    {% set modPath = BB.config('includes.base_path') %}
+    {% if modPath is empty %}
+    
+    {% endif %}
+    
+{% endmacro %}
+
 {% macro auth(self, user, password) %}
     {{ BB.session('current.auth') }}
 {% endmacro %}
@@ -75,11 +83,12 @@
         'content': ['text'],
         'no_bbcode': ['default: 0', 'boolean'],
         'thread_id': ['default: 0', 'number'],
+        'forum_id': ['required', 'number'],
         'locked': ['default: 0', 'boolean'],
         'active': ['default: 1','boolean']
     }) %}
     
-    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service', 'content': 'Welcome to your new Machine Bulletin Board pka [b]MacBB[/b]. Our community forum is only a step away from you :)'}) %}
+    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service', 'content': 'Welcome to your new Machine Bulletin Board pka [b]MacBB[/b]. Our community forum is only a step away from you :)', 'forum_id': 2}) %}
     
     {% do db.create('threadsread', {
         'tid': ['number', 'required'],

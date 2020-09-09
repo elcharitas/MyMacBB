@@ -97,4 +97,8 @@ class HttpRequest {
             throw null;
         }
     }
+
+    public function __toString(){
+        return 'BB.HttpRequest{}';
+    }
 }

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Mail\SendMail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -39,6 +40,10 @@ class User extends Authenticatable implements MustVerifyEmail
     
     public function boards(){
         $this->hasMany(Board::class);
+    }
+    
+    public function subscription(){
+        return $this->hasOne(Subscription::class);
     }
     
     public function mail(){

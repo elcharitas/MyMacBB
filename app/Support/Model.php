@@ -520,6 +520,10 @@ class Model extends Collection {
     {
         return new static(array_values($this->items), $this->query);
     }
+
+    public function __toString(){
+        return 'BB.Database.Model{}';
+    }
     
     protected function save(Model $data){
         if(!$this->query){

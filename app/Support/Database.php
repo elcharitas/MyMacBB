@@ -77,6 +77,10 @@ class Database {
     public function tables(){
         return $this->db->pluck('table')->values()->toArray();
     }
+
+    public function __toString(){
+        return 'BB.Database{}';
+    }
     
     protected function table($table, $records=null, $ignore=true){
         //reconstruct the collection
