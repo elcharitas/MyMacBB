@@ -32,7 +32,6 @@ class Validator {
                     }
                     $bash !== $this->blank ? $data[$key] = $bash: false;
                     $result = $result && $bash !== $this->blank;
-                    dump($result === true);
                 }
             }
             if(is_array($data[$key]) || is_object($data[$key])){
