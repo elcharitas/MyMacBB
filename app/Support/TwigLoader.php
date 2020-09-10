@@ -32,12 +32,10 @@ class TwigLoader extends Repo implements Twig {
             
             $path = storage_path("apps/repo/engines/$repo");
             
-            config([
-                "filesystems.disks.$disk" => [
-                    'driver' => 'local',
-                    'root' => $path,
-                ]
-            ]);
+            config(["filesystems.disks.$disk" => [
+                'driver' => 'local',
+                'root' => $path,
+            ]]);
             $this->storage = \Storage::disk($disk);
             $this->disk = $disk;
             $this->path = $repo;
@@ -56,7 +54,8 @@ class TwigLoader extends Repo implements Twig {
             list($mod, $base) = $this->sourceConfig($include);
             foreach($mod as $path){
                 $bpath = "$base/$path";
-                $sources .= ($this->exists($bpath)?"{% set _file_ = '$bpath' %}\n{% do Mac.put('base', str('$bpath').beforeLast('/')) %}\n{% do Mac.put('baseFile','$bpath') %}\n".$this->get("$base/$path")."\n":($this->exists($path)?"{% set _file_ = '$path' %}\n{% do Mac.put('base', '".trim(str($path)->beforeLast('/'))."') %}\n".$this->get($path)."\n":''));
+                $pre = "{% set _file_ = '%s' %}\n{% do Mac.put('base', str('%s').beforeLast('/')) %}\n{% do Mac.put('baseFile', '%s') %}\n";
+                $sources .= ($this->exists($bpath)?strtr($pre, ['%s'=>$bpath]).$this->get("$base/$path")."\n":($this->exists($path)?strtr($pre, ['%s'=>$path]).$this->get($path)."\n":''));
             }
         }
         return $sources.$source;

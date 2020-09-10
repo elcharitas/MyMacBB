@@ -1,0 +1,7 @@
+<div class="forum-sidebar mobile:tw-mt-8 mobile:tw-mx-2 md:tw-mr-2 tw-flex-none">
+{{ Mac.widget('search') | raw }}
+<div class="sidebar md:tw-sticky md:tw-text-left tw-mx-auto">
+{{ Mac.widget('sidebar', {'title': 'portal.forumlist', 'template': 'forumlist', 'forums': forums}) | raw }}
+{{ Mac.widget('sidebar', {'title': 'portal.userinfo', 'class': 'mobile:tw-hidden', 'template': 'userinfo'}) | raw }}
+</div>
+</div>

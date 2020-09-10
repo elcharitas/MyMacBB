@@ -1,0 +1,33 @@
+{{ Mac.template('layouts/header') | raw }}
+
+        <div class="tw-py-8 tw-flex">
+            <div class="col-md-4 tw-hidden md:tw-block">&nbsp;</div>
+            <form class="col-md-4 tw-p-6 tw-w-full tw-max-w-s" role="form" method="post" action="{{ BB.url('/login.php') }}">
+            <div class="tw-justify-center">
+                <div class="tw-p-4">
+                    <input type="hidden" name="_token" value="q4LTdVJSYAaOyIF8b8YmLbJmX5mdXhPjVa9JIgz2">
+                    <div class="control">
+                        <input type="text" id="user_id" name="user_id" class="input tw-text-xs" placeholder="Username or Email" value="">
+                    </div>
+                    <div class="control">
+                        <input type="password" id="password" name="password" class="input tw-text-xs" placeholder="Password">
+                    </div>
+                    <div class="control tw-mt-6">
+                        <button type="submit" class="tw-btn input bg-mac text-white tw-text-xs tw-w-full">
+                            &laquo; &nbsp; Sign In &nbsp; &raquo;
+                        </button>
+                    </div>
+                </div>
+                <footer class="tw-flex tw-justify-between tw-px-5">
+                    <a href="{{ BB.url('/register.php') }}" class="tw-text-xs text-mac link">
+                    Create an Account!
+                    </a>
+                    <a href="{{ BB.url('/login.php?action=lpswd') }}" class="text-mac tw-text-xs link">
+                     Lost Password?
+                    </a>
+                </footer>
+            </div>
+        </form>
+    </div>
+    
+{{ Mac.template('layouts/footer') | raw }}

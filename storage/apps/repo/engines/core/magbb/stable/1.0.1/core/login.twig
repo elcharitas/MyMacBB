@@ -1,1 +1,5 @@
-{{ Mac.template('login') | raw }}
+{% if Mac.auth(BB.post('username'), BB.post('password')) %}
+    {% do BB.redirect('/') %}
+{% else %}
+    {{ Mac.template('login') | raw }}
+{% endif %}

@@ -4,8 +4,8 @@
 <div class="section">
 <div class="forum-wrapper">
 <div class="tw-flex tw-flex-col md:tw-flex-row tw-mx-auto" style="max-width: 1100px">
-{{ Mac.template('layouts/sidebar') | raw }}
-{{ Mac.template('layouts/portal') | raw }}
+{{ Mac.template('layouts/sidebar', {'forums': forums}) | raw }}
+{{ Mac.template('layouts/portal', {'threads': threads}) | raw }}
 </div>
 </div>
 </div>

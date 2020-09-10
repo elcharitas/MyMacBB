@@ -57,8 +57,7 @@ if(!function_exists('bb_domain')){
 
 if(!function_exists('bb_host')){
     function bb_host(){
-        $domain = bb_domain()->board->domains->first();
-        return trim(str($domain->domain)->before('.'));
+        return bb_domain()->board_id;
     }
 }
 
@@ -317,10 +316,10 @@ if(!function_exists('arr_only')){
 }
 
 if(!function_exists('toArray')){
-    function toArray($rawData){
+    function toArray($rawData, $changeAll=false){
         if(!is_array($rawData) && !is_object($rawData)){
-            return rescue(function() use ($rawData){
-                return json_decode($rawData);
+            return rescue(function() use ($rawData, $changeAll){
+                return $changeAll ? Arr::wrap($rawData): json_decode($rawData);
             }) ?: $rawData;
         }
         $data = [];

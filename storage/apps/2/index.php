@@ -18,10 +18,11 @@
 # {% if Mac.branch() %}
 #    {% include branch %}
 #    {% include 'core/terminate.twig' ignore missing %}
+#
+#    Return back to local Filesystem
+#    {% do Mac.burst() %}
 # {% endif %}
 
-# Return back to this Filesystem if the branch Filesystem was opened
-# {% do Mac.burst() %}
 #}
 
 {# Simple Patty Check in #}

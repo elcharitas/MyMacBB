@@ -1,0 +1,29 @@
+{#
+    # MacBB Forum Engine v1.0.1
+    #
+    # Created by Jonathan Irhodia(), Olaide Daniel,
+    # Released: 
+    # LICENSE: Double (GNU and MIT)
+    # file: app/mods/magbb.twig
+#}
+
+{# Set up template Object #}
+{% set magbb = BB.obj('magbb') %}
+
+{% do magbb.put('basePath', Mac.base ~ '/_includes_') %}
+
+{% macro widget(self, name, scope) %}
+    {{ Mac.template('widgets/' ~ name, scope) | raw }}
+{% endmacro %}
+
+{% macro minion(self, name, scope) %}
+    {{ Mac.template('minions/' ~ name, scope) | raw }}
+{% endmacro %}
+
+{% macro layout(self, name, scope) %}
+    {{ Mac.template('layouts/' ~ name, scope) | raw }}
+{% endmacro %}
+
+{% for prop in ['widget', 'minion', 'layout'] %}
+    {% do Mac.define(prop, prop) %}
+{% endfor %}

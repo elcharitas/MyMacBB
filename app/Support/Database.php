@@ -50,8 +50,8 @@ class Database {
         ]) && $this->connect($this->key): false;
     }
     
-    public function select($table, $records=null){
-        return $this->table(trim(str($table)->slug()), $records);
+    public function select($table, $records=null, $rules=[]){
+        return $this->table(trim(str($table)->slug()), $records, true, $rules);
     }
     
     public function drop($table){
@@ -82,7 +82,7 @@ class Database {
         return 'BB.Database{}';
     }
     
-    protected function table($table, $records=null, $ignore=true){
+    protected function table($table, $records=null, $ignore=true, $rules=[]){
         //reconstruct the collection
         $this->connect($this->key);
         
@@ -91,6 +91,12 @@ class Database {
         if(!$ignore && !$query){
             abort(419);
         }
+        
+        $query->relationship = [];
+        
+        collect($rules)->each(function ($item, $key) use ($query){
+            $query->relationship = array_merge($query->relationship, [$key =>$item]);
+        });
         
         return $this->build($table, $query, $records);
     }

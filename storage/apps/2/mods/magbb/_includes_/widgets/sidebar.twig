@@ -5,7 +5,7 @@
     </div>
     <div class="conversation-list tw-mx-5 md:tw-mx-0">
         <div class="conversation-list-item border tw-flex tw-cursor-pointer tw-items-start tw-flex-col md:tw-flex-rw md:hover:tw-bg-grey-panel md:tw-px-6 md:tw-py-3 tw-mb-4 md:tw-mb-3 tw-transition-all tw-px-6 tw-py-5 md:tw-px-0 tw--mx-2 md:tw-mx-0 normal">
-            {{ ( template ? Mac.template('minions/'~template) : content ) | raw }}
+            {{ ( template ? Mac.template('minions/'~template, _context) : content ) | raw }}
         </div>
     </div>
 </div>

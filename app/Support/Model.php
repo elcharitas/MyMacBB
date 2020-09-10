@@ -12,7 +12,9 @@ class Model extends Collection {
     
     protected $query;
     
-    protected $primary;
+    protected $callable = [];
+    
+    protected $relationship = [];
     
     protected $key;
     
@@ -28,23 +30,49 @@ class Model extends Collection {
             $this->table = $query->table;
             $this->schema = collect($query->schema);
             $data = toArray($records ? collect($query->data)->only($records): $query->data);
+            $this->relate($query->relationship);
+            $this->callable = array_merge($this->callable, $query->callable ?: []);
         }
         parent::__construct(!is_array($table) ? $data : $table);
     }
 
     public function __get($key){
-        return $this->get($key);
+        $prop = trim(str($key)->studly()->start('get')->finish('Attribute'));
+        return $this->__call($key) ?: $this->get($key) ?: (method_exists($this, $prop) ? $this->{$prop}(): null);
+    }
+    
+    public function __call($key, $args=[]){
+        $relationship = $this->relationship[$key] ?? NULL;
+        $handle = $this->callable[$key] ?? NULL;
+        return $relationship ? $relationship($this): ($handle ? $handle($args): $handle);
     }
     
     public function __isset($key){
-        return $this->count() == 1 && array_key_exists($key, $this->all());
+        return true;
     }
     
-    public function setPrimary(Model $val, BoardData $query, int $loc){
-        return $this->primary = [$loc, $val, $query];
+    public function getCreatedAttribute(){
+        return $this->key;
     }
     
-    public function find($id, $col='id'){
+    public function define($key, $val, $path=null){
+        return $this->callable[$key] = (function($arg) use ($key, $val, $path){
+            $twig = bb_env();
+            $args = json_encode($arg);
+            $id = $key.'.'.str()->random(3);
+            $load = bb("objects.Mac");
+            $path ? $load->branch(): $load->burst();
+            $tpl = $twig->createTemplate(sprintf('{%% from "%s" import %s %%}{{ %s(self, %s) }}', $val, $key, $key, gtrim($args, '\[\]')), $id)->display(['self' => $this]);
+            return $load->burst() ? $tpl: null;
+        }) && true;
+    }
+    
+    public function find($id, $col=null){
+        if(!$col){
+            $col = $this->schema->reject(function($item){
+                return !in_array('primary', $item);
+            })->keys()->first() ?: 'id';
+        }
         return $this->where($col, $id)->first();
     }
     
@@ -69,7 +97,7 @@ class Model extends Collection {
     }
     
     public function get($loc = 0, $default = null){
-        if($this->count() > 1 && $loc == 0){
+        if($this->count() > 1 && $loc === 0){
             return $this->all();
         }
         return parent::get($loc, $default) ?: false;
@@ -84,9 +112,11 @@ class Model extends Collection {
     }
     
     public function update(array $records){
-        $records = array_merge(['*updated' => time()], $records);
+        $records = array_merge(['*updated' => microtime(true)], $records);
         if($this->key){
-            return ($this->items = [$this->key => array_merge($this->items, $records)]) && $this->save($this);
+            $data = array_merge($this->items, $records);
+            $this->items = [$this->key => $data];
+            return $this->save($this) ? ($this->items = $data) && true: false;
         }
         foreach($this->all() as $col => $value){
             $value = array_merge(collect($value)->toArray(), $records);
@@ -522,7 +552,26 @@ class Model extends Collection {
     }
 
     public function __toString(){
-        return 'BB.Database.Model{}';
+        return 'BB.Database.'.trim(str($this->name?:' ')->studly()).'Model{}';
+    }
+    
+    public function hasColumn($key){
+        return $this->schema->has($key);
+    }
+    
+    public function column($key, $val=null){
+        return is_null($val) ? $this->schema->get($key): ( ($val ? $this->schema->put($key, $val): $this->schema->forget($key)) && $this->save($this)); 
+    }
+
+    protected function relate($arr){
+        foreach($arr as $key => $val){
+            $this->relationship[$key] = (function($data) use ($key, $val){
+                list($table, $col, $foreign, $many) = arr_only(toArray($val), [0,1,2,3]);
+                $db = bb_db()->select($table)->where($foreign?:$key, $data->get($col?:$key));
+                return ($many ? $db: $db->first());
+            });
+        }
+        return count($arr) > 0 ? true: false;
     }
     
     protected function save(Model $data){
@@ -540,6 +589,7 @@ class Model extends Collection {
             return is_null($val);
         });
         $this->query->data = json_encode($raw->toArray());
+        $this->query->schema = $this->schema->toJson();
         return  $this->query->save() ? $data : false;
     }
 

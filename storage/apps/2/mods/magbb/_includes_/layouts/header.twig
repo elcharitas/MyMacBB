@@ -5,19 +5,19 @@
 <nav class="section lg:tw-z-50 tw-py-4 bg-mac lg:tw-py-3 " style="height: 60px">
 <div class="tw-flex tw-justify-between tw-h-full tw-items-center tw-relative">
 <div id="header-logo-arrow" class="has-animation xl:tw-flex-1 tw-mr-4 xl:tw-mr-0">
-<a href="/" class="tw-cursor-pointer tw-leading-none tw-block logo white-logo"></a>
+<a href="{{ BB.url('/') }}" class="tw-cursor-pointer tw-leading-none tw-block logo white-logo"></a>
 </div>
 <div class="navbar-links xl:tw-flex-grow tw-relative tw-hidden md:tw-flex md:tw-justify-start lg:tw-justify-around tw-text-xs lg:tw-text-sm xl:tw-w-1/2" style="max-width: 550px">
-<a href="/userlist.php" class="navbar-link  xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
+<a href="{{ BB.url('/userlist.php') }}" class="navbar-link  xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
 {{ Mac.trans('nav.userlist') }}
 </a>
 <a href="/" class="navbar-link xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-text-white is-active tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
 {{ Mac.trans('nav.home') }}
 </a>
-<a href="/calendar.php" class="navbar-link  xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
+<a href="{{ BB.url('/calendar.php') }}" class="navbar-link  xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0 tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
 {{ Mac.trans('nav.calendar') }}
 </a>
-<a href="/help.php" class="tw-hidden lg:tw-block navbar-link xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0  tw-relative tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
+<a href="{{ BB.url('/help.php') }}" class="tw-hidden lg:tw-block navbar-link xl:tw-w-1/5 xl:tw-text-center md:tw-px-3 xl:tw-px-0  tw-relative tw-block tw-uppercase tw-text-transparent-50 tw-font-semibold hover:tw-text-white">
 {{ Mac.trans('nav.help') }}
 </a>
 </div>
@@ -29,10 +29,10 @@
 <i class="fe fe-search"></i>
 </button>
 </search-button>
-<a href="/login.php" class="tw-text-white hover:tw-text-white link tw-font-semibold tw-uppercase tw-mx-6 tw-text-xs">
+<a href="{{ BB.url('/login.php') }}" class="tw-text-white hover:tw-text-white link tw-font-semibold tw-uppercase tw-mx-6 tw-text-xs">
 {{ Mac.trans('nav.login') }}
 </a>
-<a class="tw-text-white hover:tw-bg-white tw-font-semibold tw-uppercase tw-border tw-rounded-full tw-text-xs tw-px-3 tw-py-2 tw-leading-tight" href="/register.php">
+<a class="tw-text-white hover:tw-bg-white tw-font-semibold tw-uppercase tw-border tw-rounded-full tw-text-xs tw-px-3 tw-py-2 tw-leading-tight" href="{{ BB.url('/register.php') }}">
 {{ Mac.trans('nav.register') }}
 </a>
 </div>

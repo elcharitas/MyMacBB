@@ -74,7 +74,8 @@ class BB {
     }
     
     public function redirect(string $path, $sessions=[]){
-        return bb_redirect($path, $sessions);
+        echo bb_redirect($path, $sessions);
+        return true;
     }
     
     public function xhr(string $url, array $data=[], string $method='GET'){

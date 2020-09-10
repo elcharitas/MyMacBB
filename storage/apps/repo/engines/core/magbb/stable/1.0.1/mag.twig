@@ -15,11 +15,11 @@
     {{ BB.session('current.auth') }}
 {% endmacro %}
 
-{% macro user(self, id) %}
-    {% if (0 < (id | length)) %}
-        {{ BB.session('current.auth') }}
+{% macro user(self, col, id=0) %}
+    {% if (0 == id ) %}
+        {{ BB.session('current.auth').get(col) }}
     {% else %}
-        {{ self.db.select('users').find(id) }}
+        {{ self.db.select('users').find(id)[col] }}
     {% endif %}
 {% endmacro %}
 
@@ -69,7 +69,7 @@
         'title': ['string', 'required'],
         'description': ['nullable', 'string'],
         'forum_id': ['default: 0', 'number'],
-        'color': ['default: "#E65100"', 'string'],
+        'color': ['default: "#f65180"', 'string'],
         'locked': ['default: 1', 'boolean'],
         'active': ['default: 1', 'boolean']
     }) %}
@@ -84,11 +84,12 @@
         'no_bbcode': ['default: 0', 'boolean'],
         'thread_id': ['default: 0', 'number'],
         'forum_id': ['required', 'number'],
+        'user_id': ['required', 'number'],
         'locked': ['default: 0', 'boolean'],
         'active': ['default: 1','boolean']
     }) %}
     
-    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service', 'content': 'Welcome to your new Machine Bulletin Board pka [b]MacBB[/b]. Our community forum is only a step away from you :)', 'forum_id': 2}) %}
+    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service', 'content': 'Welcome to your new Machine Bulletin Board pka [b]MacBB[/b]. Our community forum is only a step away from you :)', 'forum_id': 2, 'user_id': 2}) %}
     
     {% do db.create('threadsread', {
         'tid': ['number', 'required'],

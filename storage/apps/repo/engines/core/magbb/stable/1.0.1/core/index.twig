@@ -1,1 +1,2 @@
-{{ Mac.template('index') | raw }}
+{% set threads =  Mac.db.select('threads').where('thread_id', 0) %}
+{{ Mac.template('index', {'forums': Mac.db.select('forums').where('forum_id', 0), 'threads': threads.splice(0, 12)}) | raw }}

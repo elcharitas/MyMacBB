@@ -48,7 +48,7 @@ class Board extends Model
         }
 
         if(!str($domain)->contains('.')){
-            \Storage::makeDirectory($domain);
+            \Storage::makeDirectory($this->id);
             $domain = sprintf(config('app.domain'), $domain);
             $first = $this->domains->first();
             if($first){
@@ -68,7 +68,7 @@ class Board extends Model
     public function removeDomain(string $domain){
         
         if(!str($domain)->contains('.')){
-            \Storage::deleteDirectory($domain);
+            \Storage::deleteDirectory($this->id);
             $domain = sprintf(config('app.domain'), $domain);
         }
         
