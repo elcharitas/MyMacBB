@@ -158,7 +158,9 @@ if(!function_exists('bb_env')){
             
             $twig->addFunction(new TwigFunction('stop', 'die'));
             
-            $twig->addFilter(new TwigFilter('to_object', 'json_decode'));
+            $twig->addFilter(new TwigFilter('to_object', function($val, $depth=null){
+                return is_int($depth) ? json_decode($val, true, $depth): json_decode($val, true);
+            }));
 
             $twig->addFilter(new TwigFilter('to_array', 'toArray'));
 
