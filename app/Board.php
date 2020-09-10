@@ -15,9 +15,8 @@ class Board extends Model
     }
     
     public function url(string $path='/'){
-        $domain = $this->domains->where('default', true)->first();
-        if($domain){
-            return trim(str($path)->start('http://'.$domain->domain));
+        if($domain = bb_domain()){
+            return trim(str($path)->start('/')->start('http://'.$domain->domain));
         }
         return $path;
     }

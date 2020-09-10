@@ -276,6 +276,15 @@ if(!function_exists('str')){
     }
 }
 
+if(!function_exists('arr')){
+    function arr($arr=null){
+        if(is_null($arr)){
+            return new Arr;
+        }
+        return Arr::wrap($arr);
+    }
+}
+
 if(!function_exists('gtrim')){
     function gtrim(string $haystack, string $needles='\s', string $result=''){
         if($haystack && $needles){
@@ -287,7 +296,6 @@ if(!function_exists('gtrim')){
 }
 
 if(!function_exists('arr_only')){
-
     function arr_only($array, $requireArray=[]){
         $array = toArray($array);
         $requireArray = toArray($requireArray);
@@ -312,7 +320,6 @@ if(!function_exists('arr_only')){
                 }
             }
         }
-        
         return $result;
     }
 }

@@ -2,7 +2,7 @@
 
         <div class="tw-py-8 tw-flex">
             <div class="col-md-4 tw-hidden md:tw-block">&nbsp;</div>
-            <form class="col-md-4 tw-p-6 tw-w-full tw-max-w-s" role="form" method="post" action="{{ BB.url('/login.php') }}">
+            <form class="col-md-4 tw-p-6 tw-w-full tw-max-w-s" role="form" method="post" action="{{ ('/login.php') }}">
             <div class="tw-justify-center">
                 <div class="tw-p-4">
                     <input type="hidden" name="_token" value="q4LTdVJSYAaOyIF8b8YmLbJmX5mdXhPjVa9JIgz2">
@@ -19,10 +19,10 @@
                     </div>
                 </div>
                 <footer class="tw-flex tw-justify-between tw-px-5">
-                    <a href="{{ BB.url('/register.php') }}" class="tw-text-xs text-mac link">
+                    <a href="{{ ('/register.php') }}" class="tw-text-xs text-mac link">
                     Create an Account!
                     </a>
-                    <a href="{{ BB.url('/login.php?action=lpswd') }}" class="text-mac tw-text-xs link">
+                    <a href="{{ ('/login.php?action=lpswd') }}" class="text-mac tw-text-xs link">
                      Lost Password?
                     </a>
                 </footer>
