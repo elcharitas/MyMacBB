@@ -267,8 +267,8 @@ if(!function_exists('bb_db')){
  */
 
 if(!function_exists('str')){
-    function str(string $str=''){
-        if($str){
+    function str(?string $str=null){
+        if(!is_null($str)){
             return Str::of($str);
         } else {
             return new Str;
