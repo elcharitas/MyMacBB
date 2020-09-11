@@ -98,13 +98,23 @@ class Model extends Collection {
     
     public function get($loc = 0, $default = null){
         if($this->count() > 1 && $loc === 0){
-            return $this->all();
+            return $this->collect();
         }
-        return parent::get($loc, $default) ?: false;
+        $val = parent::get($loc);
+        if(!$this->key && is_array($val)){
+            $this->key = $loc;
+            $this->items = $val;
+            return $this;
+        } else {
+            $val = rescue(function() use ($val){
+                return json_decode($val, true);
+            }) ?: $val;
+        }
+        return $val ?: $default ?: false;
     }
     
     public function create(array $records){
-        return $this->insert($records) ? $this->last(): false;
+        return $this->put(0, $records);
     }
     
     public function insert(array $records){
@@ -168,7 +178,13 @@ class Model extends Collection {
     }
     
     public function collect(){
-        return new static($this->all(), $this->query);
+        $data = [];
+        foreach($this->all() as $key => $val){
+            $handle = (new static($val, $this->query));
+            $handle->key = $key;
+            $data[$key] = $handle;
+        }
+        return !$this->key ? new static($data, $this->query): null;
     }
     
     public function except($keys)

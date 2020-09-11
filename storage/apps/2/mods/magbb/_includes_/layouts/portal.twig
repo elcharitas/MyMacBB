@@ -10,7 +10,7 @@
 <div class="conversation-list-avatar tw-self-start tw-w-full tw-flex tw-items-center tw-mb-2">
 <div class="tw-flex tw-items-center">
 <h4 class="tw-text-base" style="word-break: break-word;">
-<a href="{{ ('/viewtopic.php?tid=' ~ thread.tid) }}" class="conversation-list-link tw-font-bold md:tw-font-semibold tw-tracking-tight link" title="{{ thread.title }}" v-pre>
+<a href="{{ ('/viewtopic.php?tid=' ~ thread.tid) | url }}" class="conversation-list-link tw-font-bold md:tw-font-semibold tw-tracking-tight link" title="{{ thread.title }}" v-pre>
 {{ thread.title }}
 </a>
 </h4>
@@ -23,12 +23,12 @@
 {{ str(thread.content).limit(100) }}
 </div>
 <div class="tw-text-grey-dark tw-text-xs tw-mt-2">
-<a href="{{ ('/profile.php?id=' ~ thread.user_id) }}" class="tw-font-semibold link hover:tw-text-blue">
+<a href="{{ ('/profile.php?id=' ~ thread.user_id) | url }}" class="tw-font-semibold link hover:tw-text-blue">
 {{ Mac.user('username', thread.user_id) }}
 </a>
 replied
-<a href="{{ ('/viewtopic.php?tid=' ~ thread.tid) }}" class="inherits-color link">
-<time>10 minutes ago</time>
+<a href="{{ ('/viewtopic.php?tid=' ~ thread.tid) | url }}" class="inherits-color link">
+<time>{{ thread.created }} 10 minutes ago</time>
 </a>
 </div>
 </div>
