@@ -88,15 +88,16 @@ class Database {
         
         $query = $this->db->where('table', $table)->first();
         
-        if(!$ignore && !$query){
+        if($ignore == false && !$query instanceOf BoardData){
             abort(419);
+        } else if($query instanceOf BoardData) {
+            
+            $query->relationship = [];
+            
+            collect($rules)->each(function ($item, $key) use ($query){
+                $query->relationship = array_merge($query->relationship, [$key =>$item]);
+            });
         }
-        
-        $query->relationship = [];
-        
-        collect($rules)->each(function ($item, $key) use ($query){
-            $query->relationship = array_merge($query->relationship, [$key =>$item]);
-        });
         
         return $this->build($table, $query, $records);
     }

@@ -48,7 +48,7 @@ if(!function_exists('bb_domain')){
             
             $board = App\BoardDomain::domain($domain);
             //prefetch cross table data
-            $board->board->user && $board->board->domains;
+            $board && $board->board->user && $board->board->domains;
             
             return $board && $board->domain == $hostname ? $board : abort(403);
         });
@@ -106,6 +106,7 @@ if(!function_exists('bb_storage')){
 
 if(!function_exists('bb_res')){
     function bb_res(string $path, bool $ignore=false){
+
         return bb("bb_res.$path", function() use ($path, $ignore){
             $path = bb_path($path);
             $exists = Storage::exists($path);
@@ -188,6 +189,20 @@ if(!function_exists('bb_write')){
     }
 }
 
+if(!function_exists('bb_boot')){
+    function bb_boot($app){
+        $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+        
+        $response = $kernel->handle(
+            $request = Illuminate\Http\Request::capture()
+        );
+        
+        $response->send();
+        
+        $kernel->terminate($request, $response);
+    }
+}
+
 if(!function_exists('bb_mime')){
     function bb_mime(string $path, string $default=null){
         $extension = str($path)->afterLast('.')->lower();
@@ -233,7 +248,7 @@ if(!function_exists('bb_mime')){
  */
 
 if(!function_exists('bb_config')){
-    function bb_config($config, $default=null, string $path=''){
+    function bb_config($config, $default=null, ?string $path=''){
         $source = bb_res(trim(\Str::finish($path, '/config')), true);
         $configs = config_extended($source);
         

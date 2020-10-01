@@ -22,7 +22,8 @@ class Controller extends BaseController
         if(is_array($ignore)){
             foreach($ignore as $index){
                 if(str($path)->is($index)){
-                    abort(403);
+                    $doc = bb_config('filesystem.ignoreDoc');
+                    return $doc ? response(bb_env()->render($doc), 404):abort(403);
                 }
             }
         }

@@ -19,11 +19,6 @@ class Handler extends ExceptionHandler
     protected $dontReport = [
         FileNotFoundException::class,
         FatalError::class,
-        LoaderError::class,
-        RuntimeError::class,
-        SyntaxError::class,
-        Error::class,
-        BoardError::class
     ];
 
     /**
@@ -46,6 +41,9 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $exception)
     {
+        if(config('app.env') === 'local' && $exception instanceof Error){
+            return null;
+        }
         parent::report($exception);
     }
 
@@ -63,18 +61,18 @@ class Handler extends ExceptionHandler
         $msg = $exception->getMessage();
         $line = $exception->getLine();
         
-        if($exception instanceOf FileNotFoundException){
-            abort(404, $exception->getMessage());
-        } else if($exception instanceOf SyntaxError || $exception instanceOf RuntimeError){
-            $loader = new \App\Support\TwigLoader;
-            $template = $exception->getSourceContext()->getName();
-            $code = $loader->getSourceContext($template)->getCode();
-            bb('error', bb_config('twig.debug_mode', false) ? [$code, $msg, $line]: null) && abort(503);
-        } else if($exception instanceOf LoaderError){
-            $doc = bb_config('filesystem.offloadDoc');
-            return ($doc = bb_res($doc, true)) && $doc ? response($doc, 503): abort(503, $msg);
-        } else if($exception instanceof BoardError){
-            abort(500);
+        if(config('app.env') !== 'production'){
+            if($exception instanceOf FileNotFoundException){
+                abort(404, $exception->getMessage());
+            } else if(($exception instanceOf SyntaxError || $exception instanceOf RuntimeError) && $loader = new \App\Support\TwigLoader && $template = $exception->getSourceContext()->getName()){
+                $code = $loader->getSourceContext($template)->getCode();
+                bb('error', bb_config('twig.debug_mode', false) ? [$code, $msg, $line]: null) && abort(503);
+            } else if($exception instanceOf LoaderError){
+                $doc = bb_config('filesystem.offloadDoc');
+                return $doc ? response(bb_env()->render($doc), 404): abort(404, $msg);
+            } else if($exception instanceof BoardError){
+                abort(500);
+            }
         }
         return parent::render($request, $exception);
     }

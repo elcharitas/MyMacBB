@@ -38,7 +38,7 @@
     baseDoc = 'index.php'
     errorDoc = 'index.php'
     ignoreDoc = 'errors.php'
-    offloadDoc = 
+    offloadDoc = 'errors.php'
     ;ignore all config files
     ignore[] = '*config'
     ;ignore dynamic includes

@@ -604,8 +604,10 @@ class Model extends Collection {
             }
             return is_null($val);
         });
+        
         $this->query->data = json_encode($raw->toArray());
         $this->query->schema = $this->schema->toJson();
+        unset($this->query->relationship);
         return  $this->query->save() ? $data : false;
     }
 

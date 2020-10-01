@@ -14,7 +14,7 @@ return [
     */
 
     'commands' => [
-        // App\Console\Commands\ExampleCommand::class,
+        App\Console\Commands\RebuildBB::class,
     ],
 
     /*

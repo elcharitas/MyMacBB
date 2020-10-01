@@ -9,7 +9,7 @@ class BB {
         return new Repo($path);
     }
     
-    public function obj(string $name, ?string $parent=null, array $default=[]){
+    public function obj(?string $name, ?string $parent=null, array $default=[]){
         return bb("objects.$name", function() use ($default, $name, $parent){
             $obj = new Twiggy($default);
             $obj->name($name);
