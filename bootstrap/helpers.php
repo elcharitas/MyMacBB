@@ -134,6 +134,7 @@ if(!function_exists('bb_cache')){
 
 if(!function_exists('bb_env')){
     function bb_env(){
+        bb('twig_env') && bb('twig_env')->getLoader()->open('/');
         return bb('twig_env', function(){
             $loader = new TwigLoader();
             $escaped = 'html';

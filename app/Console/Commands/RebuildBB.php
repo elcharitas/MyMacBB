@@ -46,20 +46,16 @@ class RebuildBB extends Command
     public function handle()
     {
         if(env('APP_ENV') !== 'production'){
-            $this->output('Rebuilding Application...');
+            $this->comment('Rebuilding Application...');
             
-            $this->output(\Artisan::call('migrate:fresh') == 0 ? 'Database Tables migrated successfully': "Nothing to migrate!");
+            \Artisan::call('migrate:fresh') == 0 ? $this->info('Database Tables migrated successfully'): $this->comment("Nothing to migrate!");
             
-            $this->output(\Artisan::call('db:seed') == 0 ? 'Database Tables were seeded successfully' : 'Nothing to Seed!');
-            $this->output("Completed in ".(time()-$this->start)."s");
+            \Artisan::call('db:seed') == 0 ? $this->info('Database Tables were seeded successfully') : $this->comment('Nothing to Seed!');
+            $this->comment("Completed in ".(time()-$this->start)."s");
             return 1;
         } else {
-            $this->output('Switch back to Development to use!');
+            $this->error('Switch back to Development to use!');
             return 0;
         }
-    }
-    
-    public function output($text){
-        $this->comment($text);
     }
 }

@@ -18,7 +18,7 @@ class PruneBB extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Remove from the database expired or spammy data';
 
     /**
      * Create a new command instance.
