@@ -167,8 +167,8 @@
 {% for prop in ['auth', 'user', 'forum', 'thread'] %}
     {% do Mac.define(prop, prop) %}
 {% endfor %}
-
 {# auto load language files #}
+
 {% for lang in ['global', 'nav', 'search', 'portal'] %}
     {% do Mac.lang.load(lang) %}
 {% endfor %}

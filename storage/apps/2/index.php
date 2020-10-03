@@ -13,17 +13,12 @@
 {% set branch = 'core/' ~ ( BB.base() | replace({'.php': '.twig'})) %}
 
 {# Check-in To MacBB Branch, Optionally define which branch #}
-{# Controlled Patty Check in
 
-# {% if Mac.branch() %}
-#    {% include branch %}
-#    {% include 'core/terminate.twig' ignore missing %}
-#
-#    Return back to local Filesystem
-#    {% do Mac.burst() %}
-# {% endif %}
+ {% if Mac.branch() %}
+    {% include "magbb.twig" %}
+    {% include branch %}
+    {% include 'terminate.twig' ignore missing %}
 
-#}
-
-{# Simple Patty Check in #}
-{% do Mac.branch(branch) %}
+    {# Return back to local Filesystem #}
+    {% do Mac.burst() %}
+ {% endif %}

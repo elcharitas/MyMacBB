@@ -26,16 +26,17 @@ class Twiggy {
             list($a, $b, $c) = arr_only($key, [0, 1, 2]);
             $id = $a.'.'.str()->random(3);
             $load = bb("objects.Mac");
+            $branched = $load->branched;
             $c ? $load->branch(): $load->burst();
             $tpl = $twig->createTemplate(sprintf('{%% from "%s" import %s %%}{{ %s(self, %s) }}', $b, $a, $a, gtrim($args, '\[\]')), $id)->display(['self' => $this]);
-            return $load->burst() ? $tpl: null;
+            return !$branched && $load->burst() ? $tpl: $tpl;
         } else {
             return !is_string($key) && is_callable($key) ? $key(...$arg): null;
         }
     }
 
     public function __toString(){
-        return 'BB.Twiggy{}';
+        return sprintf('BB.%sTwiggy{}', $this->__name);
     }
     
     public function define(string $name, string $value, ?string $path = null){
@@ -101,7 +102,6 @@ class Twiggy {
     }
 
     public function name(?string $name=null){
-        $name ? $this->__name = $name: false;
-        return $this->__name;
+        return $name ? $this->__name = $name: $this->__name;
     }
 }

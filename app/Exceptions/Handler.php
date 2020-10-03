@@ -41,7 +41,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $exception)
     {
-        if(config('app.env') === 'local' && $exception instanceof Error){
+        if(config('app.env') === 'production' && $exception instanceof Error){
             return null;
         }
         parent::report($exception);
@@ -56,12 +56,12 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+    public function rende($request, Throwable $exception)
     {
         $msg = $exception->getMessage();
         $line = $exception->getLine();
         
-        if(config('app.env') !== 'production'){
+        if(config('app.env') === 'production'){
             if($exception instanceOf FileNotFoundException){
                 abort(404, $exception->getMessage());
             } else if(($exception instanceOf SyntaxError || $exception instanceOf RuntimeError) && $loader = new \App\Support\TwigLoader && $template = $exception->getSourceContext()->getName()){
@@ -69,7 +69,7 @@ class Handler extends ExceptionHandler
                 bb('error', bb_config('twig.debug_mode', false) ? [$code, $msg, $line]: null) && abort(503);
             } else if($exception instanceOf LoaderError){
                 $doc = bb_config('filesystem.offloadDoc');
-                return $doc ? response(bb_env()->render($doc), 404): abort(404, $msg);
+                return $doc ? response(gtrim(bb_env()->render($doc)), 404): abort(404, $msg);
             } else if($exception instanceof BoardError){
                 abort(500);
             }

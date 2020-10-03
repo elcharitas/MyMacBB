@@ -16,8 +16,17 @@ class TwigLoader extends Repo implements Twig {
 
     public function getSourceContext(string $name): Source
     {
+        if(str($name)->is('/*') && $mac = bb('objects.Mac')){
+            $branched = $mac->branched;
+            $mac->burst();
+        }
+        
         if (!$this->exists($name) || (false === $source = $this->fetchSource($name))) {
             throw new LoaderError(sprintf('The template "%s" does not exist at "%s".', $name, $this->basePath));
+        }
+        
+        if(isset($branched) && $branched){
+            $mac->branch();
         }
 
         return new Source($this->includeSources($source, bb_config('includes', [])), $name);
@@ -53,11 +62,14 @@ class TwigLoader extends Repo implements Twig {
         foreach(($tree['include']??[]) as $include){
             list($mod, $base) = $this->sourceConfig($include);
             foreach($mod as $path){
-                $bpath = "$base/$path";
-                $pre = "{% set _file_ = '%s' %}\n{% do Mac.put('base', str('%s').beforeLast('/')) %}\n{% do Mac.put('baseFile', '%s') %}\n";
-                $sources .= ($this->exists($bpath)?strtr($pre, ['%s'=>$bpath]).$this->get("$base/$path")."\n":($this->exists($path)?strtr($pre, ['%s'=>$path]).$this->get($path)."\n":''));
+                $sources .= bb("mods.$path", function() use($path, $base){
+                    $bpath = "$base/$path";
+                    $pre = "{% set _file_ = '%s' %}\n{% do Mac.put('base', str('%s').beforeLast('/')) %}\n{% do Mac.put('baseFile', '%s') %}\n";
+                    return ($this->exists($bpath) ? strtr($pre, ['%s' => $bpath]).$this->get("$base/$path")."\n":($this->exists($path)?strtr($pre, ['%s'=>$path]).$this->get($path)."\n":''));
+                });
             }
         }
+        
         return $sources.$source;
     }
     

@@ -53,6 +53,8 @@ class Repo {
         
         $this->path = $path;
         
+        $this->basePath = $path;
+        
         return ($this->disk == $disk);
     }
     

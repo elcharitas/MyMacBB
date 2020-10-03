@@ -56,15 +56,15 @@ class DeployBB
         }, true);
         
         $bb->put('include', function ($path, $scope=[]) use ($bb, $loader, $env){
-            ($source = $bb->fetch($path)) && $bb->burst() && $env->createTemplate($source, $path) && $source = $env->render($path, $scope);
+            ($source = $bb->fetch($path)) && $bb->burst() && $env->createTemplate($source, $path) && $source = $env->render($path, $scope?:[]);
             return $bb->branch() ? $source: null;
         }, true);
         
         ($bb->repo === 'core/magbb') && $bb->put('template', function (?string $part=null, $args=[]) use ($bb, $ob){
             $path = str($part)->start('/')->start($ob->obj($bb->template)->basePath)->finish('.twig');
-            return rescue(function() use($bb, $path, $args){
+            //return rescue(function() use($bb, $path, $args){
                 return $bb->include($path, $args);
-            });
+            //});
         }, true);
         
         $bb->put('burst', function() use ($bb, $loader){

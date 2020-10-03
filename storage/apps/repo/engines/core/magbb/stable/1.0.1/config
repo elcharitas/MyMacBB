@@ -1,2 +1,2 @@
 [includes]
-    include[] = 'core/mag'
+    include[] = 'magbb'
