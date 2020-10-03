@@ -16,4 +16,8 @@ class BoardDomain extends Model
     public function scopeDomain($query, $domain){
         return $query->where('domain', 'LIKE', $domain)->first() ?: false;
     }
+
+    public function url(string $path='/'){
+        return trim(str($path)->start('/')->start('http://'.$this->domain));
+    }
 }

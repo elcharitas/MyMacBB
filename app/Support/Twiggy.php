@@ -3,13 +3,33 @@
 namespace App\Support;
 
 class Twiggy {
-    
+    /**
+     * Name of Twig object
+     * 
+     * @var string
+     */
     protected $__name;
-    
+
+    /**
+     * Array of Transient Values
+     * 
+     * @var array
+     */
     protected $data = [];
-    
+
+    /**
+     * Array of callable Values
+     * 
+     * @var array
+     */
     protected $fillable = [];
-    
+
+    /**
+     * Initialize a new object
+     * 
+     * @param $fill: Instance of Twiggy, Object or Array
+     * @return void
+     */
     public function __construct($fill=[]){
         $this->inherit($fill);
     }

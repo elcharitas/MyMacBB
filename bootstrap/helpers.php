@@ -82,7 +82,11 @@ if(!function_exists('bb_path')){
 
 if(!function_exists('bb_url')){
     function bb_url(string $path='/'){
-        return bb_info()->url($path);
+        $urlBase = bb_config('app.url');
+        if($urlBase){
+            return trim(str($path)->start('/')->start($urlBase));
+        }
+        return bb_domain()->url($path);
     }
 }
 
