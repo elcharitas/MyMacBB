@@ -46,7 +46,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Subscription::class);
     }
     
-    public function mail($title, $message, $from){
+    public function mail($title=null, $message=null, $from=null){
         $mail = new SendMail;
         return $mail;
     }
