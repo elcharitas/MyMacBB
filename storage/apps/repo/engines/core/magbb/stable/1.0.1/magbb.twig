@@ -1,6 +1,6 @@
 {# 
-    # MacBB global helper & installer
-    # MacBB v1.0
+    # Mac global helper & installer
+    # Mac v1.0
 #}
 
 {% macro install(self, name) %}
@@ -34,7 +34,7 @@
 {# database Object #}
 {% set db = BB.db() %}
 
-{# Check If MacBB has been installed #}
+{# Check If Mac has been installed #}
 {% if 0 >= db.tables() | length %}
 
     {% do db.create('users', {
@@ -89,7 +89,7 @@
         'active': ['default: 1','boolean']
     }) %}
     
-    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service!', 'content': 'Welcome to your new Machine Bulletin Board pka [b]MacBB[/b]. Our community forum is only a step away from you :)', 'forum_id': 2, 'user_id': 2}) %}
+    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service!', 'content': 'Welcome to your new Machine Bulletin Board pka [b]Mac[/b]. Our community forum is only a step away from you :)', 'forum_id': 2, 'user_id': 2}) %}
     
     {% do db.create('threadsread', {
         'tid': ['number', 'required'],
@@ -162,7 +162,7 @@
     {% do BB.redirect(BB.path()) %}
 {% endif %}
 
-{# MacBB has been installed and Data seeded, let's proceed #}
+{# Mac has been installed and Data seeded, let's proceed #}
 {% do Mac.put('db', db) %}
 {% for prop in ['auth', 'user', 'forum', 'thread'] %}
     {% do Mac.define(prop, prop) %}

@@ -1,5 +1,5 @@
 [config]
-    name = 'MyMacBB'
+    name = 'MyMac'
     description = 'Simple Forum Engine Built on Twig'
     tags = 'magbb, twig, engine'
     

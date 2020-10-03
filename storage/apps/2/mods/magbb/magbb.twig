@@ -1,5 +1,5 @@
 {#
-    # MacBB Forum Engine v1.0.1
+    # Mac Forum Engine v1.0.1
     #
     # Created by Jonathan Irhodia(), Olaide Daniel,
     # Released: 

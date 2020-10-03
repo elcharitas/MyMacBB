@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'name' => '4rum Host',
+            'name' => 'Mac Web Solutions',
             'username' => 'nathan',
             'password' => bcrypt('password'),
-            'email' => 'support@4rum.com',
+            'email' => 'support@macbb.com',
             'email_verified_at' => now(),
         ]);
         

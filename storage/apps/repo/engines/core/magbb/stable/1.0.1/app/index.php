@@ -1,4 +1,4 @@
-{# MacBB Branch Handler #}
+{# Mac Branch Handler #}
 
 {% set Mac = bb.obj('Mac', 'lang') %}
 

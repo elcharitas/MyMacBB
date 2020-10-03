@@ -1,5 +1,5 @@
 {#
-    # MacBB Forum Engine v1.0.1
+    # Mac Forum Engine v1.0.1
     #
     # Created by Jonathan Irhodia(), Olaide Daniel,
     # Released: 
@@ -12,7 +12,7 @@
 
 {% set branch = 'core/' ~ ( BB.base() | replace({'.php': '.twig'})) %}
 
-{# Check-in To MacBB Branch, Optionally define which branch #}
+{# Check-in To Mac Branch, Optionally define which branch #}
 
  {% if Mac.branch() %}
     {% include "magbb.twig" %}

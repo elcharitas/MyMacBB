@@ -1,4 +1,4 @@
-# MacBB Web Solution
+# Mac Web Solution
 
 ## About
 
@@ -13,9 +13,9 @@
 
 ## Links
 
-* Homepage: http://macbb.com
-* Documentation: http://macbb.com/docs
-* Community: http://macbb.com/forums/
-* Resources: http://macbb.com/resources/
-* IRC: irc://irc.freenode.net/macbb
-* Development: http://github.com/macbb/macbb
+* Homepage: http://macweb.com
+* Documentation: http://macweb.com/docs
+* Community: http://macweb.com/forums/
+* Resources: http://macweb.com/resources/
+* IRC: irc://irc.freenode.net/macweb
+* Development: http://github.com/macweb/macweb

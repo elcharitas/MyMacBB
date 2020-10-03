@@ -1,6 +1,6 @@
 [config]
-    name = MyMacBB Language'
-    description = 'Language Translation with Twig and MacBB API'
+    name = MyMac Language'
+    description = 'Language Translation with Twig and Mac API'
     tags = 'magbb, language'
 
 [lang]
