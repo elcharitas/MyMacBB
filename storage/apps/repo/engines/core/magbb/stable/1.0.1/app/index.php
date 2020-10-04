@@ -2,4 +2,4 @@
 
 {% set Mac = bb.obj('Mac', 'lang') %}
 
-{% do Mac.branch('magbb_' ~ Mac.branch) %}
+{% do Mac.checkout('magbb_' ~ Mac.branch) %}

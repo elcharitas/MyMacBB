@@ -40,9 +40,9 @@ class DeployBB
             'template' => bb_config('magbb.template','magbb')
         ]);
         
-        $bb->put('branch', function($path=null, $scope=[]) use ($bb, $loader, $env){
+        $bb->put('checkout', function($repo=null, $path=null, $scope=[]) use ($bb, $loader, $env){
             $bb->put('branched', true);
-            $loaded = $loader->load($bb->repo, $bb->magbb);
+            $loaded = $loader->load($repo ?: $bb->repo, $bb->magbb);
             if($path){
                 echo $env->render($path);
                 return $bb->burst();
@@ -52,19 +52,20 @@ class DeployBB
         
         $bb->put('fetch', function(string $path, $scope = []) use ($bb, $loader){
             $path && $bb->burst() && $source = $loader->get($path);
-            return $bb->branch() ? $source: null;
+            return $bb->checkout() ? $source: null;
         }, true);
         
         $bb->put('include', function ($path, $scope=[]) use ($bb, $loader, $env){
             ($source = $bb->fetch($path)) && $bb->burst() && $env->createTemplate($source, $path) && $source = $env->render($path, $scope?:[]);
-            return $bb->branch() ? $source: null;
+            return $bb->checkout() ? $source: null;
         }, true);
         
+        //templates work in repo environment
         ($bb->repo === 'core/magbb') && $bb->put('template', function (?string $part=null, $args=[]) use ($bb, $ob){
             $path = str($part)->start('/')->start($ob->obj($bb->template)->basePath)->finish('.twig');
-            //return rescue(function() use($bb, $path, $args){
+            return rescue(function() use($bb, $path, $args){
                 return $bb->include($path, $args);
-            //});
+            });
         }, true);
         
         $bb->put('burst', function() use ($bb, $loader){
@@ -76,12 +77,13 @@ class DeployBB
         
         config($configs);
         
+        //enforce the root url
         \URL::forceRootUrl(bb_config('app.url'));
         
         return $next($request);
     }
     
     public function terminate($request){
-        //initiate the garbage collector
+        //initiate the garbage collectors
     }
 }

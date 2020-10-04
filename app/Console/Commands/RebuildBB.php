@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Artisan;
 use Illuminate\Console\Command;
 
 class RebuildBB extends Command
@@ -48,9 +49,9 @@ class RebuildBB extends Command
         if(env('APP_ENV') !== 'production'){
             $this->comment('Rebuilding Application...');
             
-            \Artisan::call('migrate:fresh') == 0 ? $this->info('Database Tables migrated successfully'): $this->comment("Nothing to migrate!");
+            Artisan::call('migrate:fresh') == 0 ? $this->info('Database Tables migrated successfully'): $this->comment("Nothing to migrate!");
             
-            \Artisan::call('db:seed') == 0 ? $this->info('Database Tables were seeded successfully') : $this->comment('Nothing to Seed!');
+            Artisan::call('db:seed') == 0 ? $this->info('Database Tables were seeded successfully') : $this->comment('Nothing to Seed!');
             $this->comment("Completed in ".(time()-$this->start)."s");
             return 1;
         } else {

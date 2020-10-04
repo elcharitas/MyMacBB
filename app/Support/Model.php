@@ -2,9 +2,10 @@
 
 namespace App\Support;
 
-use \Arr, \Str;
+use Arr, Str;
 use App\BoardData;
-use Illuminate\Support\{Collection, Enumerable};
+use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 
 class Model extends Collection {
     
@@ -61,7 +62,7 @@ class Model extends Collection {
             $args = json_encode($arg);
             $id = $key.'.'.str()->random(3);
             $load = bb("objects.Mac");
-            $path ? $load->branch(): $load->burst();
+            $path ? $load->checkout(): $load->burst();
             $tpl = $twig->createTemplate(sprintf('{%% from "%s" import %s %%}{{ %s(self, %s) }}', $val, $key, $key, gtrim($args, '\[\]')), $id)->display(['self' => $this]);
             return $load->burst() ? $tpl: null;
         }) && true;
@@ -80,7 +81,7 @@ class Model extends Collection {
         $data = parent::first();
         if($data && is_array($data)){
             $this->key = $this->keys()->first();
-            $this->items = $data;
+            $this->items = (new Validator)->make(toArray($data), toArray($this->query->schema), $this);
             return $this;
         }
         return $data;
@@ -90,7 +91,7 @@ class Model extends Collection {
         $data = parent::last();
         if($data && is_array($data)){
             $this->key = $this->keys()->last();
-            $this->items = $data;
+            $this->items = (new Validator)->make(toArray($data), toArray($this->query->schema), $this);
             return $this;
         }
         return $data;
@@ -567,18 +568,42 @@ class Model extends Collection {
         return new static(array_values($this->items), $this->query);
     }
 
-    public function __toString(){
-        return 'BB.Database.'.trim(str($this->name?:' ')->studly()).'Model{}';
-    }
-    
+    /**
+     * Checks if column ecists
+     *
+     * @param key
+     * @return boolean
+     */
     public function hasColumn($key){
         return $this->schema->has($key);
     }
-    
+
+    /**
+     * Gets/Sets a column properties
+     *
+     * @param string $key
+     * @param array|object|null $val
+     * @return boolean
+     */
     public function column($key, $val=null){
         return is_null($val) ? $this->schema->get($key): ( ($val ? $this->schema->put($key, $val): $this->schema->forget($key)) && $this->save($this)); 
     }
 
+    /**
+     * Dot notation representation of model object
+     *
+     * @return string
+     */
+    public function __toString(){
+        return 'BB.Database.'.trim(str($this->name?:' ')->studly()).'Model{}';
+    }
+
+    /**
+     * Sets up database relationships
+     *
+     * @param array $arr
+     * @return boolean
+     */
     protected function relate($arr){
         foreach($arr as $key => $val){
             $this->relationship[$key] = (function($data) use ($key, $val){
@@ -589,7 +614,13 @@ class Model extends Collection {
         }
         return count($arr) > 0 ? true: false;
     }
-    
+
+    /**
+     * Saves a model input
+     *
+     * @param App\Support\Model $data
+     * @return array|boolean
+     */
     protected function save(Model $data){
         if(!$this->query){
             return false;

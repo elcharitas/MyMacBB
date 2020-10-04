@@ -23,6 +23,11 @@
     {% endif %}
 {% endmacro %}
 
+{% macro findUser(self, uid) %}
+    {% set user = self.db.select('users').find(uid) %}
+    {{ user }}
+{% endmacro %}
+
 {% macro forum(self, fid) %}
     {{ self.db.select('forums').find(fid) }}
 {% endmacro %}
@@ -48,8 +53,10 @@
         'gid': [ 'default: 2', 'number'],
         'active': ['default: 1', 'boolean']
     }) %}
+    
+    {% do db.select('users').insert({'username': 'guest','email':'guest@internet.org','gid':1,'active':0}) %}
 
-    {% do db.select('users').insert(BB.user()|merge({'uid':2, 'password': str().random(8)})) %}
+    {% do db.select('users').insert(BB.user()|merge({'password': str().random(8)})) %}
     
     {% do db.create('usergroups', {
         'ugid': ['primary', 'required'],
@@ -89,7 +96,7 @@
         'active': ['default: 1','boolean']
     }) %}
     
-    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service!', 'content': 'Welcome to your new Machine Bulletin Board pka [b]Mac[/b]. Our community forum is only a step away from you :)', 'forum_id': 2, 'user_id': 2}) %}
+    {% do db.select('threads').insert({'title': 'Thanks For Choosing Our Service!', 'content': 'Welcome to your new Machine Powered Magnificient Bulletin Board. Our community forum is only a click away from you :)', 'forum_id': 2, 'user_id': 2}) %}
     
     {% do db.create('threadsread', {
         'tid': ['number', 'required'],
@@ -99,12 +106,14 @@
     {% do db.create('themes', {
         'thid': ['primary'],
         'title': ['string'],
-        'description': ['string'],
-        'base_thid': ['number'],
+        'description': ['nullable','string'],
+        'base_thid': ['default: 0','number'],
         'primary': ['default: "#E65100"', 'string'],
         'secondary': ['default: "darkgrey"', 'string'],
         'active': ['default: 0','boolean']
     }) %}
+    
+    {% do db.select('themes').insert({'title': 'Default'}) %}
     
     {% do db.create('reputation', {
         'uid': ['number'],
@@ -124,6 +133,8 @@
         'cid': ['number'],
         'members': ['string', 'cast: array']
     }) %}
+    
+    {% do db.select('privatemessages').insert({'uid':0,'cid':1,'members': '[1]'}) %}
     
     {% do db.create('adminoptions', {
         
@@ -164,9 +175,11 @@
 
 {# Mac has been installed and Data seeded, let's proceed #}
 {% do Mac.put('db', db) %}
+
 {% for prop in ['auth', 'user', 'forum', 'thread'] %}
-    {% do Mac.define(prop, prop) %}
+    {% do Mac.define(prop, prop, 'magbb.twig') %}
 {% endfor %}
+
 {# auto load language files #}
 
 {% for lang in ['global', 'nav', 'search', 'portal'] %}

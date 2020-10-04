@@ -9,15 +9,15 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                font-family: sans-serif;
+                background-color: #111;
+                font-family: sans-serif, cursive;
                 font-weight: 100;
-                height: 100vh;
+                height: 85vh;
                 margin: 0;
             }
 
             .full-height {
-                height: 100vh;
+                height: 85vh;
             }
 
             .flex-center {
@@ -30,21 +30,17 @@
                 position: relative;
             }
 
-            .code {
-                border: 1px solid;
+            .message b {
                 font-size: 2rem;
-                padding: 1em 0;
                 text-align: center;
-                color: white;
-                background-color: #e65100;
-                border-radius: 10px;
-                width: 225px;
+                display: block;
+                color: #e65100;
             }
 
             .message {
-                font-size: .87rem;
+                font-size: 1.2rem;
                 text-align: center;
-                background-color: darkorange;
+                color: white;
             }
         </style>
     </head>
@@ -52,8 +48,8 @@
         <div class="flex-center position-ref full-height">
             <div class="code">
                 <div class="message" style="padding: 2rem;">
-                    
-                <b> Error @yield('code')</b>: @yield('message')
+                    <b> @yield('code')!</b>
+                    <span> @yield('message') </span>
                 </div>
             </div>
             

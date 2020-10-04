@@ -1,22 +1,30 @@
 <?php
 
 namespace App\Support;
+
+use Hash, Cookie;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Mail\Markdown;
 
 class BB {
     
     public function repo($path='/'){
         return new Repo($path);
     }
-    
+
+    /**
+     * Creates a new Twig Object Instance
+     *
+     * @return App\Support\Twiggy
+     */
     public function obj(?string $name, ?string $parent=null, array $default=[]){
         return bb("objects.$name", function() use ($default, $name, $parent){
             $obj = new Twiggy($default);
-            $obj->name($name);
             if($parent){
                 $parent = $this->obj($parent);
-                $obj->inherit(collect($parent));
+                $obj->inherit($parent);
             }
+            $obj->name($name);
             return $obj;
         });
     }
@@ -49,12 +57,20 @@ class BB {
         return $session ? session($session, ...$args): session()->all();
     }
     
-    public function cookie(...$args){
-        return cookie(...$args);
+    public function cookie($cookie, ...$args){
+        return $cookie ? cookie($cookie, ...$args): new Cookie;
     }
     
     public function db($key=''){
         return bb_db($key);
+    }
+
+    public function hash(string $string){
+        return bcrypt($string);
+    }
+    
+    public function check(string $hash, string $check){
+        return Hash::check($check, $hash);
     }
     
     public function post(?string $param=null){
@@ -72,18 +88,26 @@ class BB {
     public function previousUrl(){
         return url()->previous();
     }
-    
+
+    /**
+     * Performs a redirect
+     *
+     * @return Illuminate\Support\Request
+     */
     public function redirect(string $path, $sessions=[]){
-        echo bb_redirect($path, $sessions);
-        return true;
+        return bb_redirect($path, $sessions);
     }
-    
+
+    /**
+     * Generates a HTTP propagator request object
+     *
+     * @return App\Support\HttpRequest
+     */
     public function xhr(string $url, array $data=[], string $method='GET'){
         return new HttpRequest($url, $method, $data);
     }
 
-    public function ini($key, $value=null){
-        $conf = ' ';
+    public function ini($key, $value=null, ?string $conf=null){
         switch($key){
             case 'escape':
                 $conf = 'autoescape';
@@ -102,7 +126,7 @@ class BB {
             break;
         }
         
-        if($conf != ' ' && $value){
+        if(!is_null($conf) && !is_null($value)){
             $ini = $this->ini($key);
             $conf = trim(str($conf)->start($value ? 'enable_': 'disable_')->camel());
             
@@ -111,7 +135,7 @@ class BB {
             }
             
             return false;
-        } else if($conf != ' '){
+        } else if(is_null($value)){
             $value = trim(str($conf)->start('get_')->camel());
             $conf = trim(str($conf)->start('is_')->camel());
             
@@ -126,7 +150,23 @@ class BB {
         return false;
     }
     
+    public function md2html(string $mdString){
+        return Markdown::parse($mdString);
+    }
+    
+    public function code2html(string $bbcodeString){
+        return $bbcodeString;
+    }
+    
     public function __toString(){
         return 'BB{}';
+    }
+    
+    public function __get($name){
+        return method_exists($this, $name) ? $this->{$name}(null): null;
+    }
+    
+    public function __isset($name){
+        return method_exists($this, $name);
     }
 }

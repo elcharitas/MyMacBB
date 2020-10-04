@@ -2,7 +2,8 @@
 
 namespace App\Support;
 
-use App\{Board, BoardData};
+use App\Board;
+use App\BoardData;
 
 class Database {
     

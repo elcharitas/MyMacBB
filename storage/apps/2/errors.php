@@ -10,9 +10,9 @@
 {# This isnt required as it is defined in blocks each time by default #}
 {% set Mac = BB.obj('Mac') %}
 
- {% if Mac.branch() %}
+ {% if Mac.checkout() %}
     {% include "magbb.twig" %}
-    {{ Mac.template('404') | raw }}
+    {{ Mac.template('404', {'title': 'Error: This page does not exist!'}) | raw }}
     {% include 'terminate.twig' ignore missing %}
 
     {# Return back to local Filesystem #}

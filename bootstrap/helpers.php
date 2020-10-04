@@ -1,7 +1,14 @@
 <?php
 
-use Twig\{Environment, Parser, TwigFunction, TwigFilter};
-use App\Support\{BB, Database, Repo, Twiggy, TwigLoader};
+use Twig\Environment;
+use Twig\Parser;
+use Twig\TwigFunction;
+use Twig\TwigFilter;
+use App\Support\BB;
+use App\Support\Database;
+use App\Support\Repo;
+use App\Support\Twiggy;
+use App\Support\TwigLoader;
 
 /**
  * Core Helpers
@@ -50,7 +57,7 @@ if(!function_exists('bb_domain')){
             //prefetch cross table data
             $board && $board->board->user && $board->board->domains;
             
-            return $board && $board->domain == $hostname ? $board : abort(403);
+            return $board && $board->domain == $hostname ? $board : abort(404, 'Site doesn\'t exist!');
         });
     }
 }
@@ -176,7 +183,7 @@ if(!function_exists('bb_env')){
             
             $twig->addFilter(new TwigFilter('mime', 'bb_mime'));
             
-            $twig->addFilter(new TwigFilter('url', 'bb_url'));
+            $twig->addFilter(new TwigFilter('url', 'url'));
             
             return $twig;
         });
@@ -254,7 +261,7 @@ if(!function_exists('bb_mime')){
 
 if(!function_exists('bb_config')){
     function bb_config($config, $default=null, ?string $path=''){
-        $source = bb_res(trim(\Str::finish($path, '/config')), true);
+        $source = bb_res(trim(Str::finish($path, '/config')), true);
         $configs = config_extended($source);
         
         if(is_array($config)){

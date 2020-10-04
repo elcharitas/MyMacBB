@@ -47,7 +47,7 @@ class Twiggy {
             $id = $a.'.'.str()->random(3);
             $load = bb("objects.Mac");
             $branched = $load->branched;
-            $c ? $load->branch(): $load->burst();
+            $c ? $load->checkout(): $load->burst();
             $tpl = $twig->createTemplate(sprintf('{%% from "%s" import %s %%}{{ %s(self, %s) }}', $b, $a, $a, gtrim($args, '\[\]')), $id)->display(['self' => $this]);
             return !$branched && $load->burst() ? $tpl: $tpl;
         } else {

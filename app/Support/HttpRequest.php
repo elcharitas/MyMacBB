@@ -2,7 +2,7 @@
 
 namespace App\Support;
 
-use \Http;
+use Http;
 
 class HttpRequest {
     

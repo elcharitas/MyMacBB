@@ -3,13 +3,13 @@
 <footer class="container">
 <div class="row">
 <div class="col-md-4">
-<a href="{{ ('/') }}" class="tw-px-2">
+<a href="{{ ('/')|url }}" class="tw-px-2">
 Home
 </a>
 <a href="/rules" class="tw-px-2">
 Rules
 </a>
-<a href="{{ ('/userlist.php') }}" class="tw-px-2">
+<a href="{{ ('/userlist.php') | url }}" class="tw-px-2">
 Userlist
 </a>
 <a href="/" class="tw-px-2">
@@ -18,11 +18,10 @@ Create a Forum
 </div>
 <div class="col-md-4">
 &copy; {{ 'Today' | date('Y') }}. All Rights Reserved 
-<a href="{{ ('/') }}"> MyMac Forum</a>.
+<a href="{{ '/' | url }}"> The Community Forum</a>.
 </div>
 <div class="col-md-4 md:tw-text-right">
-<p> Powered by <a href="/">
-MyMac</a>.</p>
+<p> Powered by <a href="{{ '/' }}"> Mac Web Solutions </a>.</p>
 </div>
 </div>
 </footer>

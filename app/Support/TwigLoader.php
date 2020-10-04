@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use Storage;
 use Twig\Source;
 use Twig\Error\LoaderError;
 use Twig\Loader\LoaderInterface as Twig;
@@ -26,7 +27,7 @@ class TwigLoader extends Repo implements Twig {
         }
         
         if(isset($branched) && $branched){
-            $mac->branch();
+            $mac->checkout();
         }
 
         return new Source($this->includeSources($source, bb_config('includes', [])), $name);
@@ -45,7 +46,7 @@ class TwigLoader extends Repo implements Twig {
                 'driver' => 'local',
                 'root' => $path,
             ]]);
-            $this->storage = \Storage::disk($disk);
+            $this->storage = Storage::disk($disk);
             $this->disk = $disk;
             $this->path = $repo;
             $this->basePath = $repo;

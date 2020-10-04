@@ -13,7 +13,7 @@ class Board
         $msg = Message::create([
             'user_id' => 1,
             'to_id' => $user->id,
-            'message' => sprintf("Congrats %s! on creating your new bulletin board: [url=%s]%s[/url].\n\n[url=%s]Our Community[/url] is there to help you on this journey plus there are [url=%s]mods and styles[/url] to check out", $user->username, $board->url(), $board->url(), config('app.bburl'), config('app.modsurl'))
+            'message' => sprintf("Congrats %s! on creating your new engine: [url=%s]%s[/url].\n\n[url=%s]Our Community[/url] is there to help you on this journey plus there are quite a handful [url=%s]mods and styles[/url] to check out", $user->username, $board->url(), $board->url(), config('app.bburl'), config('app.modsurl'))
         ]);
         
     }

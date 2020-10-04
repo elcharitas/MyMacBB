@@ -61,7 +61,7 @@ class Handler extends ExceptionHandler
         $msg = $exception->getMessage();
         $line = $exception->getLine();
         
-        if(config('app.env') === 'production'){
+        if(config('app.env') !== 'production'){
             if($exception instanceOf FileNotFoundException){
                 abort(404, $exception->getMessage());
             } else if(($exception instanceOf SyntaxError || $exception instanceOf RuntimeError) && $loader = new \App\Support\TwigLoader && $template = $exception->getSourceContext()->getName()){

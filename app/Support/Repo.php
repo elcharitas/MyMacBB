@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use Storage;
 use Illuminate\Filesystem\Filesystem;
 
 class Repo {
@@ -47,7 +48,7 @@ class Repo {
             ]
         ]);
         
-        $this->storage = \Storage::disk($disk);
+        $this->storage = Storage::disk($disk);
         
         $this->disk = $disk;
         
