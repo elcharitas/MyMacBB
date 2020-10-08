@@ -59,6 +59,10 @@ class Twiggy {
         return sprintf('BB.%sTwiggy{}', $this->__name);
     }
     
+    public function all(){
+        return $this->data;
+    }
+    
     public function define(string $name, string $value, ?string $path = null){
         return ($mac = bb("objects.Mac")) && $this->put($name, [$value, $path ?: $mac->baseFile, $mac->branched], true);
     }
@@ -110,6 +114,9 @@ class Twiggy {
     }
     
     public function inherit($collect, $prefix=''){
+        if($collect instanceof Twiggy){
+            $collect = $collect->all();
+        }
         $fill = collect($collect)->toArray();
         foreach($fill as $key => $fill){
             data_set($this->data, $prefix.$key, $fill);

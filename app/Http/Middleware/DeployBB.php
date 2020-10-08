@@ -62,9 +62,18 @@ class DeployBB
         
         //templates work in repo environment
         ($bb->repo === 'core/magbb') && $bb->put('template', function (?string $part=null, $args=[]) use ($bb, $ob){
+            $scope = bb('#.templateScope', function(){
+                return [[]];
+            });
+            $last = collect($scope)->last();
+            if(is_array($last)){
+                $args = collect($last)->merge($args)->toArray();
+            }
+            array_push($scope, $args) && bb('#.templateScope', $scope);
             $path = str($part)->start('/')->start($ob->obj($bb->template)->basePath)->finish('.twig');
-            return rescue(function() use($bb, $path, $args){
-                return $bb->include($path, $args);
+            return rescue(function() use($bb, $path, $args, $scope){
+                $res = $bb->include($path, $args);
+                return array_pop($scope) && bb('#.templateScope', $scope) ? $res: null;
             });
         }, true);
         

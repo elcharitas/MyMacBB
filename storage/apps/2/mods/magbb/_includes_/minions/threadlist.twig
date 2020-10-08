@@ -1,0 +1,36 @@
+
+<div class="mac tw-mb-3 tw-btn bg-mac tw-font-bold text-white text-uppercase tw-w-full tw-rounded tw-mx-auto">{{ Mac.trans(title) }}</div>
+<div class="conversation-list tw-mx-2 md:tw-mx-0">
+{% for thread in threads %}
+<div class="conversation-list-item border tw-flex tw-cursor-pointer tw-items-start tw-flex-col md:tw-flex-rw md:hover:tw-bg-grey-panel md:tw-px-6 md:tw-py-3 tw-mb-4 md:tw-mb-3 tw-transition-all tw-px-6 tw-py-5 md:tw-px-0 tw--mx-2 md:tw-mx-0">
+
+<div class="conversation-list-avatar tw-self-start tw-w-full tw-flex tw-items-center tw-mb-2">
+<div class="tw-flex tw-items-center">
+<h4 class="tw-text-base" style="word-break: break-word;">
+<a href="{{ ('/viewtopic.php?tid=' ~ thread.tid) | url }}" class="conversation-list-link tw-font-bold md:tw-font-semibold tw-tracking-tight link" title="{{ thread.title }}" v-pre>
+{{ thread.title }}
+</a>
+</h4>
+</div>
+</div>
+<div class="tw-w-full tw-flex md:tw-block md:tw-mb-2">
+
+<div class="conversation-list-title lg:tw-pr-10">
+<div class="conversation-list-excerpt tw-break-words  tw-text-base md:tw-text-sm tw-mb-3 tw-text-grey-darker phone:tw-leading-loose" style="word-break: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" v-pre>
+{{ str(thread.content).limit(100) }}
+</div>
+<div class="tw-text-grey-dark tw-text-xs tw-mt-2">
+<a href="{{ ('/profile.php?id=' ~ thread.user_id) | url }}" class="tw-font-semibold link hover:tw-text-blue">
+ {{ Mac.user('username', thread.user_id) | start('@') }}
+</a>
+replied
+<a href="{{ ('/viewtopic.php?tid=' ~ thread.tid) | url }}" class="inherits-color link">
+<time>{{ thread.created }} 10 minutes ago</time>
+</a>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+{{ Mac.widget('pagination') | raw }}

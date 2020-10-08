@@ -1,14 +1,14 @@
-{{ Mac.template('layouts/header') | raw }}
+{{ Mac.layout('header') | raw }}
 
 <div class="wrapper">
 <div class="section">
 <div class="forum-wrapper">
 <div class="tw-flex tw-flex-col md:tw-flex-row tw-mx-auto" style="max-width: 1100px">
-{{ Mac.template('layouts/sidebar', {'forums': forums}) | raw }}
-{{ Mac.template('layouts/portal', {'threads': threads}) | raw }}
+{{ Mac.layout('sidebar') | raw }}
+{{ Mac.layout('portal') | raw }}
 </div>
 </div>
 </div>
 </div>
 
-{{ Mac.template('layouts/footer') | raw }}
+{{ Mac.layout('footer') | raw }}

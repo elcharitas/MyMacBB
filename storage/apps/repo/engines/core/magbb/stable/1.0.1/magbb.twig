@@ -131,7 +131,7 @@
         'pmid': ['primary'],
         'uid': ['number'],
         'cid': ['number'],
-        'members': ['string', 'cast: array']
+        'members': ['string', 'cast: "array"']
     }) %}
     
     {% do db.select('privatemessages').insert({'uid':0,'cid':1,'members': '[1]'}) %}
@@ -142,8 +142,8 @@
 
     {% do db.create('adminpermission', {
         'uid': ['number'],
-        'fids': ['string', 'cast: array'],
-        'except': ['string', 'cast: array']
+        'fids': ['string', 'cast: "array"'],
+        'except': ['string', 'cast: "array"']
     }) %}
     
     {% do db.create('attachtypes', {

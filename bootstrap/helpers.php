@@ -172,13 +172,17 @@ if(!function_exists('bb_env')){
             $twig->addFunction(new TwigFunction('stop', 'die'));
             
             $twig->addFilter(new TwigFilter('to_object', function($val, $depth=null){
-                return is_int($depth) ? json_decode($val, true, $depth): json_decode($val, true);
+                return new Twiggy(is_int($depth) ? json_decode($val, true, $depth): json_decode($val, true));
             }));
 
             $twig->addFilter(new TwigFilter('to_array', 'toArray'));
 
             $twig->addFilter(new TwigFilter('optional', function($value, $optional=null){
                 return $value ? $value : $optional;
+            }));
+            
+            $twig->addFilter(new TwigFilter('start', function ($text, $start){
+                return;
             }));
             
             $twig->addFilter(new TwigFilter('mime', 'bb_mime'));
@@ -250,7 +254,7 @@ if(!function_exists('bb_mime')){
                 return 'text/html';
             break;
         }
-        return $default ?: 'text/txt';
+        return $default ?: 'text/plain';
     }
 }
 
@@ -355,7 +359,7 @@ if(!function_exists('toArray')){
     function toArray($rawData, $changeAll=false){
         if(!is_array($rawData) && !is_object($rawData)){
             return rescue(function() use ($rawData, $changeAll){
-                return $changeAll ? Arr::wrap($rawData): json_decode($rawData);
+                return $changeAll ? arr($rawData): json_decode($rawData);
             }) ?: $rawData;
         }
         $data = [];

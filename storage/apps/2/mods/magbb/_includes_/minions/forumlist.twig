@@ -1,3 +1,3 @@
 {% for forum in forums %}
-<div class="bg-mac tw-py-2 tw-px-5 tw-rounded tw-font-bold text-uppercase tw-mb-3 tw-text-xs" style="background: {{ forum.color }}"> {{ forum.title }} <span class="badge">0</span></div>
+<div class="bg-mac tw-py-2 tw-px-5 tw-rounded tw-font-bold text-uppercase tw-mb-3 tw-text-xs" style="background: {{ forum.color }}"> {{ forum.title }} <span class="badge"> {{ BB.db().select('threads').where('forum_id', forum.fid).count() }} </span></div>
 {% endfor %}
