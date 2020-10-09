@@ -42,8 +42,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        //$this->mapApiRoutes();
-
+        // api routes
+        $this->mapApiRoutes();
+        // control panel routes
+        $this->mapControlRoutes();
+        // basic site routes
         $this->mapWebRoutes();
 
         //
@@ -72,9 +75,26 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
+        Route::prefix('api_')
             ->middleware('api')
+            ->domain(env('API_URL', 'api.localhost'))
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
+    }
+    
+    /**
+     * Define "control" routes for the application
+     * 
+     * These routes are very similar to "web" routes
+     * 
+     * @return void
+     */
+    protected function mapControlRoutes()
+    {
+        Route::prefix('cpanel_')
+            ->middleware(['web'])
+            ->domain(env('ADMIN_URL', 'panel.localhost'))
+            ->namespace($this->namespace)
+            ->group(base_path('routes/control.php'));
     }
 }
