@@ -14,7 +14,7 @@ class Cpanel extends Controller
     
     public function showLogin()
     {
-        return view('admin.signin');
+        return view('admin.login');
     }
     
     public function showAssets(Request $request, $asset)
@@ -26,9 +26,9 @@ class Cpanel extends Controller
         if($storage->exists($asset)){
             return response($storage->get($asset), 200)
                     ->header('Content-Type', bb_mime($asset));
+        } else {
+            abort(404);
         }
-        
-        abort(404);
     }
     
     public function handleLogin(Request $request)

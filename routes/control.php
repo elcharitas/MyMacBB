@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 $methods = ['get', 'post'];
 
 Route::get('/', 'Cpanel@dashboard');
+Route::get('/signin', 'Cpanel@showLogin');
+Route::post('/signin', 'Cpanel@handleLogin');
 Route::get('/assets/{asset}', 'Cpanel@showAssets');
 
 Route::get('/{path}', function(){
     abort(404);
-    return view('admin.404');
 });
