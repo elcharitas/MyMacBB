@@ -30,7 +30,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::pattern('path', '.+');
+        Route::pattern('asset', '.+');
+        Route::pattern('id', '[0-9]+');
 
         parent::boot();
     }
@@ -46,10 +48,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
         // control panel routes
         $this->mapControlRoutes();
-        // basic site routes
+        // basic app routes
         $this->mapWebRoutes();
-
-        //
     }
 
     /**
@@ -61,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
+        Route::middleware(['web', 'deploy'])
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
     }
@@ -75,8 +75,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api_')
-            ->middleware('api')
+        Route::middleware('api')
             ->domain(env('API_URL', 'api.localhost'))
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
@@ -91,9 +90,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapControlRoutes()
     {
-        Route::prefix('cpanel_')
-            ->middleware(['web'])
-            ->domain(env('ADMIN_URL', 'panel.localhost'))
+        Route::middleware(['web'])
+            ->name('cpanel')
+            ->domain(env('ADMIN_URL', 'cpanel.localhost'))
             ->namespace($this->namespace)
             ->group(base_path('routes/control.php'));
     }

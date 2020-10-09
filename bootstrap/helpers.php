@@ -51,6 +51,7 @@ if(!function_exists('bb_domain')){
     function bb_domain(){
         return bb('bb_domain', function(){
             $hostname = trim(str(request()->getHttpHost())->before(':'));
+            
             $domain = trim(str($hostname)->after('www.'));
             
             $board = App\BoardDomain::domain($domain);

@@ -35,7 +35,9 @@ class TwigLoader extends Repo implements Twig {
     
     public function load(string $repo=null, string $version=null){
         if($repo){
+            
             $disk = trim(str($repo)->afterLast('/').str()->random(5));
+            
             if($version){
                 $repo .= "/stable/$version";
             }

@@ -47,6 +47,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('apps'),
         ],
+        
+        'cpanel' => [
+            'driver' => 'local',
+            'root' => resource_path('views/admin'),
+        ],
 
         'public' => [
             'driver' => 'local',
