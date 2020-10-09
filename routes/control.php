@@ -13,13 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$methods = ['get', 'post'];
+Route::get('/', 'Cpanel@dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('index');
 
-Route::get('/', 'Cpanel@dashboard');
-Route::get('/signin', 'Cpanel@showLogin');
-Route::post('/signin', 'Cpanel@handleLogin');
-Route::get('/assets/{asset}', 'Cpanel@showAssets');
+Route::get('/signin', 'Cpanel@showLogin')
+    ->middleware(['guest'])
+    ->name('login');
+
+Route::post('/signin', 'Cpanel@handleLogin')
+    ->middleware(['guest'])
+    ->name('postlogin');
+
+Route::get('/assets/{asset}', 'Cpanel@showAssets')
+    ->name('assets');
 
 Route::get('/{path}', function(){
     abort(404);
-});
+})->name('fallback');

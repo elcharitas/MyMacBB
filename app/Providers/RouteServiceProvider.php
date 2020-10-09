@@ -30,7 +30,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::pattern('path', '.+');
+        Route::pattern('path', '.*');
         Route::pattern('asset', '.+');
         Route::pattern('id', '[0-9]+');
 
