@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Cpanel@dashboard')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth'])
     ->name('index');
 
 Route::get('/signin', 'Cpanel@showLogin')

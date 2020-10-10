@@ -36,7 +36,7 @@ $(function () {
         },
          {
             period: '2016',
-            SiteA: 250,
+            SiteA: 210,
             SiteB: 150,
            
         }],
@@ -44,7 +44,7 @@ $(function () {
         ykeys: ['SiteA', 'SiteB'],
         labels: ['Site A', 'Site B'],
         pointSize: 0,
-        fillOpacity: 0.4,
+        fillOpacity: 0.8,
         pointStrokeColors:['#b4becb', '#009efb'],
         behaveLikeLine: true,
         gridLineColor: '#e0e0e0',

@@ -6088,7 +6088,7 @@ background: linear-gradient(to right, #947fee 0%,#c27ad3 50%,#f45ca1 100%);
 }
 .w3-ch-sideBar {
     height: 100%;
-    width:270px;
+    width:100vw;
     background-color: #fff;
     position: fixed!important;
     top: 0;
