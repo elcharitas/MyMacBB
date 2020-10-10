@@ -13,19 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Cpanel@dashboard')
+Route::get('/', 'IndexController@dashboard')
     ->middleware(['auth'])
     ->name('index');
 
-Route::get('/signin', 'Cpanel@showLogin')
+Route::get('/signin', 'AuthController@showLogin')
     ->middleware(['guest'])
     ->name('login');
 
-Route::post('/signin', 'Cpanel@handleLogin')
+Route::post('/signin', 'AuthController@handleLogin')
     ->middleware(['guest'])
     ->name('postlogin');
 
-Route::get('/assets/{asset}', 'Cpanel@showAssets')
+Route::get('/assets/{asset}', 'AssetController@showAssets')
     ->name('assets');
 
 Route::get('/{path}', function(){

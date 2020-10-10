@@ -61,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware(['web', 'deploy'])
+        Route::middleware(['deploy', 'access', 'error', 'web'])
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
     }
@@ -93,7 +93,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware(['web'])
             ->name('cpanel')
             ->domain(env('ADMIN_URL', 'cpanel.localhost'))
-            ->namespace($this->namespace)
+            ->namespace($this->namespace.'\Cpanel')
             ->group(base_path('routes/control.php'));
     }
 }

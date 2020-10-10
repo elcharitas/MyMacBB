@@ -4,6 +4,7 @@ use Twig\Environment;
 use Twig\Parser;
 use Twig\TwigFunction;
 use Twig\TwigFilter;
+use App\BoardDomain;
 use App\Support\BB;
 use App\Support\Database;
 use App\Support\Repo;
@@ -16,6 +17,14 @@ use App\Support\TwigLoader;
  */
  
 if(!function_exists('bb')){
+    /**
+     * Board configuration spoofer
+     * 
+     * @param string $config
+     * @param mixed|null $value
+     * 
+     * @return mixed
+     */
     function bb(string $config, $value=null){
         $config = "bb.$config";
         $configs = config($config);
@@ -23,6 +32,7 @@ if(!function_exists('bb')){
         if(is_null($configs) && is_callable($value)){
             $value = $value();
         }
+        
         !is_callable($value) ? config([$config => $value ?: $configs]): $value;
         
         return $configs ?: $value;
@@ -30,40 +40,64 @@ if(!function_exists('bb')){
  }
 
 if(!function_exists('bb_id')){
+    /**
+     * Retrieves the board Id
+     * 
+     * @return int
+     */
     function bb_id(){
         return bb_domain()->board_id;
     }
 }
 
 if(!function_exists('bb_info')){
+    /**
+     * Retrieves Board Information using domain
+     * 
+     * @return App\Board
+     */
     function bb_info(){
         return bb_domain()->board; 
     }
 }
 
 if(!function_exists('bb_user')){
+    /**
+     * Retrieves Board Owner Information
+     * 
+     * @return App\User
+     */
     function bb_user(){
         return bb_info()->user->only(['name', 'username', 'email']);
     }
 }
 
 if(!function_exists('bb_domain')){
+    /**
+     * Retrieves Domain Information from Database
+     * 
+     * @return App\BoardDomain
+     * @throws FileNotFoundException
+     */
     function bb_domain(){
         return bb('bb_domain', function(){
             $hostname = trim(str(request()->getHttpHost())->before(':'));
             
-            $domain = trim(str($hostname)->after('www.'));
+            $domain = str($hostname)->after('www.');
             
-            $board = App\BoardDomain::domain($domain);
-            //prefetch cross table data
-            $board && $board->board->user && $board->board->domains;
+            $domain = BoardDomain::domain($domain);
             
-            return $board && $board->domain == $hostname ? $board : abort(404, 'Site doesn\'t exist!');
+            return $domain && $domain instanceof BoardDomain  ? $domain : abort(404, 'Site doesn\'t exist!');
         });
     }
 }
 
 if(!function_exists('bb_host')){
+    /**
+     * Return Registra/Partner Information
+     * 
+     * @return App\Partner
+     */
     function bb_host(){
         return bb_domain()->board_id;
     }
@@ -73,22 +107,41 @@ if(!function_exists('bb_host')){
  * URL && Path Helpers
  * Handy tools to help with bb paths
  */
-
 if(!function_exists('bb_base')){
-    function bb_base($root=''){
+    /**
+     * Resolves Board Base URL '/'
+     * 
+     * @param string $root
+     * 
+     * @return string
+     */
+    function bb_base(?string $root=''){
         $root = str($root ?: request()->path() ?: '/')->start('/')->after('/');
-        return trim($root) ?: bb_config('filesystem.baseDoc', 'index.htm');
+        return trim($root) ?: bb_config('filesystem.baseDoc', 'index.php');
     }
 }
 
 if(!function_exists('bb_path')){
+    /**
+     * Resolves the path to Board Filesystem
+     * 
+     * @param string $path
+     * 
+     * @return string
+     */
     function bb_path(string $path='/'){
-        $id = bb_host();
-        return rtrim("$id/$path", '/');
+        return str($path)->start('/')->start(bb_id());
     }
 }
 
 if(!function_exists('bb_url')){
+    /**
+     * Generate a domain based url
+     * 
+     * @param string $path
+     * 
+     * @return string
+     */
     function bb_url(string $path='/'){
         $urlBase = bb_config('app.url');
         if($urlBase){
@@ -99,7 +152,15 @@ if(!function_exists('bb_url')){
 }
 
 if(!function_exists('bb_redirect')){
-    function bb_redirect($path, $sessions=[]){
+    /**
+     * Performs HTTP Redirection
+     * 
+     * @param string $path
+     * @param array|object $sessions
+     * 
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    function bb_redirect(string $path, $sessions=[]){
         return str_replace('</body>', '<style>*{display:none}</style></body>', redirect()->to($path)->with($sessions));
     }
 }
@@ -132,7 +193,7 @@ if(!function_exists('bb_res')){
 
 if(!function_exists('bb_cache')){
     function bb_cache(string $key, $value='', int $expire=60, string $type='data'){
-        $key = bb_host().'.'.bb_config('cache.prefix')."$type.$key";
+        $key = bb_id().'.'.bb_config('cache.prefix')."$type.$key";
         $cache = cache($key);
         if(bb_config('cache.path', false) && is_null($cache) && $value && $expire <= 300){
             $value = is_callable($value) ? $value(): $value;

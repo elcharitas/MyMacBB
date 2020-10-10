@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::match(['get', 'post'], '/{path}', 'Controller@index')->name('macbb');
+Route::match(['get', 'post'], '/{path}', 'BoardController@index')->name('macbb');
