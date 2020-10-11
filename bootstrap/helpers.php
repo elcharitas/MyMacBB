@@ -217,13 +217,9 @@ if(!function_exists('bb_env')){
                 'autoescape' => ($escape == true || !$escape || $escape == null) ? $escaped: $escape
             ]);
             
-            $twig->envParser = new Parser($twig);
-            
-            $twig->setParser($twig->envParser);
-            
             $twig->addGlobal('BB', new BB);
             
-            $twig->addFunction(new TwigFunction('obj', [Twiggy::class, 'create']));
+            $twig->addFunction(new TwigFunction('obj', array(Twiggy::class, 'create')));
             
             $twig->addFunction(new TwigFunction('gtrim', 'gtrim'));
             
@@ -268,6 +264,13 @@ if(!function_exists('bb_write')){
 }
 
 if(!function_exists('bb_boot')){
+    /**
+     * Boots up the application
+     * 
+     * @param $app
+     * 
+     * @return void
+     */
     function bb_boot($app){
         $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
         
@@ -326,6 +329,16 @@ if(!function_exists('bb_mime')){
  */
 
 if(!function_exists('bb_config')){
+    /**
+     * Gets / sets specified configuration option
+     * If an array is passed as the config, we will assume you want to set an array of values.
+     * 
+     * @param array|object|string $config
+     * @param mixed $default
+     * @param string $path
+     * 
+     * @return mixed
+     */
     function bb_config($config, $default=null, ?string $path=''){
         $source = bb_res(trim(Str::finish($path, '/config')), true);
         $configs = config_extended($source);

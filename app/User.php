@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Mail\SendMail;
+use Mail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -46,8 +47,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Subscription::class);
     }
     
-    public function mail($title=null, $message=null, $from=null){
-        $mail = new SendMail;
-        return $mail;
+    public function mail($subject=null, $message=null, $from=null){
+        $mail = new SendMail($subject, $message, $from);
+        return Mail::to($this)->send($mail);
     }
 }
