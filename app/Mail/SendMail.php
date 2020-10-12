@@ -16,7 +16,7 @@ class SendMail extends Mailable
      * 
      * @var string
      */
-    protected $messageCap;
+    protected $body;
 
     /**
      * Create a new message instance.
@@ -36,7 +36,9 @@ class SendMail extends Mailable
             $this->from($from);
         }
         
-        $this->messageCap = $message;
+        $this->body = $message;
+        
+        $this->view('mail');
     }
 
     /**
@@ -46,7 +48,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail')
-                    ->with(['cap' => $this->messageCap]);
+        return $this->with(['body' => $this->body]);
     }
 }

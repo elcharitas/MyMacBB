@@ -19,21 +19,23 @@ use App\Support\TwigLoader;
 if(!function_exists('bb')){
     /**
      * Board configuration spoofer
+     * Ensure to save variadic closures that are called multiple times with this helper
      * 
      * @param string $config
      * @param mixed|null $value
+     * @param bool $force
      * 
      * @return mixed
      */
-    function bb(string $config, $value=null){
+    function bb(string $config, $value=null, bool $force=false){
         $config = "bb.$config";
         $configs = config($config);
         
-        if(is_null($configs) && is_callable($value)){
+        if((is_null($configs) || $force) && is_callable($value)){
             $value = $value();
         }
         
-        !is_callable($value) ? config([$config => $value ?: $configs]): $value;
+        !is_callable($value) ? config([$config => $value ?: $configs]): null;
         
         return $configs ?: $value;
     }
@@ -85,9 +87,9 @@ if(!function_exists('bb_domain')){
             
             $domain = str($hostname)->after('www.');
             
-            $domain = BoardDomain::domain($domain);
+            $domain = BoardDomain::domain($domain)->first();
             
-            return $domain && $domain instanceof BoardDomain  ? $domain : abort(404, 'Site doesn\'t exist!');
+            return $domain ? $domain : abort(404, 'Site doesn\'t exist!');
         });
     }
 }
@@ -232,6 +234,8 @@ if(!function_exists('bb_env')){
             $twig->addFilter(new TwigFilter('to_object', function($val, $depth=null){
                 return new Twiggy(is_int($depth) ? json_decode($val, true, $depth): json_decode($val, true));
             }));
+            
+            $twig->addFilter(new TwigFilter('gtrim', 'gtrim'));
 
             $twig->addFilter(new TwigFilter('to_array', 'toArray'));
 
@@ -253,10 +257,19 @@ if(!function_exists('bb_env')){
 }
 
 if(!function_exists('bb_write')){
+    /**
+     * Handy file writer
+     * optionally toggle overwrite option to overwrite file in existentence
+     * 
+     * @param string $path
+     * @param mixed|blob $content
+     * @param bool $overwrite
+     * 
+     * return bool
+     */
     function bb_write(string $path, $content, bool $overwrite=false){
         $path = bb_path($path);
-        $exists = Storage::exists($path);
-        if($overwrite || !$exists){
+        if($overwrite || !Storage::exists($path)){
             return Storage::put($path, $content);
         }
         return false;
@@ -285,6 +298,14 @@ if(!function_exists('bb_boot')){
 }
 
 if(!function_exists('bb_mime')){
+    /**
+     * Geberates file mime type
+     * 
+     * @param string $path
+     * @param string|null $default
+     * 
+     * @return string
+     */
     function bb_mime(string $path, string $default=null){
         $extension = str($path)->afterLast('.')->lower();
         switch($extension){
@@ -360,8 +381,16 @@ if(!function_exists('bb_config')){
 }
 
 if(!function_exists('bb_db')){
-    function bb_db(){
-        return bb('bb_db', function(?string $key=null){
+    /**
+     * Generates a App\Support\Database instance
+     * optional database secret key can be set
+     * 
+     * @param string|null $key
+     * 
+     * @return  App\Support\Database
+     */
+    function bb_db(?string $key=null){
+        return bb('bb_db', function() use ($key){
             return new Database($key);
         });
     }
@@ -372,7 +401,35 @@ if(!function_exists('bb_db')){
  * 
  */
 
+if(!function_exists('domain')){
+    /**
+     * Domain address generator
+     * 
+     * @param string $domain
+     * @param array|object $query
+     * 
+     * @return string
+     */
+    function domain(string $domain, $query=[]){
+        
+        $domain = sprintf(env('APP_DOMAIN'), $domain)."?";
+        
+        collect(arr($query))->each(function($data, $key) use(&$domain){
+            $domain.= "$key=$data&";
+        });
+        
+        return gtrim($domain, '\?|&');
+    }
+}
+
 if(!function_exists('str')){
+    /**
+     * Illuminate\Support\Str wrapper
+     * 
+     * @param string|null $str
+     * 
+     * @return Illuminate\Support\Stringable
+     */
     function str(?string $str=null){
         if(!is_null($str)){
             return Str::of($str);
@@ -383,6 +440,13 @@ if(!function_exists('str')){
 }
 
 if(!function_exists('arr')){
+    /**
+     * Illuminate\Support\Arr wrapper
+     * 
+     * @param mixed|null $arr
+     * 
+     * @return Illuminate\Support\Arr|array
+     */
     function arr($arr=null){
         if(is_null($arr)){
             return new Arr;
@@ -392,12 +456,21 @@ if(!function_exists('arr')){
 }
 
 if(!function_exists('gtrim')){
-    function gtrim(string $haystack, string $needles='\s', string $result=''){
-        if($haystack && $needles){
-            $haystack = preg_replace("/^[$needles]+/", $result, $haystack);
-            return preg_replace("/[$needles]+$/", $result, $haystack);
-        }
-        return $haystack;
+    /**
+     * Global trimmer for strings
+     * Regex sensitive needles should be escaped!
+     * 
+     * @param string $haystack
+     * @param string $needles
+     * @param string $replace
+     * 
+     * @return string
+     */
+    function gtrim(string $haystack, string $needles='\s', string $replace=''){
+        return rescue(function() use ($haystack, $needles, $replace){
+            $haystack = preg_replace("/^[$needles]+/", $replace, $haystack);
+            return preg_replace("/[$needles]+$/", $replace, $haystack);
+        });
     }
 }
 
@@ -431,13 +504,23 @@ if(!function_exists('arr_only')){
 }
 
 if(!function_exists('toArray')){
-    function toArray($rawData, $changeAll=false){
+    /**
+     * Changes objects to arrays, wraps other data types to array_keys
+     * 
+     * @param object|array|mixed $rawData
+     * @param bool $changeAll
+     * 
+     * @return array
+     */
+    function toArray($rawData, bool $changeAll=false){
         if(!is_array($rawData) && !is_object($rawData)){
             return rescue(function() use ($rawData, $changeAll){
                 return $changeAll ? arr($rawData): json_decode($rawData);
             }) ?: $rawData;
         }
-        $data = [];
+        
+        $data = array();
+        
         foreach($rawData as $key => $val){
             $data[$key] = toArray($val);
         }

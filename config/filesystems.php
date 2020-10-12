@@ -53,12 +53,6 @@ return [
             'root' => resource_path('views/admin'),
         ],
 
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('apps/repo'),
-            'visibility' => 'public',
-        ],
-
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

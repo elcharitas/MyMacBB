@@ -13,11 +13,16 @@ class BoardDomain extends Model
         return $this->belongsTo(Board::class);
     }
     
-    public function scopeDomain($query, $domain){
-        return $query->where('domain', 'LIKE', $domain)->first() ?: false;
+    public static function domain($domain){
+        $domain = str_replace('*', '%', $domain);
+        return static::where('domain', 'LIKE', $domain)->get();
     }
 
     public function url(string $path='/'){
         return trim(str($path)->start('/')->start('http://'.$this->domain));
+    }
+    
+    public function user(){
+        return $this->board->user;
     }
 }
