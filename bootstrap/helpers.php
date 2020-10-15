@@ -9,7 +9,7 @@ use App\Support\BB;
 use App\Support\Database;
 use App\Support\Repo;
 use App\Support\Twiggy;
-use App\Support\TwigLoader;
+use App\SupportTwig\Loader\NanoLoader;
 
 /**
  * Core Helpers
