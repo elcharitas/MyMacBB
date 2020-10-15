@@ -9,7 +9,7 @@ use App\Support\BB;
 use App\Support\Database;
 use App\Support\Repo;
 use App\Support\Twiggy;
-use App\SupportTwig\Loader\NanoLoader;
+use App\Support\Twig\Loader\NanoLoader;
 
 /**
  * Core Helpers
@@ -211,7 +211,7 @@ if(!function_exists('bb_env')){
     function bb_env(){
         bb('twig_env') && bb('twig_env')->getLoader()->open('/');
         return bb('twig_env', function(){
-            $loader = new TwigLoader();
+            $loader = new NanoLoader();
             $escaped = 'html';
             $escape = bb_config('twig.escape', $escaped);
             
