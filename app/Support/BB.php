@@ -5,6 +5,7 @@ namespace App\Support;
 use Hash, Cookie;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Mail\Markdown;
+use App\Support\Twig\Util\TwigObject;
 
 class BB {
     
@@ -19,7 +20,7 @@ class BB {
      */
     public function obj(?string $name, ?string $parent=null, array $default=[]){
         return bb("objects.$name", function() use ($default, $name, $parent){
-            $obj = new Twiggy($default);
+            $obj = new TwigObject($default);
             if($parent){
                 $parent = $this->obj($parent);
                 $obj->inherit($parent);
@@ -159,7 +160,7 @@ class BB {
     }
     
     public function __toString(){
-        return 'BB{}';
+        return 'BB()';
     }
     
     public function __get($name){

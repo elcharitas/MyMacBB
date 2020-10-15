@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Support;
+namespace App\Support\Database;
 
 use Arr, Str;
 use App\BoardData;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
+use App\Support\Database\Util\Validator;
+use App\Support\Traits\MagickTrait;
 
 class Model extends Collection {
+    
+    use MagickTrait;
     
     protected $table;
     
@@ -38,7 +42,7 @@ class Model extends Collection {
     }
 
     public function __get($key){
-        $prop = trim(str($key)->studly()->start('get')->finish('Attribute'));
+        $prop = str($key)->studly()->start('get')->finish('Attribute');
         return $this->__call($key) ?: $this->get($key) ?: (method_exists($this, $prop) ? $this->{$prop}(): null);
     }
     
@@ -46,10 +50,6 @@ class Model extends Collection {
         $relationship = $this->relationship[$key] ?? NULL;
         $handle = $this->callable[$key] ?? NULL;
         return $relationship ? $relationship($this): ($handle ? $handle($args): $handle);
-    }
-    
-    public function __isset($key){
-        return true;
     }
     
     public function getCreatedAttribute(){

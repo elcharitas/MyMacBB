@@ -91,4 +91,14 @@ class Board extends Model
             $table->delete();
         });
     }
+    
+    /**
+     * Select a Board by API Access Token
+     * 
+     * @param string $key
+     * @return App\Board
+     */
+    public static function Token($key){
+        return static::where('api_key', $key)->first();
+    }
 }

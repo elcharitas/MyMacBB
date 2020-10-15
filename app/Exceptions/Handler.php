@@ -2,12 +2,16 @@
 
 namespace App\Exceptions;
 
+use App\SupportTwig\Loader\NanoLoader;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Symfony\Component\ErrorHandler\Error\FatalError;
-use Twig\Error\{Error, LoaderError, RuntimeError, SyntaxError};
-use \Error as BoardError;
+use Twig\Error\Error as BoardError;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Throwable;
+use Error;
 
 class Handler extends ExceptionHandler
 {
@@ -41,7 +45,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $exception)
     {
-        if(config('app.env') === 'production' && $exception instanceof Error){
+        if(config('app.env') === 'production' && $exception instanceof BoardError){
             return null;
         }
         parent::report($exception);
@@ -64,13 +68,13 @@ class Handler extends ExceptionHandler
         if(config('app.env') !== 'production'){
             if($exception instanceOf FileNotFoundException){
                 abort(404, $exception->getMessage());
-            } else if(($exception instanceOf SyntaxError || $exception instanceOf RuntimeError) && $loader = new \App\SupportTwig\Loader\NanoLoader && $template = $exception->getSourceContext()->getName()){
+            } else if(($exception instanceOf SyntaxError || $exception instanceOf RuntimeError) && $loader = new NanoLoader && $template = $exception->getSourceContext()->getName()){
                 $code = $loader->getSourceContext($template)->getCode();
                 bb('error', bb_config('twig.debug_mode', false) ? [$code, $msg, $line]: null) && abort(503);
             } else if($exception instanceOf LoaderError){
                 $doc = bb_config('filesystem.offloadDoc');
                 return $doc ? response(gtrim(bb_env()->render($doc)), 404): abort(404, $msg);
-            } else if($exception instanceof BoardError){
+            } else if($exception instanceof Error){
                 abort(500);
             }
         }

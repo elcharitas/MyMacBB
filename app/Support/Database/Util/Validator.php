@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Support;
+namespace App\Support\Database\Util;
 
 use Arr, Str;
+use App\Support\Database\Model;
 
 class Validator {
     
@@ -125,8 +126,8 @@ class Validator {
      *
      * @return static
      */
-    protected function validateHashed($attr, $val){
-        return is_string($val) ? $val: $this->blank;
+    protected function validateUuid($attr, $val){
+        return Str::isUuid($val) ? $val: $this->blank;
     }
 
     /**

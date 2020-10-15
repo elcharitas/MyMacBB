@@ -6,7 +6,7 @@ use Twig\TwigFunction;
 use Twig\TwigFilter;
 use App\BoardDomain;
 use App\Support\BB;
-use App\Support\Database;
+use App\Support\Database\DB;
 use App\Support\Repo;
 use App\Support\Twiggy;
 use App\Support\Twig\Loader\NanoLoader;
@@ -392,16 +392,16 @@ if(!function_exists('bb_config')){
 
 if(!function_exists('bb_db')){
     /**
-     * Generates a App\Support\Database instance
-     * optional database secret key can be set
+     * Generates a App\Support\Database\DB instance
+     * optional API Access Token can be set
      * 
      * @param string|null $key
      * 
-     * @return  App\Support\Database
+     * @return  App\Support\Database\DB
      */
     function bb_db(?string $key=null){
         return bb('bb_db', function() use ($key){
-            return new Database($key);
+            return new DB($key);
         });
     }
 }
