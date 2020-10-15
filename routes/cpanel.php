@@ -17,15 +17,17 @@ Route::get('/', 'IndexController@dashboard')
     ->middleware(['auth'])
     ->name('index');
 
-Route::get('/signin', 'AuthController@showLogin')
+Route::get('/signin', 'AuthController@show')
     ->middleware(['guest'])
     ->name('login');
 
-Route::post('/signin', 'AuthController@handleLogin')
+Route::post('/signin', 'AuthController@handle')
     ->middleware(['guest'])
     ->name('postlogin');
 
-Route::get('/assets/{asset}', 'AssetController@showAssets')
+Route::get('/settings', 'SettingsController@show');
+
+Route::get('/assets/{asset}', 'AssetController@show')
     ->name('assets');
 
 Route::get('/{path}', function(){

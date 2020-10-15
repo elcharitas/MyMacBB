@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function dashboard(Request $request)
     {
-        return view('admin.index');
+        return view('cpanel.index');
     }
 }
 

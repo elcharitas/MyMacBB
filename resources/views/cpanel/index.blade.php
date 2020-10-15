@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('cpanel.layout')
 @section('content')
 		<div class="content-wrapper">
 			<div class="container-fluid">

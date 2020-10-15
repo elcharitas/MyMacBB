@@ -50,7 +50,7 @@ return [
         
         'cpanel' => [
             'driver' => 'local',
-            'root' => resource_path('views/admin'),
+            'root' => resource_path('views/cpanel'),
         ],
 
         's3' => [

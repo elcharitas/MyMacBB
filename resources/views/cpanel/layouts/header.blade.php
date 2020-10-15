@@ -6,32 +6,32 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title> @yield('title', __('Dashboard')) ~ {{ __('Control Center') }} </title>
+		<title> @yield('title', __('Dashboard')) :: {{ __('Control Center') }} </title>
 
 		<!-- Bootstrap core CSS -->
-		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{ url('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
 		<!-- Custom fonts for this template -->
-		<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="{{ url('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
 		<!-- Custom fonts for this template -->
-		<link href="assets/plugins/themify/css/themify.css" rel="stylesheet" type="text/css">
+		<link href="{{ url('assets/plugins/themify/css/themify.css') }}" rel="stylesheet" type="text/css">
 
 		<!-- Angular Tooltip Css -->
-		<link href="assets/plugins/angular-tooltip/angular-tooltips.css" rel="stylesheet">
+		<link href="{{ url('assets/plugins/angular-tooltip/angular-tooltips.css') }}" rel="stylesheet">
 		
 		<!-- Morris Charts CSS -->
-		<link href="assets/plugins/morris.js/morris.css" rel="stylesheet">
+		<link href="{{ url('assets/plugins/morris.js/morris.css') }}" rel="stylesheet">
 
 		<!-- Page level plugin CSS -->
-		<link href="assets/dist/css/animate.css" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/animate.css') }}" rel="stylesheet">
 
 		<!-- Custom styles for this template -->
-		<link href="assets/dist/css/adminfier.css" rel="stylesheet">
-		<link href="assets/dist/css/adminfier-responsive.css" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/adminfier.css') }}" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/adminfier-responsive.css') }}" rel="stylesheet">
 
 		<!-- Custom styles for Color -->
-		<link rel="stylesheet" href="assets/dist/css/skins/default.css">
+		<link rel="stylesheet" href="{{ url('assets/dist/css/skins/default.css') }}">
 	</head>
 
 	<body class="fixed-nav sticky-footer yellow-skin" id="page-top">
@@ -42,17 +42,17 @@
 		<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 			
 			<!-- Start Header -->
-			<header class="logo">
+			<header class="logo mx-3">
 				<a class="nav-link text-center mr-lg-3 hidden-xs" id="sidenavToggler">
 				    <i class="ti-align-left"></i>
 				</a>
 				<a class="navbar-brand" href="/">
-				    
+				    <img src="{{ url('assets/dist/img/logo.png') }}" height="30"/>
 				</a>
 			</header>
 			<!-- End Header -->
 			
-			<button class="navbar-toggler navbar-toggler-right my-4" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler navbar-toggler-right my-3" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="ti-align-left"></span>
 			</button>
 			

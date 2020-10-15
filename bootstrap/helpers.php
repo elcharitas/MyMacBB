@@ -218,18 +218,20 @@ if(!function_exists('bb_env')){
             $twig = new Environment($loader, [
                 'autoescape' => ($escape == true || !$escape || $escape == null) ? $escaped: $escape
             ]);
-            
+
             $twig->addGlobal('BB', new BB);
-            
+
             $twig->addFunction(new TwigFunction('obj', array(Twiggy::class, 'create')));
-            
+
             $twig->addFunction(new TwigFunction('gtrim', 'gtrim'));
-            
+
             $twig->addFunction(new TwigFunction('str', 'str'));
-            
+
             $twig->addFunction(new TwigFunction('csrf', 'csrf_field'));
-            
+
             $twig->addFunction(new TwigFunction('stop', 'die'));
+            
+            $twig->addFunction(new TwigFunction('array', 'toArray'));
             
             $twig->addFilter(new TwigFilter('to_object', function($val, $depth=null){
                 return new Twiggy(is_int($depth) ? json_decode($val, true, $depth): json_decode($val, true));
@@ -244,7 +246,15 @@ if(!function_exists('bb_env')){
             }));
             
             $twig->addFilter(new TwigFilter('start', function ($text, $start){
-                return;
+                return str($text)->start($start);
+            }));
+            
+            $twig->addFilter(new TwigFilter('after', function ($text, $after){
+                return str($text)->after($after);
+            }));
+
+            $twig->addFilter(new TwigFilter('before', function ($text, $before){
+                return str($text)->before($before);
             }));
             
             $twig->addFilter(new TwigFilter('mime', 'bb_mime'));

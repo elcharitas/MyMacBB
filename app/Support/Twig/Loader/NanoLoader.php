@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Support;
+namespace App\Support\Twig\Loader;
 
 use Storage;
 use Twig\Source;
 use Twig\Error\LoaderError;
 use Twig\Loader\LoaderInterface as Twig;
+use App\Support\Repo;
 
-class TwigLoader extends Repo implements Twig {
+class NanoLoader extends Repo implements Twig {
     
     protected $basePath = '/';
 
@@ -82,9 +83,8 @@ class TwigLoader extends Repo implements Twig {
     }
     
     protected function fetchSource($path){
-        $dot = str($path)->replace('.', '/');
-        $dotPath = trim($dot);
-        $dot = trim($dot->replaceLast('/', '.'));
+        $dotPath = str($path)->replace('.', '/');
+        $dot = $dotPath->replaceLast('/', '.');
         $source = ($this->exists($path) ? $this->get($path) : ( $this->exists($dot) ? $this->get($dot) : ($this->exists($dotPath) ? $this->get($dotPath): false)));
         
         return $source ? "{% set _file_ = '$path' %}\n".$source: null;

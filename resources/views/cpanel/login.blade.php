@@ -10,26 +10,26 @@
 		<title>AdminFier - Responsive Bootstrap 4 Admin, Dashboard & Project Management Template</title>
 
 		<!-- Bootstrap core CSS -->
-		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{ url('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
 		<!-- Custom fonts for this template -->
-		<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="{{ url('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
 		<!-- Custom fonts for this template -->
-		<link href="assets/plugins/themify/css/themify.css" rel="stylesheet" type="text/css">
+		<link href="{{ url('assets/plugins/themify/css/themify.css') }}" rel="stylesheet" type="text/css">
 
 		<!-- Angular Tooltip Css -->
-		<link href="assets/plugins/angular-tooltip/angular-tooltips.css" rel="stylesheet">
+		<link href="{{ url('assets/plugins/angular-tooltip/angular-tooltips.css') }}" rel="stylesheet">
 
 		<!-- Page level plugin CSS -->
-		<link href="assets/dist/css/animate.css" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/animate.css') }}" rel="stylesheet">
 
 		<!-- Custom styles for this template -->
-		<link href="assets/dist/css/adminfier.css" rel="stylesheet">
-		<link href="assets/dist/css/adminfier-responsive.css" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/adminfier.css') }}" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/adminfier-responsive.css') }}" rel="stylesheet">
 		
 		<!-- Custom styles for Color -->
-		<link id="jssDefault" rel="stylesheet" href="assets/dist/css/skins/default.css">
+		<link id="jssDefault" rel="stylesheet" href="{{ url('assets/dist/css/skins/default.css') }}">
 	</head>
 
 	<body class="red-skin">
@@ -40,7 +40,7 @@
 					<div class="clearfix">
 						<div class="logo-title-container text-center">
 							<h3 class="cl-white text-upper">Welcome To</h3>
-							<img class="img-responsive" src="assets/dist/img/logo.png" alt="Logo Icon">
+							<img class="img-responsive" src="{{ url('assets/dist/img/logo.png') }}" alt="Logo Icon">
 							 <div class="copy animated fadeIn">
 								<p class="cl-white">World first & best dashboard with multi features<br> based on Js & Css.</p>
 							</div>
@@ -91,21 +91,21 @@
 		
 
 		<!-- Bootstrap core JavaScript-->
-		<script src="assets/plugins/jquery/jquery.min.js"></script>
-		<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="{{ url('assets/plugins/jquery/jquery.min.js') }}"></script>
+		<script src="{{ url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 		
 		<!-- Core plugin JavaScript-->
-		<script src="assets/plugins/jquery-easing/jquery.easing.min.js"></script>
+		<script src="{{ url('assets/plugins/jquery-easing/jquery.easing.min.js') }}"></script>
 		
 		 <!-- Slick Slider Js -->
-		<script src="assets/plugins/slick-slider/slick.js"></script>
+		<script src="{{ url('assets/plugins/slick-slider/slick.js') }}"></script>
 		
 		<!-- Slim Scroll -->
-		<script src="assets/plugins/slim-scroll/jquery.slimscroll.min.js"></script>
+		<script src="{{ url('assets/plugins/slim-scroll/jquery.slimscroll.min.js') }}"></script>
 		
 		<!-- Custom scripts for all pages-->
-		<script src="assets/dist/js/adminfier.js"></script>
-		<script src="assets/dist/js/jQuery.style.switcher.js"></script>
+		<script src="{{ url('assets/dist/js/adminfier.js') }}"></script>
+		<script src="{{ url('assets/dist/js/jQuery.style.switcher.js') }}"></script>
 		
 		<script>
 		  $('.dropdown-toggle').dropdown()

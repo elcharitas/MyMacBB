@@ -9,17 +9,13 @@ use App\Http\Controllers\Controller;
 class AssetController extends Controller
 {
 
-    public function showAssets(Request $request, $asset)
+    public function show(Request $request, $asset)
     {
         $asset = "_assets/$asset";
         
         $storage = Storage::disk('cpanel');
         
-        if($storage->exists($asset)){
-            return response($storage->get($asset), 200)
-                    ->header('Content-Type', bb_mime($asset));
-        } else {
-            abort(404);
-        }
+        return response($storage->get($asset), 200)
+                ->header('Content-Type', bb_mime($asset));
     }
 }

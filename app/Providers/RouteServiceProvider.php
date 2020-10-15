@@ -92,8 +92,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware(['web'])
             ->name('cpanel')
-            ->domain(env('ADMIN_URL', 'cpanel.localhost'))
+            ->domain(env('ADMIN_URL', 'cc.localhost'))
             ->namespace($this->namespace.'\Cpanel')
-            ->group(base_path('routes/control.php'));
+            ->group(base_path('routes/cpanel.php'));
     }
 }

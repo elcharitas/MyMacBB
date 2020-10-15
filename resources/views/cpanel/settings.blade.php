@@ -9,26 +9,26 @@
 		<title>AdminFier - Responsive Bootstrap 4 Admin, Dashboard & Project Management Template</title>
 
 		<!-- Bootstrap core CSS -->
-		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{ url('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
 		<!-- Custom fonts for this template -->
-		<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="{{ url('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
 		<!-- Custom fonts for this template -->
-		<link href="assets/plugins/themify/css/themify.css" rel="stylesheet" type="text/css">
+		<link href="{{ url('assets/plugins/themify/css/themify.css') }}" rel="stylesheet" type="text/css">
 
 		<!-- Angular Tooltip Css -->
-		<link href="assets/plugins/angular-tooltip/angular-tooltips.css" rel="stylesheet">
+		<link href="{{ url('assets/plugins/angular-tooltip/angular-tooltips.css') }}" rel="stylesheet">
 
 		<!-- Page level plugin CSS -->
-		<link href="assets/dist/css/animate.css" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/animate.css') }}" rel="stylesheet">
 
 		<!-- Custom styles for this template -->
-		<link href="assets/dist/css/adminfier.css" rel="stylesheet">
-		<link href="assets/dist/css/adminfier-responsive.css" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/adminfier.css') }}" rel="stylesheet">
+		<link href="{{ url('assets/dist/css/adminfier-responsive.css') }}" rel="stylesheet">
 
 		<!-- Custom styles for Color -->
-		<link id="jssDefault" rel="stylesheet" href="assets/dist/css/skins/default.css">
+		<link id="jssDefault" rel="stylesheet" href="{{ url('assets/dist/css/skins/default.css') }}">
 	</head>
 
 	<body class="fixed-nav sticky-footer blue-skin" id="page-top">
@@ -450,7 +450,7 @@
 					<!-- End Report -->
 					
 					<!-- Start Settings -->
-					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Settings">
+					<li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Settings">
 					  <a class="nav-link" href="settings.html">
 						<i class="ti ti-settings"></i>
 						<span class="nav-link-text">Settings</span>
@@ -468,7 +468,7 @@
 					<!-- End Map -->
 					
 					<!-- Start Help & Support -->
-					<li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Help-Support">
+					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Help-Support">
 					  <a class="nav-link" href="help.html">
 						<i class="ti ti-user"></i>
 						<span class="nav-link-text">Help & Support</span>
@@ -514,7 +514,7 @@
 						<div class="ground-list ground-hover-list" id="message-box">
 							<div class="ground ground-list-single">
 								<a href="#">
-									<img class="ground-avatar" src="assets/dist/img/user-1.jpg" alt="...">
+									<img class="ground-avatar" src="{{ url('assets/dist/img/user-1.jpg') }}" alt="...">
 									<span class="profile-status bg-online pull-right"></span>
 								</a>
 
@@ -530,7 +530,7 @@
 							
 							<div class="ground ground-list-single">
 								<a href="#">
-									<img class="ground-avatar" src="assets/dist/img/user-2.jpg" alt="...">
+									<img class="ground-avatar" src="{{ url('assets/dist/img/user-2.jpg') }}" alt="...">
 									<span class="profile-status bg-offline pull-right"></span>
 								</a>
 
@@ -546,7 +546,7 @@
 							
 							<div class="ground ground-list-single">
 								<a href="#">
-									<img class="ground-avatar" src="assets/dist/img/user-3.jpg" alt="...">
+									<img class="ground-avatar" src="{{ url('assets/dist/img/user-3.jpg') }}" alt="...">
 									<span class="profile-status bg-working pull-right"></span>
 								</a>
 
@@ -562,7 +562,7 @@
 							
 							<div class="ground ground-list-single">
 								<a href="#">
-									<img class="ground-avatar" src="assets/dist/img/user-4.jpg" alt="...">
+									<img class="ground-avatar" src="{{ url('assets/dist/img/user-4.jpg') }}" alt="...">
 									<span class="profile-status bg-busy pull-right"></span>
 								</a>
 
@@ -578,7 +578,7 @@
 							
 							<div class="ground ground-list-single">
 								<a href="#">
-									<img class="ground-avatar" src="assets/dist/img/user-5.jpg" alt="...">
+									<img class="ground-avatar" src="{{ url('assets/dist/img/user-5.jpg') }}" alt="...">
 									<span class="profile-status bg-online pull-right"></span>
 								</a>
 
@@ -680,13 +680,13 @@
 				
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle mr-lg-0 user-img a-topbar__nav a-nav" id="userDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<img src="assets/dist/img/user-10.jpg" alt="user-img" width="36" class="img-circle">
+						<img src="{{ url('assets/dist/img/user-10.jpg') }}" alt="user-img" width="36" class="img-circle">
 					</a>
 				  
 					<ul class="dropdown-menu dropdown-user animated flipInX" aria-labelledby="userDropdown">
 						<li class="top-header-dropdown green-bg">
 							<div class="header-user-pic">
-								<img src="assets/dist/img/user-10.jpg" alt="user-img" width="36" class="img-circle">
+								<img src="{{ url('assets/dist/img/user-10.jpg') }}" alt="user-img" width="36" class="img-circle">
 							</div>
 							<div class="header-user-det">
 								<span class="a-dropdown--title">Daniel Dilver</span>
@@ -708,86 +708,272 @@
 		<!-- =====================================================
 		                    End Navigations
 		======================================================= -->
-	  
-		<!-- ================================================
-				Start Container Wrapper
-		================================================== -->
+		
+		<!-- =========================================================
+		Content Wrapper 
+		========================================================== -->
 		<div class="content-wrapper">
 			<div class="container-fluid">
 			
 				<!-- Title & Breadcrumbs-->
 				<div class="row page-breadcrumbs">
 					<div class="col-md-12 align-self-center">
-						<h4 class="theme-cl">Help & Support</h4>
+						<h4 class="theme-cl">Settings</h4>
 					</div>
 				</div>
 				<!-- Title & Breadcrumbs-->
 				
 				<div class="row">
 					<div class="col-md-12">
-						<div class="card padd-15">
-							<div class="panel-group accordion-stylist" id="accordion" role="tablist" aria-multiselectable="true">
-								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingOne">
-										<h4 class="panel-title">
-											<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-												Why Purchage AdminFier?
-											</a>
-										</h4>
+						<div class="card">
+							<div class="row">
+								<!-- col-md-6 -->
+								<div class="col-md-6 col-12">
+								
+									<div class="form-group">
+										<div class="contact-thumb">
+											<img src="{{ url('assets/dist/img/user-1.jpg') }}" class="img-circle img-responsive" alt="">
+										</div>
 									</div>
-									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-										<div class="panel-body">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia lacinia mauris, at ultricies leo ornare nec. Vivamus eu est vel felis dignissim tempor. Nulla facilisi. Duis molestie tortor ac tempor volutpat. Phasellus nec mi aliquet, sollicitudin neque eget, consectetur libero. Vestibulum sollicitudin sapien libero, egestas tempus eros scelerisque eu.
+									
+									<div class="col-md-12">
+									
+										<div class="row">
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label>First Name</label>
+													<input type="text" class="form-control" placeholder="Daniel">
+												</div>
+											</div>
+											
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label>Last Name</label>
+													<input type="text" class="form-control" placeholder="Duke">
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Password</label>
+											<input type="text" class="form-control" placeholder="***********">
+										</div>
+									</div>
+									
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Email</label>
+											<input type="text" class="form-control" placeholder="danielduke@gmail.com">
+										</div>
+									</div>
+									
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Phone</label>
+											<input type="text" class="form-control" placeholder="985 485 75895">
+										</div>
+									</div>
+									
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Address</label>
+											<input type="text" class="form-control" placeholder="#253 Joken Sliteer Shuit QCH12">
+										</div>
+									</div>
+									
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Nation</label>
+											<input type="text" class="form-control" placeholder="Canada">
 										</div>
 									</div>
 								</div>
 								
-								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingTwo">
-										<h4 class="panel-title">
-											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-												What is Benefit Of AdminFier?
-											</a>
-										</h4>
+								<!-- col-md-6 -->
+								<div class="col-md-6 col-12 padd-top-20">
+									
+									<!-- col-md-12 -->
+									<div class="col-md-12">
+									
+										<div class="row">
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label>Gender</label>
+													<select class="custom-select mb-2 form-control">
+														<option selected="" value="Choose...">Gender</option>
+														<option value="1">Male</option>
+														<option value="2">Female</option>
+														<option value="3">Other</option>
+													</select>
+												</div>
+											</div>
+											
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label>Language</label>
+													<select class="custom-select mb-2 form-control">
+														<option selected="" value="Choose...">English</option>
+														<option value="1">English</option>
+														<option value="2">French</option>
+														<option value="3">Other</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										
 									</div>
-									<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-										<div class="panel-body">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia lacinia mauris, at ultricies leo ornare nec. Vivamus eu est vel felis dignissim tempor. Nulla facilisi. Duis molestie tortor ac tempor volutpat. Phasellus nec mi aliquet, sollicitudin neque eget, consectetur libero. Vestibulum sollicitudin sapien libero, egestas tempus eros scelerisque eu.
+									<!-- col-md-12 -->
+									
+									<!-- col-md-12 -->
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Date Of Birth</label>
+											<input type="text" class="form-control" placeholder="Canada">
 										</div>
 									</div>
-								</div>
-								
-								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingThree">
-										<h4 class="panel-title">
-											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-												Why People Like AdminFier?
-											</a>
-										</h4>
+									<!-- col-md-12 -->
+									
+									<!-- col-md-12 -->
+									<div class="col-md-12">
+									
+										<div class="row">
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label>Facebook</label>
+													<input type="text" class="form-control" placeholder="https://facebook.com/daniel">
+												</div>
+											</div>
+											
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label>Twitter</label>
+													<input type="text" class="form-control" placeholder="https://twitter.com/daniel">
+												</div>
+											</div>
+										</div>
+										
 									</div>
-									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-										<div class="panel-body">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia lacinia mauris, at ultricies leo ornare nec. Vivamus eu est vel felis dignissim tempor. Nulla facilisi. Duis molestie tortor ac tempor volutpat. Phasellus nec mi aliquet, sollicitudin neque eget, consectetur libero. Vestibulum sollicitudin sapien libero, egestas tempus eros scelerisque eu.
+									<!-- col-md-12 -->
+									
+									<!-- col-md-12 -->
+									<div class="col-md-12">
+									
+										<div class="row">
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label>Linkedin</label>
+													<input type="text" class="form-control" placeholder="https://linkedin.com/daniel">
+												</div>
+											</div>
+											
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label>Google+</label>
+													<input type="text" class="form-control" placeholder="+Daniel">
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<!-- col-md-12 -->
+									
+									<!-- col-md-12 -->
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Slogan</label>
+											<input type="text" class="form-control" placeholder="World Most Popular Software Development Industry">
 										</div>
 									</div>
-								</div>
-								
-								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingFour">
-										<h4 class="panel-title">
-											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-												Why Most Popular AdminFier in 2018?
-											</a>
-										</h4>
+									<!-- col-md-12 -->
+									
+									<!-- col-md-12 -->
+									<div class="col-md-12">
+									
+										<label>Payment Methode</label>	
+										<div class="row">
+		
+											<div class="col-md-4 col-12">
+												<div class="form-group">
+													
+													<div class="payment-box">
+													
+														<div class="padd-10">
+															<img src="{{ url('assets/dist/img/paypal.png') }}" class="fl-left width-30" alt="" />
+															<h5 class="mb-0">Paypal</h5>
+															<small>daniel..@gmai</small>
+														</div>
+														
+														<div class="pay-box-footer bt-1">
+															<a href="#" data-toggle="tooltip" data-original-title="Remove" class="theme-cl font-13 fl-right">Remove</a>
+														</div>
+														
+													</div>
+													
+												</div>
+											</div>
+											
+											<div class="col-md-4 col-12">
+												<div class="form-group">
+													
+													<div class="payment-box">
+													
+														<div class="padd-10">
+															<img src="{{ url('assets/dist/img/visa.png') }}" class="fl-left width-30" alt="" />
+															<h5 class="mb-0">Visa..456</h5>
+															<small>Expire 26/22</small>
+														</div>
+														
+														<div class="pay-box-footer bt-1">
+															<a href="#" data-toggle="tooltip" data-original-title="Remove" class="theme-cl font-13 fl-right">Remove</a>
+														</div>
+														
+													</div>
+													
+												</div>
+											</div>
+											
+											<div class="col-md-4 col-12">
+												<div class="form-group">
+													
+													<div class="payment-box">
+													
+														<div class="padd-10">
+															<img src="{{ url('assets/dist/img/mastercard.png') }}" class="fl-left width-30" alt="" />
+															<h5 class="mb-0">Master..256</h5>
+															<small>Expire 26/22</small>
+														</div>
+														
+														<div class="pay-box-footer bt-1">
+															<a href="#" data-toggle="tooltip" data-original-title="Remove" class="theme-cl font-13 fl-right">Remove</a>
+														</div>
+														
+													</div>
+													
+												</div>
+											</div>
+											
+										</div>
+										
 									</div>
-									<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-										<div class="panel-body">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia lacinia mauris, at ultricies leo ornare nec. Vivamus eu est vel felis dignissim tempor. Nulla facilisi. Duis molestie tortor ac tempor volutpat. Phasellus nec mi aliquet, sollicitudin neque eget, consectetur libero. Vestibulum sollicitudin sapien libero, egestas tempus eros scelerisque eu.
+									<!-- col-md-12 -->
+									
+									<!-- col-md-12 -->
+									<div class="col-md-12">
+										<div class="form-group">
+											<a href="" class="btn outline-secondary" data-toggle="tooltip" data-original-title="Add Payment Method">
+												<i class="ti-credit-card"></i> Add Payment Method
+											</a>
 										</div>
 									</div>
+									<!-- col-md-12 -->
+									
 								</div>
 								
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -814,7 +1000,7 @@
 						<div class="user-box">
 						
 							<div class="profile-img">
-								<img src="assets/dist/img/user-7.jpg" alt="user">
+								<img src="{{ url('assets/dist/img/user-7.jpg') }}" alt="user">
 								<!-- this is blinking heartbit-->
 								<div class="notify setp"> <span class="heartbit"></span> <span class="point"></span> </div>
 							</div>
@@ -942,7 +1128,7 @@
 										<div class="ground-list ground-hover-list">
 											<div class="ground ground-list-single">
 												<a href="#">
-													<img class="ground-avatar" src="assets/dist/img/user-1.jpg" alt="...">
+													<img class="ground-avatar" src="{{ url('assets/dist/img/user-1.jpg') }}" alt="...">
 													<span class="profile-status bg-online pull-right"></span>
 												</a>
 
@@ -958,7 +1144,7 @@
 											
 											<div class="ground ground-list-single">
 												<a href="#">
-													<img class="ground-avatar" src="assets/dist/img/user-2.jpg" alt="...">
+													<img class="ground-avatar" src="{{ url('assets/dist/img/user-2.jpg') }}" alt="...">
 													<span class="profile-status bg-offline pull-right"></span>
 												</a>
 
@@ -974,7 +1160,7 @@
 											
 											<div class="ground ground-list-single">
 												<a href="#">
-													<img class="ground-avatar" src="assets/dist/img/user-3.jpg" alt="...">
+													<img class="ground-avatar" src="{{ url('assets/dist/img/user-3.jpg') }}" alt="...">
 													<span class="profile-status bg-working pull-right"></span>
 												</a>
 
@@ -990,7 +1176,7 @@
 											
 											<div class="ground ground-list-single">
 												<a href="#">
-													<img class="ground-avatar" src="assets/dist/img/user-4.jpg" alt="...">
+													<img class="ground-avatar" src="{{ url('assets/dist/img/user-4.jpg') }}" alt="...">
 													<span class="profile-status bg-busy pull-right"></span>
 												</a>
 
@@ -1006,7 +1192,7 @@
 											
 											<div class="ground ground-list-single">
 												<a href="#">
-													<img class="ground-avatar" src="assets/dist/img/user-5.jpg" alt="...">
+													<img class="ground-avatar" src="{{ url('assets/dist/img/user-5.jpg') }}" alt="...">
 													<span class="profile-status bg-online pull-right"></span>
 												</a>
 
@@ -1038,26 +1224,26 @@
 			</a>
 
 			<!-- Bootstrap core JavaScript-->
-			<script src="assets/plugins/jquery/jquery.min.js"></script>
-			<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<script src="{{ url('assets/plugins/jquery/jquery.min.js') }}"></script>
+			<script src="{{ url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 			
 			<!-- Core plugin JavaScript-->
-			<script src="assets/plugins/jquery-easing/jquery.easing.min.js"></script>
+			<script src="{{ url('assets/plugins/jquery-easing/jquery.easing.min.js') }}"></script>
 			
 			 <!-- Slick Slider Js -->
-			<script src="assets/plugins/slick-slider/slick.js"></script>
+			<script src="{{ url('assets/plugins/slick-slider/slick.js') }}"></script>
 			
 			<!-- Slim Scroll -->
-			<script src="assets/plugins/slim-scroll/jquery.slimscroll.min.js"></script>
+			<script src="{{ url('assets/plugins/slim-scroll/jquery.slimscroll.min.js') }}"></script>
 			
 			<!-- Angular Tooltip -->
-			<script src="assets/plugins/angular-tooltip/angular.js"></script>
-			<script src="assets/plugins/angular-tooltip/angular-tooltips.js"></script>
-			<script src="assets/plugins/angular-tooltip/index.js"></script>
+			<script src="{{ url('assets/plugins/angular-tooltip/angular.js') }}"></script>
+			<script src="{{ url('assets/plugins/angular-tooltip/angular-tooltips.js') }}"></script>
+			<script src="{{ url('assets/plugins/angular-tooltip/index.js') }}"></script>
 			
 			<!-- Custom scripts for all pages-->
-			<script src="assets/dist/js/adminfier.js"></script>
-			<script src="assets/dist/js/jQuery.style.switcher.js"></script>
+			<script src="{{ url('assets/dist/js/adminfier.js') }}"></script>
+			<script src="{{ url('assets/dist/js/jQuery.style.switcher.js') }}"></script>
 			<script>
 				function openRightMenu() {
 					document.getElementById("rightMenu").style.display = "block";

@@ -8,12 +8,12 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
 
-    public function showLogin()
+    public function show()
     {
-        return view('admin.login');
+        return view('cpanel.login');
     }
     
-    public function handleLogin(Request $request)
+    public function handle(Request $request)
     {
         
     }
