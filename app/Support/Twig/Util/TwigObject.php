@@ -60,10 +60,23 @@ class TwigObject {
         return count($this->fillable);
     }
     
-    public static function create(...$args){
-        return new static(...$args);
+    /**
+     * When needed, reinstantiates an object
+     * 
+     * @param App\Support\Twig\Util\TwigObject|array $args
+     * 
+     * @return App\Support\Twig\Util\TwigObject
+     */
+    public static function create($args){
+        return new static($args);
     }
     
+    /**
+     * Inherits a list of variables from a parent
+     * 
+     * @param App\Support\Twig\Util\TwigObject|array $collect
+     * @param string $prefix
+     */
     public function inherit($collect, $prefix=''){
         
         if($collect instanceof static){
@@ -76,10 +89,24 @@ class TwigObject {
         return true;
     }
     
-    public function config($config, $data=null){
-        return bb_config($config, $data, ($name = $this->__name) && $name != 'magbb' ? $name : $this->basePath);
+    /**
+     * Grabs configuration option from "config" files
+     * 
+     * @param string $config
+     * @param mixed|null $default
+     * 
+     * @return mixed
+     */
+    public function config($config, $default=null){
+        return bb_config($config, $default, ($name = $this->__name) && $name != 'magbb' ? $name : $this->basePath);
     }
 
+    /**
+     * Gets name/Names the Object so it becomes discoverable
+     * 
+     * @param string|null $name
+     * @return string|null
+     */
     public function name(?string $name=null){
         return $name ? $this->__name = $name: $this->__name;
     }
