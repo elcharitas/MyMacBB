@@ -44,7 +44,7 @@ trait MagickTrait {
      */
     public function __call($key, $args=[]){
         if(array_key_exists(trim($key), $this->callable)){
-            return $this->callable[$key](json_encode($args));
+            return $this->callable[$key](...$args);
         }
     }
     
@@ -71,9 +71,25 @@ trait MagickTrait {
                 ->finish('()')
                 ->upper();
     }
+
+    /**
+     * Gets all fillable properties
+     * 
+     * @return array
+     */
+    public function all(){
+        return $this->fillable;
+    }
     
-    public function get($key){
-        return $this->fillable[$key];
+    /**
+     * Gets a fillable
+     * 
+     * @param string $key
+     * @param mixed|null $default
+     * @return mixed
+     */
+    public function get($key, $default=null){
+        return $this->fillable[$key] ?? $default;
     }
     
     /**
@@ -90,9 +106,10 @@ trait MagickTrait {
         $branch = $base->branched;
         $path = $path ?: $base->baseFile ?: '/';
         
-        return $this->callable[$key] = (function($args) use ($base, $ref, $path, $branch){
+        return $this->callable[$key] = is_callable($ref)? $ref: (function(...$args) use ($base, $ref, $path, $branch){
             $name = $ref.str()->random(5);
-            $branch = $branch == true;// && $base->branched == false;
+            $args = json_encode($args);
+            $branch = $branch == true && $base->branched == false;
             
             if($branch == true){
                 $base->checkout();

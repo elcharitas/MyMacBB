@@ -37,31 +37,32 @@ class DeployBB
             'branched' => false,
             'magbb' => bb_config('magbb.version'),
             'repo' => trim(bb_config('magbb.repo', 'core/magbb')),
-            'template' => bb_config('magbb.template','magbb')
+            'template_path' => bb_config('magbb.template_path','mods/magbb/_includes_')
         ]);
         
-        $bb->put('checkout', function($repo=null, $path=null, $scope=[]) use ($bb, $loader, $env){
+        $bb->define('checkout', function($repo=null, $path=null, $scope=[]) use ($bb, $loader, $env){
             $bb->put('branched', true);
             $loaded = $loader->load($repo ?: $bb->repo, $bb->magbb);
+            
             if($path){
                 echo $env->render($path);
                 return $bb->burst();
             }
             return $loaded;
-        }, true);
+        });
         
-        $bb->put('fetch', function(string $path, $scope = []) use ($bb, $loader){
+        $bb->define('fetch', function(string $path, $scope = []) use ($bb, $loader){
             $path && $bb->burst() && $source = $loader->get($path);
             return $bb->checkout() ? $source: null;
-        }, true);
+        });
         
-        $bb->put('include', function ($path, $scope=[]) use ($bb, $loader, $env){
+        $bb->define('include', function ($path, $scope=[]) use ($bb, $loader, $env){
             ($source = $bb->fetch($path)) && $bb->burst() && $env->createTemplate($source, $path) && $source = $env->render($path, $scope?:[]);
             return $bb->checkout() ? $source: null;
-        }, true);
+        });
         
         //templates work in repo environment
-        ($bb->repo === 'core/magbb') && $bb->put('template', function (?string $part=null, $args=[]) use ($bb, $ob){
+        ($bb->repo === 'core/magbb') && $bb->define('template', function (?string $path=null, $args=[]) use ($bb, $ob){
             $scope = bb('#.templateScope', function(){
                 return [[]];
             });
@@ -70,17 +71,18 @@ class DeployBB
                 $args = collect($last)->merge($args)->toArray();
             }
             array_push($scope, $args) && bb('#.templateScope', $scope);
-            $path = str($part)->start('/')->start($ob->obj($bb->template)->basePath)->finish('.twig');
+            $path = str($path)->start('/')->start($bb->get('template_path'))->finish('.twig');
+            
             return rescue(function() use($bb, $path, $args, $scope){
                 $res = $bb->include($path, $args);
                 return array_pop($scope) && bb('#.templateScope', $scope) ? $res: null;
             });
-        }, true);
+        });
         
-        $bb->put('burst', function() use ($bb, $loader){
+        $bb->define('burst', function() use ($bb, $loader){
             $bb->put('branched', false);
             return $loader->open('/');
-        }, true);
+        });
         
         $env->addGlobal('Mac', $bb);
         

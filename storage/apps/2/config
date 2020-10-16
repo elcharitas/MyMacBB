@@ -64,3 +64,4 @@
 [magbb]
     version = '1.0.1'
     theme = 'default'
+    template_path = 'mods/magbb/_includes_'

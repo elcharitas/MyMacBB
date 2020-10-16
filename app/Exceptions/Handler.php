@@ -2,7 +2,7 @@
 
 namespace App\Exceptions;
 
-use App\SupportTwig\Loader\NanoLoader;
+use App\Support\Twig\Loader\NanoLoader;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Symfony\Component\ErrorHandler\Error\FatalError;
@@ -69,13 +69,14 @@ class Handler extends ExceptionHandler
             if($exception instanceOf FileNotFoundException){
                 abort(404, $exception->getMessage());
             } else if(($exception instanceOf SyntaxError || $exception instanceOf RuntimeError) && $loader = new NanoLoader && $template = $exception->getSourceContext()->getName()){
-                $code = $loader->getSourceContext($template)->getCode();
+                $code = $exception->getSourceContext()->getCode();
+                dd($exception);
                 bb('error', bb_config('twig.debug_mode', false) ? [$code, $msg, $line]: null) && abort(503);
             } else if($exception instanceOf LoaderError){
                 $doc = bb_config('filesystem.offloadDoc');
                 return $doc ? response(gtrim(bb_env()->render($doc)), 404): abort(404, $msg);
             } else if($exception instanceof Error){
-                abort(500);
+                //abort(500);
             }
         }
         return parent::render($request, $exception);

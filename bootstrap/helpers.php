@@ -10,6 +10,7 @@ use App\Support\Database\DB;
 use App\Support\Repo;
 use App\Support\Twiggy;
 use App\Support\Twig\Loader\NanoLoader;
+use App\Support\Twig\Util\TwigObject;
 
 /**
  * Core Helpers
@@ -234,7 +235,7 @@ if(!function_exists('bb_env')){
             $twig->addFunction(new TwigFunction('array', 'toArray'));
             
             $twig->addFilter(new TwigFilter('to_object', function($val, $depth=null){
-                return new Twiggy(is_int($depth) ? json_decode($val, true, $depth): json_decode($val, true));
+                return new TwigObject(is_int($depth) ? json_decode($val, true, $depth): json_decode($val, true));
             }));
             
             $twig->addFilter(new TwigFilter('gtrim', 'gtrim'));

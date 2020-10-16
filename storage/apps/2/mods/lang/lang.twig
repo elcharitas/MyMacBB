@@ -3,11 +3,11 @@
 {% do lang.put('lang', lang.config('lang.code', 'en')) %}
 
 {% macro useLang(self, name, code) %}
-    {% do self.inherit(Mac.fetch(self.name() ~ '/' ~ code|optional(self.lang) ~ '/' ~ name ~ '.json')|to_object, name != 'global' ? (name ~ '.') : '') %}
+    {% do self.inherit(Mac.fetch(self.name() ~ '/' ~ code|default(self.lang) ~ '/' ~ name ~ '.json')|to_object, name != 'global' ? (name ~ '.') : '') %}
 {% endmacro %}
 
 {% macro transLang(self, key, def) %}
-    {{ self.lang.get(key, def|optional(key)) }}
+    {{ self.lang.get(key, def|default(key)) }}
 {% endmacro %}
 
 {% do lang.define('load', 'useLang') %}
