@@ -2,16 +2,13 @@
 
 namespace App\Exceptions;
 
-use App\Support\Twig\Loader\NanoLoader;
+use Throwable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Symfony\Component\ErrorHandler\Error\FatalError;
 use Twig\Error\Error as BoardError;
-use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
-use Throwable;
-use Error;
 
 class Handler extends ExceptionHandler
 {
@@ -64,21 +61,13 @@ class Handler extends ExceptionHandler
     {
         $msg = $exception->getMessage();
         $line = $exception->getLine();
+        $debug = bb_config('twig.debug_mode', false);
         
-        if(config('app.env') !== 'production'){
-            if($exception instanceOf FileNotFoundException){
-                abort(404, $exception->getMessage());
-            } else if(($exception instanceOf SyntaxError || $exception instanceOf RuntimeError) && $loader = new NanoLoader && $template = $exception->getSourceContext()->getName()){
-                $code = $exception->getSourceContext()->getCode();
-                dd($exception);
-                bb('error', bb_config('twig.debug_mode', false) ? [$code, $msg, $line]: null) && abort(503);
-            } else if($exception instanceOf LoaderError){
-                $doc = bb_config('filesystem.offloadDoc');
-                return $doc ? response(gtrim(bb_env()->render($doc)), 404): abort(404, $msg);
-            } else if($exception instanceof Error){
-                //abort(500);
-            }
+        if(config('app.env') !== 'production' && ($exception instanceof SyntaxError || $exception instanceOf RuntimeError)){
+            $code = $exception->getSourceContext()->getCode();
+            bb('error', $debug ? [$code, $msg, $line]: null) && abort(503);
         }
+        
         return parent::render($request, $exception);
     }
 }

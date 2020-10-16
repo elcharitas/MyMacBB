@@ -90,7 +90,11 @@ if(!function_exists('bb_domain')){
             
             $domain = BoardDomain::domain($domain)->first();
             
-            return $domain ? $domain : abort(404, 'Site doesn\'t exist!');
+            if($domain instanceof BoardDomain){
+                return $domain;
+            } else {
+                throw new App\Exceptions\BoardNotFound;
+            }
         });
     }
 }

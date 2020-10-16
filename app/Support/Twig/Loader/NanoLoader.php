@@ -6,6 +6,7 @@ use Storage;
 use Twig\Source;
 use Twig\Error\LoaderError;
 use Twig\Loader\LoaderInterface as Twig;
+use App\Exceptions\BoardRuntimeException;
 use App\Support\Repo;
 
 class NanoLoader extends Repo implements Twig {
@@ -24,7 +25,7 @@ class NanoLoader extends Repo implements Twig {
         }
         
         if (!$this->exists($name) || (false === $source = $this->fetchSource($name))) {
-            throw new LoaderError(sprintf('The template "%s" does not exist at "%s".', $name, $this->basePath));
+            throw new BoardRuntimeException(new LoaderError(sprintf('The template "%s" does not exist at "%s".', $name, $this->basePath)));
         }
         
         if(isset($branched) && $branched){
