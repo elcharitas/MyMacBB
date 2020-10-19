@@ -1,16 +1,13 @@
 <?php
 
-use Twig\Environment;
-use Twig\Parser;
-use Twig\TwigFunction;
-use Twig\TwigFilter;
 use App\BoardDomain;
+use App\Support\Repo;
+use Twig\Environment;
 use App\Support\BB;
 use App\Support\Database\DB;
-use App\Support\Repo;
-use App\Support\Twiggy;
 use App\Support\Twig\Loader\NanoLoader;
-use App\Support\Twig\Util\TwigObject;
+use App\Support\Twig\Extension\NanoCore;
+use App\Support\Twig\Util\NanoMac;
 
 /**
  * Core Helpers
@@ -213,59 +210,26 @@ if(!function_exists('bb_cache')){
 }
 
 if(!function_exists('bb_env')){
+    /**
+     * Statically generates and stores the twig Environment
+     * 
+     * @return Twig\Environment
+     */
     function bb_env(){
         bb('twig_env') && bb('twig_env')->getLoader()->open('/');
         return bb('twig_env', function(){
             $loader = new NanoLoader();
-            $escaped = 'html';
-            $escape = bb_config('twig.escape', $escaped);
+            $escape = bb_config('twig.escape');
             
             $twig = new Environment($loader, [
-                'autoescape' => ($escape == true || !$escape || $escape == null) ? $escaped: $escape
+                'autoescape' => ($escape == true || !$escape || $escape == null) ? 'html': $escape
             ]);
-
+            
+            $twig->addExtension(new NanoCore());
+            
             $twig->addGlobal('BB', new BB);
+            $twig->addGlobal('Mac', bb('objects.Mac', new NanoMac($twig)));
 
-            $twig->addFunction(new TwigFunction('obj', array(Twiggy::class, 'create')));
-
-            $twig->addFunction(new TwigFunction('gtrim', 'gtrim'));
-
-            $twig->addFunction(new TwigFunction('str', 'str'));
-
-            $twig->addFunction(new TwigFunction('csrf', 'csrf_field'));
-
-            $twig->addFunction(new TwigFunction('stop', 'die'));
-            
-            $twig->addFunction(new TwigFunction('array', 'toArray'));
-            
-            $twig->addFilter(new TwigFilter('to_object', function($val, $depth=null){
-                return new TwigObject(is_int($depth) ? json_decode($val, true, $depth): json_decode($val, true));
-            }));
-            
-            $twig->addFilter(new TwigFilter('gtrim', 'gtrim'));
-
-            $twig->addFilter(new TwigFilter('to_array', 'toArray'));
-
-            $twig->addFilter(new TwigFilter('optional', function($value, $optional=null){
-                return $value ? $value : $optional;
-            }));
-            
-            $twig->addFilter(new TwigFilter('start', function ($text, $start){
-                return str($text)->start($start);
-            }));
-            
-            $twig->addFilter(new TwigFilter('after', function ($text, $after){
-                return str($text)->after($after);
-            }));
-
-            $twig->addFilter(new TwigFilter('before', function ($text, $before){
-                return str($text)->before($before);
-            }));
-            
-            $twig->addFilter(new TwigFilter('mime', 'bb_mime'));
-            
-            $twig->addFilter(new TwigFilter('url', 'url'));
-            
             return $twig;
         });
     }

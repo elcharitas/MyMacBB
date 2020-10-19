@@ -18,11 +18,11 @@ class BB {
      *
      * @return App\Support\Twiggy
      */
-    public function obj(?string $name, ?string $parent=null, array $default=[]){
+    public function obj(?string $name, $parent=null, array $default=[]){
         return bb("objects.$name", function() use ($default, $name, $parent){
             $obj = new TwigObject($default);
             if($parent){
-                $parent = $this->obj($parent);
+                $parent = is_string($parent) ? $this->obj($parent): $parent;
                 $obj->inherit($parent);
             }
             $obj->name($name);

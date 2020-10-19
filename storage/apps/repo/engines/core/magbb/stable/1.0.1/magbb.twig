@@ -32,6 +32,10 @@
     {{ self.db.select('forums').find(fid) }}
 {% endmacro %}
 
+{% macro forums(self) %}
+    {{ self.db.select('forums') }}
+{% endmacro %}
+
 {% macro thread(self, tid) %}
     {{ self.db.select('threads').find(tid) }}
 {% endmacro %}

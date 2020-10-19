@@ -7,8 +7,6 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Symfony\Component\ErrorHandler\Error\FatalError;
 use Twig\Error\Error as BoardError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 
 class Handler extends ExceptionHandler
 {
@@ -20,6 +18,7 @@ class Handler extends ExceptionHandler
     protected $dontReport = [
         FileNotFoundException::class,
         FatalError::class,
+        // BoardError::class
     ];
 
     /**
@@ -63,7 +62,7 @@ class Handler extends ExceptionHandler
         $line = $exception->getLine();
         $debug = bb_config('twig.debug_mode', false);
         
-        if(config('app.env') !== 'production' && ($exception instanceof SyntaxError || $exception instanceOf RuntimeError)){
+        if(config('app.env') === 'production' && $exception instanceof BoardError){
             $code = $exception->getSourceContext()->getCode();
             bb('error', $debug ? [$code, $msg, $line]: null) && abort(503);
         }
