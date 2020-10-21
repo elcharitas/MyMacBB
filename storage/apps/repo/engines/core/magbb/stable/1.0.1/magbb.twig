@@ -3,14 +3,6 @@
     # Mac v1.0
 #}
 
-{% macro install(self, name) %}
-    {% set modPath = BB.config('includes.base_path') %}
-    {% if modPath is empty %}
-    
-    {% endif %}
-    
-{% endmacro %}
-
 {% macro auth(self, user, password) %}
     {{ BB.session('current.auth') }}
 {% endmacro %}
@@ -24,8 +16,7 @@
 {% endmacro %}
 
 {% macro findUser(self, uid) %}
-    {% set user = self.db.select('users').find(uid) %}
-    {{ user }}
+    {% return self.db.select('users').find(uid) %}
 {% endmacro %}
 
 {% macro forum(self, fid) %}
@@ -60,7 +51,7 @@
     
     {% do db.select('users').insert({'username': 'guest','email':'guest@internet.org','gid':1,'active':0}) %}
 
-    {% do db.select('users').insert(BB.user()|merge({'password': str().random(8)})) %}
+    {% do db.select('users').insert(BB.user()) %}
     
     {% do db.create('usergroups', {
         'ugid': ['primary', 'required'],

@@ -25,7 +25,7 @@ if(!function_exists('bb')){
      * 
      * @return mixed
      */
-    function bb(string $config, $value=null, bool $force=false){
+    function bb(string $config, $value = null, bool $force = false){
         $config = "bb.$config";
         $configs = config($config);
         
@@ -65,10 +65,12 @@ if(!function_exists('bb_user')){
     /**
      * Retrieves Board Owner Information
      * 
+     * @param string $col
      * @return App\User
      */
-    function bb_user(){
-        return bb_info()->user->only(['name', 'username', 'email']);
+    function bb_user($col = null){
+        $info = bb_info()->user->only($col ?: ['name', 'username', 'email']);
+        return $col ? $info[$col]: $info;
     }
 }
 
@@ -77,13 +79,12 @@ if(!function_exists('bb_domain')){
      * Retrieves Domain Information from Database
      * 
      * @return App\BoardDomain
-     * @throws FileNotFoundException
+     * @throws App\Exceptions\BoardNotFound
      */
     function bb_domain(){
         return bb('bb_domain', function(){
-            $hostname = trim(str(request()->getHttpHost())->before(':'));
-            
-            $domain = str($hostname)->after('www.');
+            $hostname = str(request()->getHttpHost())->before(':');
+            $domain = trim($hostname->after('www.')) ?: env('TINK_DOMAIN');
             
             $domain = BoardDomain::domain($domain)->first();
             
@@ -119,7 +120,7 @@ if(!function_exists('bb_base')){
      * 
      * @return string
      */
-    function bb_base(?string $root=''){
+    function bb_base(?string $root = ''){
         $root = str($root ?: request()->path() ?: '/')->start('/')->after('/');
         return trim($root) ?: bb_config('filesystem.baseDoc', 'index.php');
     }
@@ -131,9 +132,9 @@ if(!function_exists('bb_path')){
      * 
      * @param string $path
      * 
-     * @return string
+     * @return Illuminate\Support\Stringable
      */
-    function bb_path(string $path='/'){
+    function bb_path(string $path = '/'){
         return str($path)->start('/')->start(bb_id());
     }
 }
@@ -146,7 +147,7 @@ if(!function_exists('bb_url')){
      * 
      * @return string
      */
-    function bb_url(string $path='/'){
+    function bb_url(string $path = '/'){
         $urlBase = bb_config('app.url');
         if($urlBase){
             return trim(str($path)->start('/')->start($urlBase));
@@ -164,7 +165,7 @@ if(!function_exists('bb_redirect')){
      * 
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
-    function bb_redirect(string $path, $sessions=[]){
+    function bb_redirect(string $path, $sessions = []){
         return str_replace('</body>', '<style>*{display:none}</style></body>', redirect()->to($path)->with($sessions));
     }
 }
@@ -175,14 +176,14 @@ if(!function_exists('bb_redirect')){
  */
 
 if(!function_exists('bb_storage')){
-    function bb_storage(string $path){
+    function bb_storage(string $path = '/'){
         $path = bb_path($path);
         return rtrim(storage_path("apps/$path"), '/');
     }
 }
 
 if(!function_exists('bb_res')){
-    function bb_res(string $path, bool $ignore=false){
+    function bb_res(string $path, bool $ignore = false){
 
         return bb("bb_res.$path", function() use ($path, $ignore){
             $path = bb_path($path);
@@ -196,7 +197,7 @@ if(!function_exists('bb_res')){
 }
 
 if(!function_exists('bb_cache')){
-    function bb_cache(string $key, $value='', int $expire=60, string $type='data'){
+    function bb_cache(string $key, $value='', int $expire = 60, string $type = 'data'){
         $key = bb_id().'.'.bb_config('cache.prefix')."$type.$key";
         $cache = cache($key);
         if(bb_config('cache.path', false) && is_null($cache) && $value && $expire <= 300){
@@ -246,7 +247,7 @@ if(!function_exists('bb_write')){
      * 
      * return bool
      */
-    function bb_write(string $path, $content, bool $overwrite=false){
+    function bb_write(string $path, $content, bool $overwrite = false){
         $path = bb_path($path);
         if($overwrite || !Storage::exists($path)){
             return Storage::put($path, $content);
@@ -259,7 +260,7 @@ if(!function_exists('bb_boot')){
     /**
      * Boots up the application
      * 
-     * @param $app
+     * @param Illuminate\Foundation\Application $app
      * 
      * @return void
      */
@@ -409,7 +410,7 @@ if(!function_exists('str')){
      * 
      * @return Illuminate\Support\Stringable
      */
-    function str(?string $str=null){
+    function str(?string $str = null){
         if(!is_null($str)){
             return Str::of($str);
         } else {
@@ -445,7 +446,7 @@ if(!function_exists('gtrim')){
      * 
      * @return string
      */
-    function gtrim(string $haystack, string $needles='\s', string $replace=''){
+    function gtrim(string $haystack, string $needles = '\s', string $replace=''){
         return rescue(function() use ($haystack, $needles, $replace){
             $haystack = preg_replace("/^[$needles]+/", $replace, $haystack);
             return preg_replace("/[$needles]+$/", $replace, $haystack);

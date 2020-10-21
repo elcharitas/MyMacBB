@@ -38,8 +38,8 @@ class BB {
         return bb_id();
     }
 
-    public function user(){
-        return bb_user();
+    public function user($col = null){
+        return bb_user($col);
     }
 
     public function base($path=null){

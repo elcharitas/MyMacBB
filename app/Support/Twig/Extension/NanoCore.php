@@ -7,6 +7,7 @@ use Twig\TwigFunction as Method;
 use App\Support\Twig\Loader\NanoLoader;
 use App\Support\Twig\Util\TwigObject;
 use Twig\Extension\AbstractExtension;
+use App\Support\Twig\TokenParser\ReturnTokenParser;
 
 class NanoCore extends AbstractExtension
 {
@@ -46,6 +47,8 @@ class NanoCore extends AbstractExtension
     }
     
     public function getTokenParsers(){
-        return [];
+        return [
+            new ReturnTokenParser
+        ];
     }
 }

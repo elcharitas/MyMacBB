@@ -115,7 +115,7 @@ trait MagickTrait {
                 $base->checkout();
             }
             
-            $result = bb_env()->createTemplate(sprintf('{%% from "%s" import %s %%}{{ %s(self, %s) }}', $path, $ref, $ref, gtrim($args, '\[\]')), $name)->render(['self' => $this]);
+            $result = bb_env()->createTemplate(sprintf('{%% from "%s" import %s %%}{%% return %s(self, %s) %%}', $path, $ref, $ref, gtrim($args, '\[\]')), $name)->render(['self' => $this]);
             
             if($branch == true){
                 $base->burst();

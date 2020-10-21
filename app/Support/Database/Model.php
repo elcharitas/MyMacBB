@@ -12,14 +12,8 @@ use App\Support\Traits\MagickTrait;
 class Model extends Collection {
     
     use MagickTrait;
-    
-    protected $table;
-    
+
     protected $query;
-    
-    protected $callable = [];
-    
-    protected $relationship = [];
     
     protected $key;
     
@@ -32,11 +26,8 @@ class Model extends Collection {
         $data = [];
         if($query && $query instanceof BoardData){
             $this->query = $query;
-            $this->table = $query->table;
             $this->schema = collect($query->schema);
             $data = toArray($records ? collect($query->data)->only($records): $query->data);
-            $this->relate($query->relationship);
-            $this->callable = array_merge($this->callable, $query->callable ?: []);
         }
         parent::__construct(!is_array($table) ? $data : $table);
     }
@@ -46,26 +37,12 @@ class Model extends Collection {
         return $this->__call($key) ?: $this->get($key) ?: (method_exists($this, $prop) ? $this->{$prop}(): null);
     }
     
-    public function __call($key, $args=[]){
-        $relationship = $this->relationship[$key] ?? NULL;
-        $handle = $this->callable[$key] ?? NULL;
-        return $relationship ? $relationship($this): ($handle ? $handle($args): $handle);
+    public function all(){
+        return count($this->items) ? $this->items : toArray($this->query->data);
     }
     
     public function getCreatedAttribute(){
         return $this->key;
-    }
-    
-    public function define($key, $val, $path=null){
-        return $this->callable[$key] = (function($arg) use ($key, $val, $path){
-            $twig = bb_env();
-            $args = json_encode($arg);
-            $id = $key.'.'.str()->random(3);
-            $load = bb("objects.Mac");
-            $path ? $load->checkout(): $load->burst();
-            $tpl = $twig->createTemplate(sprintf('{%% from "%s" import %s %%}{{ %s(self, %s) }}', $val, $key, $key, gtrim($args, '\[\]')), $id)->display(['self' => $this]);
-            return $load->burst() ? $tpl: null;
-        }) && true;
     }
     
     public function find($id, $col=null){
@@ -626,7 +603,6 @@ class Model extends Collection {
             return false;
         }
         $raw = collect(toArray($this->query->data));
-        $data = collect($data->all());
         $data->reject(function($val, $key) use ($raw){
             if(!is_null($val)){
                 $raw->put($key, $val);

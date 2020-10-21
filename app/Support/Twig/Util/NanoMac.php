@@ -59,15 +59,18 @@ class NanoMac extends TwigObject
         $scope = bb('#.templateScope', [[]]);
         $last = collect($scope)->last();
         if(is_array($last)){
-            $args = collect($last)->merge($args)->toArray();
+            foreach ($last as $key => $value){
+                if(!isset($args[$key])){
+                    $args[$key] = $value;
+                }
+            }
         }
+        
         array_push($scope, $args) && bb('#.templateScope', $scope);
         $path = str($name)->start('/')->start($this->get('template_path'))->finish('.twig');
         
-        return rescue(function() use($path, $args, $scope){
-            $res = $this->include($path, $args);
-            return array_pop($scope) && bb('#.templateScope', $scope) ? $res: null;
-        });
+        $res = $this->include($path, $args);
+        return array_pop($scope) && bb('#.templateScope', $scope) ? $res: null;
     }
     
     protected function loader()

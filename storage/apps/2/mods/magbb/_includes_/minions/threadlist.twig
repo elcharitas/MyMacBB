@@ -21,7 +21,7 @@
 </div>
 <div class="tw-text-grey-dark tw-text-xs tw-mt-2">
 <a href="{{ ('/profile.php?id=' ~ thread.user_id) | url }}" class="tw-font-semibold link hover:tw-text-blue">
- {{ Mac.user('username', thread.user_id) }}
+{{  Mac.user('username', thread.user_id) }}
 </a>
 replied
 <a href="{{ ('/viewtopic.php?tid=' ~ thread.tid) | url }}" class="inherits-color link">
