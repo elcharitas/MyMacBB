@@ -31,7 +31,6 @@ class TokenConnection {
      */
     public function __construct($key)
     {
-        
         if(false === $board = Board::Token($key)){
             //throw some error
         }
